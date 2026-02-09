@@ -1,0 +1,1 @@
+/home/landilf/.config/RofiScripts/Dark-Light-Mode/Dunkel/dunkel.sh
