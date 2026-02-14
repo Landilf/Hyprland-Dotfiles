@@ -92,7 +92,7 @@
    "tooltip": false,
 },
 "clock": {
-  "timezone": "Europe/Berlin",
+  "timezone": "Europe/Moscow",
   "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   "format" : " {:%H:%M}",
   "format-alt" : "󰸗 {:L%a %d.%m.%y}", 
@@ -122,8 +122,8 @@
   "format-disabled": "󰤮",
   "tooltip-format-wifi": "󰤥 {essid} ({signalStrength}%)",
   "tooltip-format-ethernet": " {ifname}",
-  "tooltip-format-disconnected": "󰤦 Verbindung getrennt!",
-  "tooltip-format-disabled": "󰤦 Verbindung ausgeschalten!",
+  "tooltip-format-disconnected": "󰤦 Disconnected!",
+  "tooltip-format-disabled": "󰤦 Connection turned off!",
   "on-click": "hyprctl dispatch exec '[float; size 879 879] kitty nmtui'",
   "on-click-right": "setsid ~/.config/swaync/scripts/netzwerk.sh",
           },
@@ -132,8 +132,8 @@
   "format-off": "󰂲",
   "format-connected": "󰂯",
   "format-disabled": "󰂲",
-  "tooltip-format": "{controller_alias}\n{num_connections} Verbunden",
-  "tooltip-format-connected": "{controller_alias}\n{num_connections} Verbunden\n\n{device_alias}",
+  "tooltip-format": "{controller_alias}\n{num_connections} Connected",
+  "tooltip-format-connected": "{controller_alias}\n{num_connections} Connected\n\n{device_alias}",
   "tooltip-format-enumerate-connected": "{device_alias}",
   "tooltip-format-enumerate-connected-battery": "{device_alias}\t󰥄 {device_battery_percentage}%",
   "on-click": "hyprctl dispatch exec '[float; size 879 879] blueman-manager'",
@@ -185,8 +185,8 @@
  "activated": "",
  "deactivated": "󰲓"
  },
- "tooltip-format-activated": "Arbeitsmodus aktiviert",
- "tooltip-format-deactivated": "Arbeitsmodus deaktiviert",
+ "tooltip-format-activated": "Working mode enabled",
+ "tooltip-format-deactivated": "Working mode disabled",
 },
 "mpris": {
   "interval" : 1,
@@ -209,7 +209,7 @@
     "exec-if": "exit 0",                  
     "on-click": "hyprctl dispatch exec \"[float; size 879 879] kitty bash -c \\\"figlet SYSTEMUPDATE! && yay -Syu && pkill -SIGRTMIN+8 waybar\\\"\"",
     "signal": 8,
-    "tooltip-format": "{}  Systempaket(e) bereit zur Aktualisierung" 
+    "tooltip-format": "{}  System package(s) ready for update" 
 },
 
  "temperature": {
@@ -218,7 +218,7 @@
     "critical-threshold": 80,
     "format-critical": " {temperatureC}°C",
     "format": " {temperatureC}°C",
-    "tooltip-format": " {}°C entspricht der Kerntemperatur des Prozessors" 
+    "tooltip-format": " {}°C corresponds to the core temperature of the processor" 
 },
     "custom/left_div#1": {
 		"format": "",

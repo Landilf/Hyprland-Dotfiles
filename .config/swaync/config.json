@@ -21,7 +21,7 @@
     "image-visibility": "when-available",
     "transition-time": 0,
     "hide-on-action": false,
-    "text-empty": "Keine Benachrichtigungen",
+    "text-empty": "No notifications",
     "control-center-width": 580,
     "fit-to-screen": true,
     "widgets": [
@@ -36,12 +36,12 @@
         "vexpand": true
       },
     "title": {
-      "text": "Benachrichtigungen",
+      "text": "Notifications",
       "button-text": "󰎟",
       "clear-all-button": true
     },
     "dnd": {
-      "text": "Bitte Nicht Stören"
+      "text": "Do Not Disturb"
     },
     "mpris": {
      "autohide": false,
@@ -52,7 +52,7 @@
      "label": "󰋎",
      "show-per-app": false,
      "show-per-app-icon": true,
-     "empty-list-label": "Keine Audioquellen verfügbar",
+     "empty-list-label": "No audio sources available",
      "animation-type": "slide_down",
      "animation-duration": 500
     },

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, pkgs-unstable, system, ... }:
 
 {
 
@@ -17,17 +17,32 @@
     "nvidia-drm.modeset=1"
   ];
 
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
+
   # Networking
   networking.hostName = "nix-btw";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+#  networking.firewall.enable = true;
+#  networking.firewall.checkReversePath = "loose";
 
-#  security.wrappers.nekoray = {
-#    source = "${pkgs.nekoray}/bin/nekoray";
-#    owner = "root";
-#    capabilities = "cap_net_admin+ep";
-#  };
-  
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "loose";
+    trustedInterfaces = [ "throne-tun" ];
+    allowedTCPPorts = [ 27015 27036 27037 ];
+    allowedUDPPorts = [ 10400 10401 27015 27036 ];
+  };
+
+  security.wrappers.Throne = {
+    source = "${pkgs-unstable.throne}/bin/Throne";
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_admin+ep";
+  };
+
   # KDE Connect Configuration
   programs.kdeconnect.package = pkgs.kdePackages.kdeconnect-kde;
   programs.kdeconnect.enable = true;
@@ -158,26 +173,31 @@
   services.gvfs.enable = true;
 
   # System packages (only system-level stuff)
-  environment.systemPackages = with pkgs; [
-    inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
-    vim
-    killall
-    sddm-astronaut
-    libsForQt5.qt5ct
-    kdePackages.qt6ct
-    gnome-themes-extra
-    alsa-plugins
-    bluez
-    font-awesome
-    libnotify
-    libqalculate
-    mangohud
-    winetricks
-    openrgb-with-all-plugins
-    nix-search-tv
-    fzf
-    xrandr
-  ];
+  environment.systemPackages = 
+    (with pkgs-unstable; [
+      throne
+    ])
+    ++ (with pkgs; [
+      inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+      vim
+      killall
+      sddm-astronaut
+      libsForQt5.qt5ct
+      kdePackages.qt6ct
+      kdePackages.kstatusnotifieritem
+      gnome-themes-extra
+      alsa-plugins
+      bluez
+      font-awesome
+      libnotify
+      libqalculate
+      mangohud
+      winetricks
+      openrgb-with-all-plugins
+      nix-search-tv
+      fzf
+      xrandr
+    ]);
 
   # Fonts
   fonts.packages = with pkgs; [ 

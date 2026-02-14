@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+
   home.stateVersion = "25.11";
   home.username = "landilf";
   home.homeDirectory = "/home/landilf";
@@ -41,7 +42,7 @@
     nativeMessagingHosts = [ pkgs.pywalfox-native ];
     languagePacks= [ "ru" ];
   };
- 
+
   # Chromium 
   programs.chromium.enable = true;
   
@@ -107,7 +108,7 @@
   # KDE Connect configuration
   services.kdeconnect = {
     package = 
-       pkgs.kdePackages.kdeconnect-kde
+      pkgs.kdePackages.kdeconnect-kde
     ;
     enable = true;
     indicator = true;
@@ -125,12 +126,12 @@
       cudaSupport = true; 
     };
   };
- 
+
   # Video Player
   programs.mpv = {
     enable = true;
   };
-   
+  
   # Kitty Terminal configuration
   programs.kitty = {
     enable = true;
@@ -212,10 +213,7 @@
     blueman
     zenity
     nitch
-#    nekoray
-    xray
-    sing-box
-    v2rayn
     telegram-desktop
+    polkit_gnome
   ];
 }
