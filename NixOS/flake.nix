@@ -9,6 +9,8 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    prism-cracked.url = "github:Diegiwg/PrismLauncher-Cracked/develop";
+
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +21,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, winapps,  ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, winapps, prism-cracked, ... }: {
     nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {

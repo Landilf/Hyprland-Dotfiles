@@ -175,11 +175,12 @@
       yandex-music
     ])
     ++ [
-      winapps.packages."${system}".winapps
-      winapps.packages."${system}".winapps-launcher
+      winapps.packages."${pkgs.system}".winapps
+      winapps.packages."${pkgs.system}".winapps-launcher
     ]
     ++ (with pkgs; [
-      inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.matugen.packages.${pkgs.system}.default
+      inputs.prism-cracked.packages.${pkgs.system}.prismlauncher
       alsa-plugins
       bluez
       docker
