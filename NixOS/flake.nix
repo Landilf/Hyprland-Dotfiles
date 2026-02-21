@@ -9,16 +9,22 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     matugen = {
       url = "github:InioX/Matugen?ref=refs/tags/v3.1.0";
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable,  ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, winapps,  ... }: {
     nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs;
+        inherit inputs winapps;
+        system = "x86_64-linux";
         
         pkgs-unstable = import nixpkgs-unstable {
           system = "x86_64-linux";

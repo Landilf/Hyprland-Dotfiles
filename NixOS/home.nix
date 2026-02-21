@@ -2,38 +2,80 @@
 
 {
 
+  imports = [
+    ./winapps.nix
+  ];
+
   home.stateVersion = "25.11";
   home.username = "landilf";
   home.homeDirectory = "/home/landilf";
 
   # mimeApps
   xdg.mimeApps.enable = true;
+
   xdg.mimeApps.defaultApplications = {
-  "image/jpeg" = "imv.desktop";
-  "image/png" = "imv.desktop";
-  "image/gif" = "firefox.desktop";
-  "image/webp" = "org.gnome.eog.desktop";
-  "image/heif" = "imv.desktop";
-  "text/plain" = "codium.desktop";
-  "text/css" = "codium.desktop";
-  "application/x-shellscript" = "codium.desktop";
-  "application/x-zerosize" = "codium.desktop";
-  "text/html" = "firefox.desktop";
-  "x-scheme-handler/http" = "firefox.desktop";
-  "x-scheme-handler/https" = "firefox.desktop";
-  "application/pdf" = "firefox.desktop";
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "chromium.desktop";
-  "audio/mpeg" = "org.gnome.Decibels.desktop";
-  "inode/directory" = "org.gnome.Nautilus.desktop";
-  "video/mp4" = "mpv.desktop";
-  "video/x-matroska" = "mpv.desktop";
-  "video/webm" = "mpv.desktop";
-  "video/ogg" = "mpv.desktop";
-  "video/quicktime" = "mpv.desktop";
-  "video/x-flv" = "mpv.desktop";
-  "video/x-msvideo" = "mpv.desktop";
-  "video/x-ms-wmv" = "mpv.desktop";
-  "video/mpeg" = "mpv.desktop";
+
+    # Images
+    "image/jpeg" = [ "imv.desktop" ];
+    "image/png"  = [ "imv.desktop" ];
+    "image/gif"  = [ "firefox.desktop" ];
+    "image/webp" = [ "org.gnome.eog.desktop" ];
+    "image/heif" = [ "imv.desktop" ];
+
+    # Text / Code
+    "text/plain" = [ "codium.desktop" ];
+    "text/css" = [ "codium.desktop" ];
+    "application/x-shellscript" = [ "codium.desktop" ];
+    "application/x-zerosize" = [ "codium.desktop" ];
+    "text/html" = [ "firefox.desktop" ];
+
+    # Browser handlers
+    "x-scheme-handler/http"  = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
+    "application/pdf" = [ "firefox.desktop" ];
+
+    # ---- Microsoft Word ----
+    "application/msword" =
+      [ "word-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+      [ "word-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.template" =
+      [ "word-o365.desktop" ];
+
+    # ---- Microsoft Excel ----
+    "application/vnd.ms-excel" =
+      [ "excel-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" =
+      [ "excel-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.template" =
+      [ "excel-o365.desktop" ];
+
+    # ---- Microsoft PowerPoint ----
+    "application/vnd.ms-powerpoint" =
+      [ "powerpoint-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation" =
+      [ "powerpoint-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.template" =
+      [ "powerpoint-o365.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.slideshow" =
+      [ "powerpoint-o365.desktop" ];
+
+    # Audio
+    "audio/mpeg" = [ "org.gnome.Decibels.desktop" ];
+
+    # File manager
+    "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+
+    # Video
+    "video/mp4" = [ "mpv.desktop" ];
+    "video/x-matroska" = [ "mpv.desktop" ];
+    "video/webm" = [ "mpv.desktop" ];
+    "video/ogg" = [ "mpv.desktop" ];
+    "video/quicktime" = [ "mpv.desktop" ];
+    "video/x-flv" = [ "mpv.desktop" ];
+    "video/x-msvideo" = [ "mpv.desktop" ];
+    "video/x-ms-wmv" = [ "mpv.desktop" ];
+    "video/mpeg" = [ "mpv.desktop" ];
   };
 
   # Firefox with pywalfox
@@ -200,13 +242,13 @@
     nitch
     nwg-dock-hyprland
     nwg-look
+    obsidian
     pamixer
     pavucontrol
     python3
     python3Packages.pip
     python3Packages.virtualenv
     pywalfox-native
-    spotify
     stow
     swaynotificationcenter
     swww

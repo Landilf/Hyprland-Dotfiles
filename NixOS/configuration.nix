@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, pkgs-unstable, system, ... }:
+{ config, pkgs, inputs, pkgs-unstable, system, winapps, ... }:
 
 {
 
@@ -172,7 +172,12 @@
     (with pkgs-unstable; [
       gemini-cli
       throne
+      yandex-music
     ])
+    ++ [
+      winapps.packages."${system}".winapps
+      winapps.packages."${system}".winapps-launcher
+    ]
     ++ (with pkgs; [
       inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
       alsa-plugins
@@ -192,12 +197,14 @@
       libqalculate
       libsForQt5.qt5ct
       mangohud
+      neo
       nix-search-tv
       openrgb-with-all-plugins
       sddm-astronaut
       vim
       winetricks
       xrandr
+      freerdp
     ]);
 
   # Fonts
