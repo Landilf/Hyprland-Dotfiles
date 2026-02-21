@@ -127,6 +127,9 @@
       cff = "reset && nitch";  
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ls = "eza -la";
+      dcu = "docker compose -f ~/winapps/docker-compose.yaml up -d";
+      dcd = "docker compose -f ~/winapps/docker-compose.yaml down";
+
     };
   };
   
@@ -230,6 +233,7 @@
     git
     gnome-clocks
     gthumb
+    heroic
     hypridle
     hyprlock
     hyprpicker

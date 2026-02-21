@@ -75,7 +75,7 @@
         },
         {
           "active":false,
-          "command":"swaync-client -t && hyprshot -m region -o ~/Bilder/Screenshots/ | wl-copy",
+          "command":"swaync-client -t && hyprshot -m region -o ~/Pictures/Screenshots/ | wl-copy",
           "label":"󰄀",
           "type": "button"
         },
