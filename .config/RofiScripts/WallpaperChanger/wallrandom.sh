@@ -1,0 +1,1 @@
+/home/landilf/.config/RofiScripts/Walls/wallrandom.sh
