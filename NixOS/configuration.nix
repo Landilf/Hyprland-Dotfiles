@@ -74,7 +74,7 @@
   users.users.landilf = {
     isNormalUser = true;
     description = "Landilf";
-    extraGroups = [ "networkmanager" "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
 
@@ -233,7 +233,9 @@
       neo
       nix-search-tv
       openrgb-with-all-plugins
+      pwvucontrol
       sddm-astronaut
+      tenacity
       vim
       winetricks
       xrandr

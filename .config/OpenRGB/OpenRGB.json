@@ -2302,6 +2302,9 @@
             }
         ]
     },
+    "Theme": {
+        "theme": "dark"
+    },
     "UserInterface": {
         "RunZoneChecks": false,
         "autoload_profiles": {
