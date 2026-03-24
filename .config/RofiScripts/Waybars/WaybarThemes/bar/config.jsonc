@@ -23,6 +23,7 @@
 ],
  "modules-right": [
   "group/idlevol",
+  "battery",
   "group/netblue",
   "group/traywermen",
  ],

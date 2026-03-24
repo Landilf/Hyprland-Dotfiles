@@ -259,6 +259,7 @@
     unimatrix
     vscodium
     waybar
+    winboat
     wl-clip-persist
     wl-clipboard
     yazi

@@ -68,6 +68,19 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
+  # Battery
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
   # Keyboard
   services.xserver.xkb = {
     layout = "us,ru";
@@ -79,7 +92,7 @@
   users.users.landilf = {
     isNormalUser = true;
     description = "Landilf";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" ];
     shell = pkgs.fish;
   };
 
@@ -217,6 +230,7 @@
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
+      auto-cpufreq
       bluez
       docker
       docker-compose
