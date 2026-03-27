@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, pkgs-unstable, system, winapps, ... }:
+{ config, pkgs, inputs, pkgs-unstable, system, winapps, lib, ... }:
 
 {
 
@@ -38,8 +38,33 @@
   networking.firewall.enable = true;
 
   # Hibernation when closing the laptop lid
-  services.logind.lidSwitch = "hibernate";
-  services.logind.lidSwitchExternalPower = "hibernate";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "hibernate";
+    HandleLidSwitchExternalPower = "hibernate";
+  };
+
+  # Power profiles
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MAX_PERF_ON_BAT = 70;
+
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "on";
+      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_BAT = "auto";
+    };
+  };
 
   # Throne Settings
   security.wrappers.Throne = {
@@ -68,19 +93,6 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  # Battery
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
-
   # Keyboard
   services.xserver.xkb = {
     layout = "us,ru";
@@ -92,7 +104,7 @@
   users.users.landilf = {
     isNormalUser = true;
     description = "Landilf";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
   };
 
@@ -177,8 +189,11 @@
   };
 
   # OpenRGB
-  services.hardware.openrgb.enable = true; 
-  services.hardware.openrgb.motherboard = "amd";
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+  };
+  systemd.services.openrgb.wantedBy = lib.mkForce [];
 
   # Audio
   services.pipewire = {
@@ -230,7 +245,6 @@
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
-      auto-cpufreq
       bluez
       docker
       docker-compose
@@ -247,12 +261,14 @@
       libnotify
       libqalculate
       libsForQt5.qt5ct
+      linuxPackages.cpupower
       mangohud
       micro
       mission-center
       neo
       nix-search-tv
       openrgb-with-all-plugins
+      powertop
       pwvucontrol
       sddm-astronaut
       tenacity
