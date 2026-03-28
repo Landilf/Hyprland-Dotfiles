@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Settings (synchronized with brightness_control.sh)
+LIMIT_MAX_PC=50
+IDLE_FACTOR=5 # 5% of the working range
+
 # File to store the brightness before dimming
 BRIGHTNESS_FILE="/tmp/hypr_brightness_backup"
 
@@ -8,25 +12,30 @@ get_brightness() {
     brightnessctl get
 }
 
-# Set brightness
-set_brightness() {
-    brightnessctl set "$1"
-}
-
 case "$1" in
     dim)
-        # Only save if we haven't already (to avoid overwriting with a dimmed value)
+        # Only save if we haven't already
         if [ ! -f "$BRIGHTNESS_FILE" ]; then
-            get_brightness > "$BRIGHTNESS_FILE"
-            # Set to minimum (e.g., 5% or 10, depending on preference)
-            # Using 5% to ensure it's not completely off but very dim
-            brightnessctl set 5%
+            CURRENT_RAW=$(get_brightness)
+            MAX_RAW=$(brightnessctl m)
+            
+            # Calculate working max (your "100%")
+            WORKING_MAX=$(( MAX_RAW * LIMIT_MAX_PC / 100 ))
+            
+            # Calculate idle target (5% of working max)
+            IDLE_RAW=$(( WORKING_MAX * IDLE_FACTOR / 100 ))
+
+            # Only dim if current brightness is above the idle threshold
+            if [ "$CURRENT_RAW" -gt "$IDLE_RAW" ]; then
+                echo "$CURRENT_RAW" > "$BRIGHTNESS_FILE"
+                brightnessctl set "$IDLE_RAW"
+            fi
         fi
         ;;
     restore)
         if [ -f "$BRIGHTNESS_FILE" ]; then
             SAVED_BRIGHTNESS=$(cat "$BRIGHTNESS_FILE")
-            set_brightness "$SAVED_BRIGHTNESS"
+            brightnessctl set "$SAVED_BRIGHTNESS"
             rm "$BRIGHTNESS_FILE"
         fi
         ;;
