@@ -102,9 +102,12 @@
   users.users.landilf = {
     isNormalUser = true;
     description = "Landilf";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "input" ];
     shell = pkgs.fish;
   };
+
+  # SwayOSD udev rules
+  services.udev.packages = [ pkgs.swayosd ];
 
   # Home Manager
   home-manager.useUserPackages = true;
@@ -246,6 +249,7 @@
       bluez
       docker
       docker-compose
+      flameshot
       font-awesome
       freerdp
       fzf

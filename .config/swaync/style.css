@@ -286,3 +286,21 @@ scrollbar trough:hover {
 .widget-volume trough highlight {
   background-color: @secondary_fixed;
 }
+
+/* Custom OSD Progress Bar colors */
+.notification progressbar {
+  margin-top: 0.625rem;
+  border-radius: 0.625rem;
+}
+
+.notification progressbar trough {
+  background-color: alpha(@secondary, 0.2); /* Background of the bar */
+  border-radius: 0.625rem;
+  min-height: 0.625rem;
+}
+
+.notification progressbar progress {
+  background-color: @secondary_fixed; /* Color of the progress itself */
+  border-radius: 0.625rem;
+  min-height: 0.625rem;
+}

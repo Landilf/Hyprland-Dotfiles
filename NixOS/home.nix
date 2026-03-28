@@ -150,6 +150,9 @@
     };
   };
 
+  # SwayOSD service
+  services.swayosd.enable = true;
+
   # KDE Connect configuration
   services.kdeconnect = {
     package = 
@@ -231,6 +234,7 @@
     gimp
     git
     gnome-clocks
+    grim
     gthumb
     heroic
     hypridle
@@ -238,6 +242,7 @@
     hyprpicker
     hyprpolkitagent
     hyprshot
+    hyprsunset
     imv
     jetbrains.idea
     kdePackages.kamera
@@ -252,10 +257,12 @@
     python3Packages.pip
     python3Packages.virtualenv
     pywalfox-native
+    slurp
     stow
     swaynotificationcenter
     swww
     telegram-desktop
+    tesseract
     unimatrix
     vscodium
     waybar

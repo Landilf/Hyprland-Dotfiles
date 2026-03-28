@@ -20,4 +20,5 @@ ln -sfn "$selected" ~/.config/RofiScripts/Walls/Wall
 ln -sfn "$selected" ~/.config/RofiScripts/WallpaperChanger/Wall
 echo "$selected" > "$LAST_WALLPAPER"
 
+swaync-client -rs
 ~/.config/nwg-dock-hyprland/launch.sh
