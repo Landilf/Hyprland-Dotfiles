@@ -47,7 +47,7 @@ PREV_STATUS=$AC_STATUS
 if [ "$AC_STATUS" -eq 1 ]; then
     set_refresh 144
 else
-    set_refresh 60
+    set_refresh 144
 fi
 
 # Monitoring loop
@@ -58,7 +58,7 @@ while true; do
         if [ "$AC_STATUS" -eq 1 ]; then
             set_refresh 144
         else
-            set_refresh 60
+            set_refresh 144
         fi
         PREV_STATUS=$AC_STATUS
     fi

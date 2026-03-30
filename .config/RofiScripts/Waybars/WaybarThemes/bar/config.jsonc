@@ -14,9 +14,8 @@
  "modules-left": [
  "custom/System",
  "custom/notifications",
- "hyprland/workspaces",
- "custom/kb_layout",
  "clock",
+ "hyprland/workspaces",
  
 ],
  "modules-center": [
@@ -26,6 +25,7 @@
   "group/idlevol",
   "battery",
   "group/netblue",
+  "custom/kb_layout",
   "group/traywermen",
  ],
 ///////////////////////////

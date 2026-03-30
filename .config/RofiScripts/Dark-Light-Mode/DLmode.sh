@@ -21,7 +21,7 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 fi
 
 case "$chosen" in
-   "Dark Mode") ~/.config/RofiScripts/Dark-Light-Mode/Dunkel/dunkel.sh && ~/.config/nwg-dock-hyprland/launch.sh ;;
-   "Light Mode") ~/.config/RofiScripts/Dark-Light-Mode/Hell/hell.sh && ~/.config/nwg-dock-hyprland/launch.sh ;;
+   "Dark Mode") ~/.config/RofiScripts/Dark-Light-Mode/Dark/dark.sh && ~/.config/nwg-dock-hyprland/launch.sh ;;
+   "Light Mode") ~/.config/RofiScripts/Dark-Light-Mode/Light/light.sh && ~/.config/nwg-dock-hyprland/launch.sh ;;
    *) exit 1 ;;
 esac

@@ -132,7 +132,7 @@
   "tooltip-format-disconnected": "󰤦 Disconnected!",
   "tooltip-format-disabled": "󰤦 Connection turned off!",
   "on-click": "hyprctl dispatch exec '[float; size 879 879] kitty nmtui'",
-  "on-click-right": "setsid ~/.config/swaync/scripts/netzwerk.sh",
+  "on-click-right": "setsid ~/.config/swaync/scripts/network.sh",
           },
 "bluetooth": {
   "format-on": "󰂯",

@@ -2,7 +2,7 @@ format = """
 [╭─ ](bold blue)$directory$git_branch$git_status$git_state
 [╰─ ](bold blue)$character"""
 
-# Timeout für Befehle
+# Timeout for commands
 command_timeout = 1000
 
 [character]

@@ -6,4 +6,4 @@ ln -sfn ~/.config/RofiScripts/Walls/wallrandom.sh ~/.config/RofiScripts/Wallpape
 matugen image ~/.config/RofiScripts/Walls/Wall -m dark -t scheme-fidelity --fallback-color grey
 ln -sfn ~/.config/RofiScripts/Walls/Wall ~/.config/RofiScripts/WallpaperChanger/Wall
 
-ln -sfn ~/.config/RofiScripts/Dark-Light-Mode/Hell/hell.sh ~/.config/swaync/scripts/changetheme.sh
+ln -sfn ~/.config/RofiScripts/Dark-Light-Mode/Light/light.sh ~/.config/swaync/scripts/changetheme.sh

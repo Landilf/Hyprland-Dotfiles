@@ -11,10 +11,10 @@ if [ "$WIFI_STATE" = "enabled" ] || [ "$ETH_STATE" = "connected" ]; then
     # Turn both off
     nmcli radio wifi off
     nmcli device disconnect "$ETH_IFACE"
-    notify-send "Netzwerk" "Ausgeschalten"
+    notify-send "Network" "Disabled"
 else
     # Turn both on
     nmcli radio wifi on
     nmcli device connect "$ETH_IFACE"
-    notify-send "Netzwerk" "Eingeschalten"
+    notify-send "Network" "Enabled"
 fi
