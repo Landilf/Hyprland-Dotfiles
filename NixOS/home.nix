@@ -10,6 +10,11 @@
   home.username = "landilf";
   home.homeDirectory = "/home/landilf";
 
+  home.sessionVariables = {
+    ANDROID_HOME = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
+    ANDROID_SDK_ROOT = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
+  };
+
   # mimeApps
   xdg.mimeApps.enable = true;
 
@@ -76,6 +81,22 @@
     "video/x-msvideo" = [ "mpv.desktop" ];
     "video/x-ms-wmv" = [ "mpv.desktop" ];
     "video/mpeg" = [ "mpv.desktop" ];
+  };
+
+  # Android Studio Emulator fix
+  xdg.desktopEntries.android-studio = {
+    name = "Android Studio (stable channel)";
+    comment = "The official Android IDE";
+    categories = [ "Development" "IDE" ];
+    # Force XWayland for Qt-based tools like the Android Emulator, and make sure
+    # Android Studio and the emulator agree on SDK/adb paths.
+    exec = "android-studio-rofi";
+    icon = "android-studio";
+    startupNotify = true;
+    terminal = false;
+    settings = {
+      StartupWMClass = "jetbrains-studio";
+    };
   };
 
   # Firefox with pywalfox
@@ -219,6 +240,14 @@
   home.packages = with pkgs; [
     adw-gtk3
     android-studio
+    android-tools
+    (writeShellScriptBin "android-studio-rofi" ''
+      export QT_QPA_PLATFORM=xcb
+      export ANDROID_HOME="$HOME/ProgrammingSoftware/Android/Sdk"
+      export ANDROID_SDK_ROOT="$ANDROID_HOME"
+      export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+      exec android-studio "$@"
+    '')
     ani-cli
     asciiquarium-transparent
     blueman

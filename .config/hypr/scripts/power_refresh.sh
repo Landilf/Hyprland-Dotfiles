@@ -1,67 +1,103 @@
 #!/usr/bin/env bash
 
-# Prevent multiple instances
-if pgrep -x "power_refresh.sh" > /dev/null; then
-    if [ "$$" != "$(pgrep -fo "power_refresh.sh")" ]; then
-        exit 1
-    fi
-fi
+set -euo pipefail
 
-# Script for changing monitor refresh rate based on power status
-# 144Hz on AC, 60Hz on battery
+LOW_HZ="${LOW_HZ:-60}"
+HIGH_HZ="${HIGH_HZ:-144}"
 
 # Function to get the current monitor name
 get_monitor() {
     hyprctl monitors | grep "Monitor " | awk '{print $2}' | head -n 1
 }
 
-# Function to set the refresh rate
+get_monitor_state() {
+    local monitor="$1"
+    hyprctl monitors | awk -v mon="$monitor" '
+        $1=="Monitor" {
+            if (in_mon && $2!=mon) { exit }
+            in_mon=($2==mon)
+            next
+        }
+        in_mon && $1 ~ /@/ {
+            split($1, a, "@")
+            res=a[1]
+            rate=a[2]
+            pos=$3
+            next
+        }
+        in_mon && $1=="scale:" { scale=$2 }
+        END { print res, rate, pos, scale }
+    '
+}
+
 set_refresh() {
-    local rate=$1
-    local monitor=$(get_monitor)
-    
-    if [ -n "$monitor" ]; then
-        echo "Setting monitor $monitor to ${rate}Hz"
-        hyprctl keyword monitor "$monitor, 1920x1080@$rate, 0x0, 1"
+    local rate="$1"
+    local monitor
+    monitor="$(get_monitor)"
+
+    if [ -z "${monitor:-}" ]; then
+        monitor="eDP-1"
+    fi
+
+    local res current_rate pos scale
+    read -r res current_rate pos scale < <(get_monitor_state "$monitor")
+
+    res="${res:-1920x1080}"
+    pos="${pos:-0x0}"
+    scale="${scale:-1}"
+
+    hyprctl keyword monitor "$monitor,${res}@${rate},${pos},${scale}" >/dev/null
+}
+
+get_current_rate_int() {
+    local monitor="$1"
+    local _res rate _pos _scale
+    read -r _res rate _pos _scale < <(get_monitor_state "$monitor")
+    rate="${rate:-0}"
+    rate="${rate%%.*}"
+    printf "%s\n" "${rate:-0}"
+}
+
+print_status() {
+    local monitor rate
+    monitor="$(get_monitor)"
+    monitor="${monitor:-eDP-1}"
+    rate="$(get_current_rate_int "$monitor")"
+
+    if [ "$rate" -ge "$HIGH_HZ" ]; then
+        printf "󰄵 %sHz\n" "$rate"
     else
-        echo "Monitor not found, trying fallback eDP-1"
-        hyprctl keyword monitor "eDP-1, 1920x1080@$rate, 0x0, 1"
+        printf "󰄴 %sHz\n" "$rate"
     fi
 }
 
-# Function to get current power status (returns 1 for AC, 0 for Battery)
-get_ac_status() {
-    for ac in /sys/class/power_supply/AC* /sys/class/power_supply/ADP*; do
-        if [ -f "$ac/online" ]; then
-            cat "$ac/online"
-            return
-        fi
-    done
-    echo 1 # Default to AC if not found
+toggle_refresh() {
+    local monitor rate
+    monitor="$(get_monitor)"
+    monitor="${monitor:-eDP-1}"
+    rate="$(get_current_rate_int "$monitor")"
+
+    if [ "$rate" -ge "$HIGH_HZ" ]; then
+        set_refresh "$LOW_HZ"
+    else
+        set_refresh "$HIGH_HZ"
+    fi
 }
 
-# Initial check
-AC_STATUS=$(get_ac_status)
-PREV_STATUS=$AC_STATUS
-
-if [ "$AC_STATUS" -eq 1 ]; then
-    set_refresh 144
-else
-    set_refresh 144
-fi
-
-# Monitoring loop
-while true; do
-    AC_STATUS=$(get_ac_status)
-    
-    if [ "$AC_STATUS" != "$PREV_STATUS" ]; then
-        if [ "$AC_STATUS" -eq 1 ]; then
-            set_refresh 144
-        else
-            set_refresh 144
-        fi
-        PREV_STATUS=$AC_STATUS
-    fi
-    
-    sleep 5
-done
+case "${1:-}" in
+    --status|"")
+        print_status
+        ;;
+    --toggle)
+        toggle_refresh
+        ;;
+    --set)
+        shift
+        [ -n "${1:-}" ] || exit 2
+        set_refresh "$1"
+        ;;
+    *)
+        echo "Usage: $0 [--status|--toggle|--set <hz>]" >&2
+        exit 2
+        ;;
+esac
