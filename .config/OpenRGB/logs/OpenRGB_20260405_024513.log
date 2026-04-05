@@ -1,0 +1,54 @@
+    OpenRGB v0.9
+    Commit:  from 
+    Launched: 20260405_024513
+====================================================================================================
+
+0     |Info:    Found file: 1.orp attempting to validate header
+0     |Warning: Profile 1.orp isn't valid for current version (v5, expected v4 at most)
+10    |Info:    ------------------------------------------------------
+10    |Info:    |               Start device detection               |
+10    |Info:    ------------------------------------------------------
+10    |Info:    Initializing HID interfaces: Success
+15    |Info:    ------------------------------------------------------
+15    |Info:    |             Detecting I2C interfaces               |
+15    |Info:    ------------------------------------------------------
+15    |Info:    Registering I2C interface: /dev/i2c-3 Device 1002:1681 Subsystem: 1043:14C3
+15    |Info:    Registering I2C interface: /dev/i2c-10 Device 1002:1681 Subsystem: 1043:14C3
+16    |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+16    |Info:    Registering I2C interface: /dev/i2c-19 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-PS883018:00 Device 0000:0000 Subsystem: 0000:0000
+16    |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+16    |Info:    Registering I2C interface: /dev/i2c-17 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-25 Device 10DE:28E1 Subsystem: 1043:14C3
+16    |Info:    Registering I2C interface: /dev/i2c-ASUF1204:00 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-6 Device 1002:1681 Subsystem: 1043:14C3
+16    |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+16    |Info:    Registering I2C interface: /dev/i2c-13 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-21 Device 1022:790B Subsystem: 1043:14C3
+16    |Info:    Registering I2C interface: /dev/i2c-2 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-PS88300A:00 Device 0000:0000 Subsystem: 0000:0000
+16    |Info:    Registering I2C interface: /dev/i2c-ITE5570:00 Device 0000:0000 Subsystem: 0000:0000
+16    |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+17    |Info:    Registering I2C interface: /dev/i2c-18 Device 0000:0000 Subsystem: 0000:0000
+17    |Info:    Registering I2C interface: /dev/i2c-26 Device 10DE:28E1 Subsystem: 1043:14C3
+17    |Info:    Registering I2C interface: /dev/i2c-7 Device 1002:1681 Subsystem: 1043:14C3
+17    |Info:    Registering I2C interface: /dev/i2c-24 Device 10DE:28E1 Subsystem: 1043:14C3
+17    |Warning: [i2c_smbus_linux] Failed to read i2c device PCI device ID
+17    |Info:    Registering I2C interface: /dev/i2c-14 Device 0000:0000 Subsystem: 0000:0000
+17    |Info:    Registering I2C interface: /dev/i2c-PS88300F:00 Device 0000:0000 Subsystem: 0000:0000
+17    |Info:    Registering I2C interface: /dev/i2c-PS883008:00 Device 0000:0000 Subsystem: 0000:0000
+17    |Info:    ------------------------------------------------------
+17    |Info:    |               Detecting I2C devices                |
+17    |Info:    ------------------------------------------------------
+339   |Info:    ------------------------------------------------------
+339   |Info:    |               Detecting I2C PCI devices            |
+339   |Info:    ------------------------------------------------------
+339   |Info:    ------------------------------------------------------
+339   |Info:    |               Detecting HID devices                |
+339   |Info:    ------------------------------------------------------
+339   |Info:    ------------------------------------------------------
+339   |Info:    |            Detecting libusb HID devices            |
+339   |Info:    ------------------------------------------------------
+340   |Info:    ------------------------------------------------------
+340   |Info:    |              Detecting other devices               |
+340   |Info:    ------------------------------------------------------

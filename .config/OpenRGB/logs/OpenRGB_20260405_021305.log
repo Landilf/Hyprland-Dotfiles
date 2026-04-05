@@ -1,0 +1,7 @@
+    OpenRGB v0.9
+    Commit:  from 
+    Launched: 20260405_021305
+====================================================================================================
+
+0     |Info:    Found file: 1.orp attempting to validate header
+0     |Warning: Profile 1.orp isn't valid for current version (v5, expected v4 at most)

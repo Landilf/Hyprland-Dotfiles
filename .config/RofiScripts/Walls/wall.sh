@@ -23,6 +23,7 @@ fi
 matugen image "$DIR/$selected" -m dark -t scheme-fidelity --fallback-color grey
 ln -sfn "$DIR/$selected" ~/.config/RofiScripts/Walls/Wall
 ln -sfn "$DIR/$selected" ~/.config/RofiScripts/WallpaperChanger/Wall
+~/.config/hypr/scripts/sync-kbd-rgb.sh || true
 
 swaync-client -rs
 ~/.config/nwg-dock-hyprland/launch.sh

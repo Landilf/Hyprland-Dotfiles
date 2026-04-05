@@ -19,5 +19,6 @@ matugen image "$selected" -m light -t scheme-fidelity --fallback-color grey
 ln -sfn "$selected" ~/.config/RofiScripts/Walls-light/Wall
 ln -sfn "$selected" ~/.config/RofiScripts/WallpaperChanger/Wall
 echo "$selected" > "$LAST_WALLPAPER"
+~/.config/hypr/scripts/sync-kbd-rgb.sh || true
 
 ~/.config/nwg-dock-hyprland/launch.sh

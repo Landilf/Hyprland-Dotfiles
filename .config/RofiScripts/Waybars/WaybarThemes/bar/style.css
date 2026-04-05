@@ -201,7 +201,7 @@ window#waybar.empty #window {
 #mpris:hover, #custom-theme:hover, #custom-bar:hover, #custom-powermenu:hover, #custom-notifications:hover, #window:hover {
     color: @primary;
 }
-#battery, #custom-pacman, #temperature, #custom-auto_cpufreq {
+#battery, #custom-pacman, #temperature, #custom-auto_cpufreq, #custom-refresh_rate {
     font-size: 1.32375rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
@@ -210,8 +210,8 @@ window#waybar.empty #window {
     background-color: @surface_container;
     transition: 0.3s all ease;
 }
-#battery, #temperature, #custom-auto_cpufreq { margin: 0.5rem 0.2rem; }
-#battery:hover, #custom-pacman:hover, #temperature:hover, #custom-auto_cpufreq:hover { color: @primary }
+#battery, #temperature, #custom-auto_cpufreq, #custom-refresh_rate { margin: 0.5rem 0.2rem; }
+#battery:hover, #custom-pacman:hover, #temperature:hover, #custom-auto_cpufreq:hover, #custom-refresh_rate:hover { color: @primary }
 #battery.critical:not(.charging) {
     color: @error;
 }
