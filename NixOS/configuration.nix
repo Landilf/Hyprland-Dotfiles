@@ -272,7 +272,6 @@
       powertop
       ppsspp-sdl-wayland
       protonplus
-      pwvucontrol
       rpcs3
       sddm-astronaut
       scanmem
