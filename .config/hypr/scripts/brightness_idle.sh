@@ -2,7 +2,7 @@
 
 # Settings (synchronized with brightness_control.sh)
 LIMIT_MAX_PC=50
-IDLE_FACTOR=5 # 5% of the working range
+IDLE_FACTOR=10 # 10% of the working range
 
 # File to store the brightness before dimming
 BRIGHTNESS_FILE="/tmp/hypr_brightness_backup"

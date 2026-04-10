@@ -2,7 +2,7 @@
 @import "~/.config/colors/rofiradius.rasi"
 
 window {
-  width: 5.8455em;
+  width: 7.0146em;
   padding: 0;
   border: 0px;
   border-color: var(primary);
@@ -17,7 +17,7 @@ error-message {
 }
 
 listview {
-  lines: 5;
+  lines: 6;
   layout: horizontal;
   margin: 0 0 0 0;
   padding: 0;

@@ -102,7 +102,7 @@
   users.users.landilf = {
     isNormalUser = true;
     description = "Landilf";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "video" "input" "kvm" "adbusers" ];
     shell = pkgs.fish;
   };
 
@@ -235,7 +235,6 @@
     (with pkgs-unstable; [
       codex
       easyeffects
-      freerdp
       throne
       yandex-music
     ])
@@ -248,11 +247,12 @@
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
       bluez
+      bubblewrap
       docker
       docker-compose
       flameshot
       font-awesome
-      pkgs-unstable.
+      freerdp
       fzf
       gnome-themes-extra
       kdePackages.kstatusnotifieritem
@@ -264,19 +264,27 @@
       libqalculate
       libsForQt5.qt5ct
       mangohud
-      micro
       mission-center
       neo
       nix-search-tv
       openrgb-with-all-plugins
+      p7zip
       powertop
-      pwvucontrol
+      ppsspp-sdl-wayland
+      protonplus
+      rpcs3
       sddm-astronaut
+      scanmem
       tenacity
       vim
       winetricks
       xrandr
     ]);
+
+  # Codex CLI expects a system bubblewrap at /usr/bin/bwrap.
+  systemd.tmpfiles.rules = [
+    "L+ /usr/bin/bwrap - - - - ${pkgs.bubblewrap}/bin/bwrap"
+  ];
 
   # Fonts
   fonts.packages = with pkgs; [ 

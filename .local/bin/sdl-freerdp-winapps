@@ -1,0 +1,37 @@
+#!/run/current-system/sw/bin/bash
+set -euo pipefail
+
+# Workaround for Hyprland/Wayland + (sometimes) OpenGL renderer issues in FreeRDP SDL client.
+# Force software renderer to avoid freezes when RemoteApps create/resize windows.
+export SDL_RENDER_DRIVER="${SDL_RENDER_DRIVER:-software}"
+
+args=()
+for arg in "$@"; do
+  # WinApps setup verifies RDP+drive redirection by running a RemoteApp cmd.exe
+  # that immediately writes a file into \\tsclient\home\... and then tsdiscon's.
+  # On some systems the redirected drive isn't ready instantly, so add a small
+  # delay before the write to avoid false failures.
+  if [[ "$arg" == /app:*FreeRDP_Connection_Test*tsdiscon* ]]; then
+    original_arg="$arg"
+    # Prefer PowerShell for file creation (more reliable than cmd redirection).
+    re_test_path='type[[:space:]]+NUL[[:space:]]+>[[:space:]]+([^[:space:]]+)'
+    if [[ "$arg" =~ $re_test_path ]]; then
+      test_unc_path="${BASH_REMATCH[1]}"
+      # Avoid embedding quotes inside /app (FreeRDP parsing is picky). PowerShell
+      # treats everything after -Command as the command string, so quoting is
+      # unnecessary here.
+      arg='/app:program:C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,cmd:-NoProfile -NonInteractive -ExecutionPolicy Bypass -Command for($i=0;$i -lt 20;$i++){ try{ New-Item -ItemType File -Force -Path '"${test_unc_path}"' -ErrorAction Stop; break } catch { Start-Sleep -Seconds 1 } }; tsdiscon'
+      printf '[winapps-freerdp-wrapper] rewrote connection test to PowerShell:\n  from: %s\n  to:   %s\n' "$original_arg" "$arg" >&2
+    else
+      # Fallback: keep cmd.exe but add delay before the write.
+      # NOTE: In bash parameter substitution, '&' expands to the matched text.
+      # Use '\&' (literal backslash + ampersand) to insert a literal '&'.
+      arg="${arg//cmd:\"\/C type NUL > /cmd:\"\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
+      arg="${arg//cmd:\/C type NUL > /cmd:\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
+      printf '[winapps-freerdp-wrapper] patched RemoteApp test cmd:\n  from: %s\n  to:   %s\n' "$original_arg" "$arg" >&2
+    fi
+  fi
+  args+=("$arg")
+done
+
+exec /nix/store/b2y8zw4q97xb92g6lsk7w3q5q6dn3fjp-freerdp-3.23.0/bin/sdl-freerdp "${args[@]}"

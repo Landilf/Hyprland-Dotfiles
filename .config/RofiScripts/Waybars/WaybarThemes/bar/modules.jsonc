@@ -36,6 +36,14 @@
   "exec": "bash ~/.config/waybar/scripts/kb_layout.sh --watch",
   "on-click": "bash ~/.config/waybar/scripts/kb_layout.sh --toggle"
 },
+"custom/refresh_rate": {
+  "tooltip": true,
+  "format": "{}",
+  "exec": "bash ~/.config/hypr/scripts/power_refresh.sh --status",
+  "interval": 5,
+  "on-click": "bash ~/.config/hypr/scripts/power_refresh.sh --toggle; pkill -SIGRTMIN+9 waybar",
+  "signal": 9
+},
 "hyprland/window": {
   "format": "{title}",
   "max-length": 80,
@@ -99,7 +107,7 @@
 },
 "clock": {
   "timezone": "Europe/Moscow",
-  "locale": "en_US.UTF-8",
+  "locale": "ru_RU.UTF-8",
   "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   "format" : " {:%H:%M}",
   "format-alt" : "󰸗 {:%a %d.%m.%y}", 

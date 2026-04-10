@@ -1,5 +1,34 @@
 { config, pkgs, ... }:
 
+let
+  ideaVersion = "2025.2.6.1";
+  ideaUltimatePinned = pkgs.jetbrains.idea.overrideAttrs (_old: {
+    version = ideaVersion;
+    src = pkgs.fetchurl {
+      url = "https://download.jetbrains.com/idea/ideaIU-${ideaVersion}.tar.gz";
+      hash = "sha256-TOix8nLmQn3nCYmk5BQFSGuXxO8urN3Zv70bv5EtP7I=";
+    };
+  });
+  ideaVmOptions = pkgs.writeText "idea64.vmoptions" ''
+    -javaagent:/home/landilf/ProgrammingSoftware/JetBrains/jetbra/ja-netfilter.jar=jetbrains 
+    --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED 
+    --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+  '';
+  ideaUltimateWrapped = ideaUltimatePinned.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+    postFixup =
+      (old.postFixup or "")
+      + ''
+        if [ -x "$out/bin/idea-ultimate" ]; then
+          wrapProgram "$out/bin/idea-ultimate" --set IDEA_VM_OPTIONS "${ideaVmOptions}"
+        fi
+
+        if [ -x "$out/bin/idea" ]; then
+          wrapProgram "$out/bin/idea" --set IDEA_VM_OPTIONS "${ideaVmOptions}"
+        fi
+      '';
+  });
+in
 {
 
   imports = [
@@ -9,6 +38,11 @@
   home.stateVersion = "25.11";
   home.username = "landilf";
   home.homeDirectory = "/home/landilf";
+
+  home.sessionVariables = {
+    ANDROID_HOME = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
+    ANDROID_SDK_ROOT = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
+  };
 
   # mimeApps
   xdg.mimeApps.enable = true;
@@ -78,6 +112,22 @@
     "video/mpeg" = [ "mpv.desktop" ];
   };
 
+  # Android Studio Emulator fix
+  xdg.desktopEntries.android-studio = {
+    name = "Android Studio (stable channel)";
+    comment = "The official Android IDE";
+    categories = [ "Development" "IDE" ];
+    # Force XWayland for Qt-based tools like the Android Emulator, and make sure
+    # Android Studio and the emulator agree on SDK/adb paths.
+    exec = "android-studio-rofi";
+    icon = "android-studio";
+    startupNotify = true;
+    terminal = false;
+    settings = {
+      StartupWMClass = "jetbrains-studio";
+    };
+  };
+
   # Firefox with pywalfox
   programs.firefox = {
     enable = true;
@@ -96,19 +146,6 @@
       set -U fish_greeting ""
     '';
     functions = {
-      ps5 = ''
-          set capacity (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/capacity)
-          set battery_status (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/status)
-    
-          # Simple bar
-          set bar_length 20
-          set filled (math "round($capacity / 100 * $bar_length)")
-          set empty (math "$bar_length - $filled")
-    
-          set bar (string repeat -n $filled '█')(string repeat -n $empty '░')
-    
-          echo "🎮 PS5 Controller: [$bar] $capacity% ($battery_status)"
-      '';
       kitty-theme = ''
           for socket in /tmp/kitty-*
             kitty @ --to unix:$socket set-colors ~/.config/kitty/themes/Matugen.conf
@@ -127,9 +164,8 @@
       cff = "reset && nitch";  
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ls = "eza -la";
-      dcu = "docker compose -f ~/winapps/compose.yaml up -d";
-      dcd = "docker compose -f ~/winapps/compose.yaml down";
-
+      dcuw = "docker compose -f ~/winapps/compose.yaml up -d";
+      dcdw = "docker compose -f ~/winapps/compose.yaml down";
     };
   };
   
@@ -219,6 +255,14 @@
   home.packages = with pkgs; [
     adw-gtk3
     android-studio
+    android-tools
+    (writeShellScriptBin "android-studio-rofi" ''
+      export QT_QPA_PLATFORM=xcb
+      export ANDROID_HOME="$HOME/ProgrammingSoftware/Android/Sdk"
+      export ANDROID_SDK_ROOT="$ANDROID_HOME"
+      export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+      exec android-studio "$@"
+    '')
     ani-cli
     asciiquarium-transparent
     blueman
@@ -244,7 +288,7 @@
     hyprshot
     hyprsunset
     imv
-    jetbrains.idea
+    ideaUltimateWrapped
     jq
     kdePackages.kamera
     nautilus

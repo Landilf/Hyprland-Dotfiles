@@ -16,7 +16,7 @@ post_hook = 'swaync-client -R; swaync-client -rs'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprcolors.conf'
 output_path = '~/.config/colors/hyprcolors.conf'
-post_hook = 'hyprctl reload'
+post_hook = 'hyprctl reload || true'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf'

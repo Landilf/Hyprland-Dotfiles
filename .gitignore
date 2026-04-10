@@ -1,1 +1,5 @@
 .hm-config.rasi
+
+# Logs
+*.log
+.config/OpenRGB/logs/
