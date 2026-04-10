@@ -146,51 +146,6 @@ in
       set -U fish_greeting ""
     '';
     functions = {
-      ps5 = ''
-          set capacity (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/capacity)
-          set battery_status (cat /sys/class/power_supply/ps-controller-battery-4c:b9:9b:cc:ba:12/status)
-    
-          # Simple bar
-          set bar_length 20
-          set filled (math "round($capacity / 100 * $bar_length)")
-          set empty (math "$bar_length - $filled")
-    
-          set bar (string repeat -n $filled '█')(string repeat -n $empty '░')
-    
-          echo "🎮 PS5 Controller: [$bar] $capacity% ($battery_status)"
-      '';
-      dcu = ''
-          set -l compose_args
-          set -l up_args
-
-          if test (count $argv) -ge 2; and test "$argv[1]" = "-f"
-            set compose_args -f $argv[2]
-            set up_args $argv[3..-1]
-          else if test (count $argv) -ge 1; and test -f $argv[1]
-            set compose_args -f $argv[1]
-            set up_args $argv[2..-1]
-          else
-            set up_args $argv
-          end
-
-          docker compose $compose_args up -d $up_args
-      '';
-      dcd = ''
-          set -l compose_args
-          set -l down_args
-
-          if test (count $argv) -ge 2; and test "$argv[1]" = "-f"
-            set compose_args -f $argv[2]
-            set down_args $argv[3..-1]
-          else if test (count $argv) -ge 1; and test -f $argv[1]
-            set compose_args -f $argv[1]
-            set down_args $argv[2..-1]
-          else
-            set down_args $argv
-          end
-
-          docker compose $compose_args down $down_args
-      '';
       kitty-theme = ''
           for socket in /tmp/kitty-*
             kitty @ --to unix:$socket set-colors ~/.config/kitty/themes/Matugen.conf
@@ -209,10 +164,8 @@ in
       cff = "reset && nitch";  
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ls = "eza -la";
-      dc = "docker compose";
-      dcuw = "dcu ~/winapps/compose.yaml";
-      dcdw = "dcd ~/winapps/compose.yaml";
-
+      dcuw = "docker compose -f ~/winapps/compose.yaml up -d";
+      dcdw = "docker compose -f ~/winapps/compose.yaml down";
     };
   };
   
