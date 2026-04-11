@@ -11,8 +11,9 @@ selected=$(
 		ls "$DIR" | while read -r A; do
 			echo -en "$A\x00icon\x1f$DIR/$A\n"
 		done
-	} | rofi -dmenu -i -config "$HOME/.config/RofiScripts/WallpaperChanger/WC.rasi"
-)
+		} | rofi -dmenu -i -config "$HOME/.config/RofiScripts/WallpaperChanger/WC.rasi" \
+			-ml-row-left ScrollUp -ml-row-right ScrollDown -ml-row-up ScrollLeft -ml-row-down ScrollRight
+	)
 rc=$?
 
 if [ "$rc" -eq 10 ]; then

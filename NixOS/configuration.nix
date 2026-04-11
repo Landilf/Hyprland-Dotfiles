@@ -250,6 +250,7 @@
       bubblewrap
       docker
       docker-compose
+      drawio
       flameshot
       font-awesome
       freerdp

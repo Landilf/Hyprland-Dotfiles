@@ -19,8 +19,15 @@
 
     # [ADDITIONAL FREERDP FLAGS]
     HIDEF="off"
-    RDP_FLAGS="/cert:tofu /sound /microphone /drive:home,/home/landilf"
+    # Prefer SDL client on Hyprland/Wayland (xfreerdp via Xwayland can freeze),
+    # disable Kerberos (no default realm), and avoid AVC/GFX paths that often
+    # trigger RemoteApp freezes.
+    #
+    # NOTE: WinApps itself adds `+home-drive` during setup/launch, so we do not
+    # add a duplicate `/drive:home,...` mapping here.
+    RDP_FLAGS="/auth-pkg-list:!kerberos /sound /microphone /gdi:sw /gfx:AVC444:off /gfx:AVC420:off"
 
-    FREERDP_COMMAND="${pkgs.freerdp}/bin/xfreerdp"
+    # Wrapper forces `SDL_RENDER_DRIVER=software` and runs `sdl-freerdp`.
+    FREERDP_COMMAND="$HOME/Hyprland-Dotfiles/.local/bin/sdl-freerdp-winapps"
   '';
 }

@@ -5,7 +5,23 @@ set -euo pipefail
 # Force software renderer to avoid freezes when RemoteApps create/resize windows.
 export SDL_RENDER_DRIVER="${SDL_RENDER_DRIVER:-software}"
 
+want_debug=0
+for a in "$@"; do
+  if [[ "$a" == /app:*FreeRDP_Connection_Test* ]]; then
+    want_debug=1
+    break
+  fi
+done
+
 args=()
+if [[ $want_debug -eq 1 ]]; then
+  # Make WinApps setup failures diagnosable (connection fails early, so logs stay small).
+  args+=(
+    /log-level:TRACE
+    /log-filters:com.freerdp.core.transport:TRACE,com.freerdp.core.nego:TRACE,com.freerdp.core.nla:TRACE,com.freerdp.core.rdp:DEBUG,com.winpr.sspi:TRACE
+  )
+fi
+
 for arg in "$@"; do
   # WinApps setup verifies RDP+drive redirection by running a RemoteApp cmd.exe
   # that immediately writes a file into \\tsclient\home\... and then tsdiscon's.
@@ -13,23 +29,13 @@ for arg in "$@"; do
   # delay before the write to avoid false failures.
   if [[ "$arg" == /app:*FreeRDP_Connection_Test*tsdiscon* ]]; then
     original_arg="$arg"
-    # Prefer PowerShell for file creation (more reliable than cmd redirection).
-    re_test_path='type[[:space:]]+NUL[[:space:]]+>[[:space:]]+([^[:space:]]+)'
-    if [[ "$arg" =~ $re_test_path ]]; then
-      test_unc_path="${BASH_REMATCH[1]}"
-      # Avoid embedding quotes inside /app (FreeRDP parsing is picky). PowerShell
-      # treats everything after -Command as the command string, so quoting is
-      # unnecessary here.
-      arg='/app:program:C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,cmd:-NoProfile -NonInteractive -ExecutionPolicy Bypass -Command for($i=0;$i -lt 20;$i++){ try{ New-Item -ItemType File -Force -Path '"${test_unc_path}"' -ErrorAction Stop; break } catch { Start-Sleep -Seconds 1 } }; tsdiscon'
-      printf '[winapps-freerdp-wrapper] rewrote connection test to PowerShell:\n  from: %s\n  to:   %s\n' "$original_arg" "$arg" >&2
-    else
-      # Fallback: keep cmd.exe but add delay before the write.
-      # NOTE: In bash parameter substitution, '&' expands to the matched text.
-      # Use '\&' (literal backslash + ampersand) to insert a literal '&'.
-      arg="${arg//cmd:\"\/C type NUL > /cmd:\"\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
-      arg="${arg//cmd:\/C type NUL > /cmd:\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
-      printf '[winapps-freerdp-wrapper] patched RemoteApp test cmd:\n  from: %s\n  to:   %s\n' "$original_arg" "$arg" >&2
-    fi
+    # Keep cmd.exe (RemoteApp policies may block PowerShell), but add a delay
+    # before the write. `ping` is available on all Windows versions.
+    # NOTE: In bash parameter substitution, '&' expands to the matched text.
+    # Use '\&' (literal backslash + ampersand) to insert a literal '&'.
+    arg="${arg//cmd:\"\/C type NUL > /cmd:\"\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
+    arg="${arg//cmd:\/C type NUL > /cmd:\/C ping -n 6 127.0.0.1 >NUL \& type NUL > }"
+    printf '[winapps-freerdp-wrapper] patched RemoteApp test cmd:\n  from: %s\n  to:   %s\n' "$original_arg" "$arg" >&2
   fi
   args+=("$arg")
 done

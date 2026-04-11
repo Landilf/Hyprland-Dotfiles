@@ -24,7 +24,7 @@ if [ "$rc" -eq 10 ]; then
 fi
 
 case "$chosen" in
-   " Apps Launcher") rofi -show drun ;;
+   " Apps Launcher") rofi -show drun -ml-row-left ScrollUp -ml-row-right ScrollDown -ml-row-up ScrollLeft -ml-row-down ScrollRight ;;
    " System") ~/.config/RofiScripts/SystemSettings/system.sh ;;
    "󰅌 Clipboard") ~/.config/RofiScripts/Clipboard/Clipboard.sh ;;
    "󰃬 Calculator") ~/.config/RofiScripts/RofiCalc/Calc.sh ;;
