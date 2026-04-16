@@ -1,5 +1,32 @@
 { config, pkgs, inputs, pkgs-unstable, system, winapps, lib, ... }:
 
+let
+  sddmAstronautHyprlandKathTheme = pkgs.stdenvNoCC.mkDerivation {
+    pname = "sddm-astronaut-theme-hyprland-kath";
+    version = "1";
+    dontUnpack = true;
+
+  # - astronaut.conf
+  # - black_hole.conf
+  # - cyberpunk.conf
+  # - hyprland_kath.conf
+  # - jake_the_dog.conf
+  # - japanese_aesthetic.conf
+  # - pixel_sakura.conf
+  # - pixel_sakura_static.conf
+  # - post-apocalyptic_hacker.conf
+  # - purple_leaves.conf
+
+    installPhase = ''
+      mkdir -p "$out/share/sddm/themes"
+      cp -r "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme" "$out/share/sddm/themes/"
+      mv "$out/share/sddm/themes/sddm-astronaut-theme" "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath"
+      chmod -R u+w "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath"
+      substituteInPlace "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath/metadata.desktop" \
+        --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/hyprland_kath.conf"
+    '';
+  };
+in
 {
 
   imports = [
@@ -71,6 +98,12 @@
     group = "root";
     capabilities = "cap_net_admin+ep";
   };
+
+  # RPCS3 memory lock fix
+  security.pam.loginLimits = [
+    { domain = "@users"; type = "soft"; item = "memlock"; value = "unlimited"; }
+    { domain = "@users"; type = "hard"; item = "memlock"; value = "unlimited"; }
+  ];
   
   # KDE Connect Configuration
   programs.kdeconnect.package = pkgs.kdePackages.kdeconnect-kde;
@@ -208,7 +241,7 @@
   # Display Manager
   services.displayManager.sddm = {
     enable = true;
-    theme = "sddm-astronaut-theme";
+    theme = "sddm-astronaut-theme-hyprland-kath";
     wayland.enable = true;
     extraPackages = with pkgs; [ 
       kdePackages.qtmultimedia
@@ -275,6 +308,7 @@
       protonplus
       rpcs3
       sddm-astronaut
+      sddmAstronautHyprlandKathTheme
       scanmem
       tenacity
       vim
