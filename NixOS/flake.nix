@@ -11,21 +11,16 @@
 
     prism-cracked.url = "github:Diegiwg/PrismLauncher-Cracked/develop";
 
-    winapps = {
-      url = "github:winapps-org/winapps";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     matugen = {
       url = "github:InioX/Matugen?ref=refs/tags/v3.1.0";
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, winapps, prism-cracked, ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, prism-cracked, ... }: {
     nixosConfigurations.nix-btw = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs winapps;
+        inherit inputs;
         system = "x86_64-linux";
         
         pkgs-unstable = import nixpkgs-unstable {

@@ -1,21 +1,10 @@
-{ config, pkgs, inputs, pkgs-unstable, system, winapps, lib, ... }:
+{ config, pkgs, inputs, pkgs-unstable, system, lib, ... }:
 
 let
   sddmAstronautHyprlandKathTheme = pkgs.stdenvNoCC.mkDerivation {
     pname = "sddm-astronaut-theme-hyprland-kath";
     version = "1";
     dontUnpack = true;
-
-  # - astronaut.conf
-  # - black_hole.conf
-  # - cyberpunk.conf
-  # - hyprland_kath.conf
-  # - jake_the_dog.conf
-  # - japanese_aesthetic.conf
-  # - pixel_sakura.conf
-  # - pixel_sakura_static.conf
-  # - post-apocalyptic_hacker.conf
-  # - purple_leaves.conf
 
     installPhase = ''
       mkdir -p "$out/share/sddm/themes"
@@ -63,6 +52,7 @@ in
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
+  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -168,7 +158,13 @@ in
   };
 
   # Docker configuration
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      "userland-proxy" = true;
+      "iptables" = true;
+    };
+  };
   
   # Gaming
   programs.steam = {
@@ -271,10 +267,6 @@ in
       throne
       yandex-music
     ])
-    ++ [
-      winapps.packages."${config.nixpkgs.hostPlatform.system}".winapps
-      winapps.packages."${config.nixpkgs.hostPlatform.system}".winapps-launcher
-    ]
     ++ (with pkgs; [
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
