@@ -3,3 +3,4 @@
 # Logs
 *.log
 .config/OpenRGB/logs/
+.codex

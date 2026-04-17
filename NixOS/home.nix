@@ -32,7 +32,6 @@ in
 {
 
   imports = [
-    ./winapps.nix
   ];
 
   home.stateVersion = "25.11";
@@ -70,29 +69,39 @@ in
 
     # ---- Microsoft Word ----
     "application/msword" =
-      [ "word-o365-x86.desktop" ];
+      [ "msword.desktop" ];
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
-      [ "word-o365-x86.desktop" ];
+      [ "msword.desktop" ];
     "application/vnd.openxmlformats-officedocument.wordprocessingml.template" =
-      [ "word-o365-x86.desktop" ];
+      [ "msword.desktop" ];
+    "application/vnd.ms-word.document.macroEnabled.12" =
+      [ "msword.desktop" ];
+    "application/rtf" =
+      [ "msword.desktop" ];
 
     # ---- Microsoft Excel ----
     "application/vnd.ms-excel" =
-      [ "excel-o365-x86.desktop" ];
+      [ "msexcel.desktop" ];
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" =
-      [ "excel-o365-x86.desktop" ];
+      [ "msexcel.desktop" ];
     "application/vnd.openxmlformats-officedocument.spreadsheetml.template" =
-      [ "excel-o365-x86.desktop" ];
+      [ "msexcel.desktop" ];
+    "application/vnd.ms-excel.sheet.macroEnabled.12" =
+      [ "msexcel.desktop" ];
+    "text/csv" =
+      [ "msexcel.desktop" ];
 
     # ---- Microsoft PowerPoint ----
     "application/vnd.ms-powerpoint" =
-      [ "powerpoint-o365-x86.desktop" ];
+      [ "mspowerpoint.desktop" ];
     "application/vnd.openxmlformats-officedocument.presentationml.presentation" =
-      [ "powerpoint-o365-x86.desktop" ];
+      [ "mspowerpoint.desktop" ];
     "application/vnd.openxmlformats-officedocument.presentationml.template" =
-      [ "powerpoint-o365-x86.desktop" ];
+      [ "mspowerpoint.desktop" ];
     "application/vnd.openxmlformats-officedocument.presentationml.slideshow" =
-      [ "powerpoint-o365-x86.desktop" ];
+      [ "mspowerpoint.desktop" ];
+    "application/vnd.ms-powerpoint.presentation.macroEnabled.12" =
+      [ "mspowerpoint.desktop" ];
 
     # Audio
     "audio/mpeg" = [ "org.gnome.Decibels.desktop" ];
@@ -164,8 +173,8 @@ in
       cff = "reset && nitch";  
       ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       ls = "eza -la";
-      dcuw = "docker compose -f ~/winapps/compose.yaml up -d";
-      dcdw = "docker compose -f ~/winapps/compose.yaml down";
+      dcuw = "docker compose -f ~/.config/windows-docker/compose.yaml up -d";
+      dcdw = "docker compose -f ~/.config/windows-docker/compose.yaml down";
     };
   };
   

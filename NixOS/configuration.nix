@@ -1,5 +1,21 @@
-{ config, pkgs, inputs, pkgs-unstable, system, winapps, lib, ... }:
+{ config, pkgs, inputs, pkgs-unstable, system, lib, ... }:
 
+let
+  sddmAstronautHyprlandKathTheme = pkgs.stdenvNoCC.mkDerivation {
+    pname = "sddm-astronaut-theme-hyprland-kath";
+    version = "1";
+    dontUnpack = true;
+
+    installPhase = ''
+      mkdir -p "$out/share/sddm/themes"
+      cp -r "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme" "$out/share/sddm/themes/"
+      mv "$out/share/sddm/themes/sddm-astronaut-theme" "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath"
+      chmod -R u+w "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath"
+      substituteInPlace "$out/share/sddm/themes/sddm-astronaut-theme-hyprland-kath/metadata.desktop" \
+        --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/hyprland_kath.conf"
+    '';
+  };
+in
 {
 
   imports = [
@@ -36,6 +52,7 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
+  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -71,6 +88,12 @@
     group = "root";
     capabilities = "cap_net_admin+ep";
   };
+
+  # RPCS3 memory lock fix
+  security.pam.loginLimits = [
+    { domain = "@users"; type = "soft"; item = "memlock"; value = "unlimited"; }
+    { domain = "@users"; type = "hard"; item = "memlock"; value = "unlimited"; }
+  ];
   
   # KDE Connect Configuration
   programs.kdeconnect.package = pkgs.kdePackages.kdeconnect-kde;
@@ -135,7 +158,13 @@
   };
 
   # Docker configuration
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      "userland-proxy" = true;
+      "iptables" = true;
+    };
+  };
   
   # Gaming
   programs.steam = {
@@ -208,7 +237,7 @@
   # Display Manager
   services.displayManager.sddm = {
     enable = true;
-    theme = "sddm-astronaut-theme";
+    theme = "sddm-astronaut-theme-hyprland-kath";
     wayland.enable = true;
     extraPackages = with pkgs; [ 
       kdePackages.qtmultimedia
@@ -238,10 +267,6 @@
       throne
       yandex-music
     ])
-    ++ [
-      winapps.packages."${config.nixpkgs.hostPlatform.system}".winapps
-      winapps.packages."${config.nixpkgs.hostPlatform.system}".winapps-launcher
-    ]
     ++ (with pkgs; [
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
@@ -250,6 +275,7 @@
       bubblewrap
       docker
       docker-compose
+      drawio
       flameshot
       font-awesome
       freerdp
@@ -274,6 +300,7 @@
       protonplus
       rpcs3
       sddm-astronaut
+      sddmAstronautHyprlandKathTheme
       scanmem
       tenacity
       vim
