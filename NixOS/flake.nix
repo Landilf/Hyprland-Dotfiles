@@ -9,7 +9,7 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    prism-cracked.url = "github:Diegiwg/PrismLauncher-Cracked/develop";
+    prism-cracked.url = "github:Diegiwg/PrismLauncher-Cracked";
 
     matugen = {
       url = "github:InioX/Matugen?ref=refs/tags/v3.1.0";
