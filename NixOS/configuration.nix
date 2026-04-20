@@ -33,6 +33,7 @@ in
 
   # Time Settings
   time.hardwareClockInLocalTime = false;
+  services.timesyncd.enable = true;
 
   # Boot customization
   boot.plymouth = {
@@ -88,6 +89,9 @@ in
     group = "root";
     capabilities = "cap_net_admin+ep";
   };
+
+  # ZeroTierOne Settings
+  services.zerotierone.enable = true;
 
   # RPCS3 memory lock fix
   security.pam.loginLimits = [
@@ -154,7 +158,7 @@ in
   # Java configuration
   programs.java = {
     enable = true;
-    package = pkgs.jdk21;
+    package = pkgs.jdk25;
   };
 
   # Docker configuration
@@ -266,6 +270,7 @@ in
       easyeffects
       throne
       yandex-music
+      zerotierone
     ])
     ++ (with pkgs; [
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
