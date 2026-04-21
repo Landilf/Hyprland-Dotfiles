@@ -8,7 +8,7 @@ DIR="$HOME/.config/RofiScripts/Walls-light/Walls"
 
 selected=$(
 	{
-		ls "$DIR" | while read -r A; do
+		ls -1 "$DIR" | sort | while read -r A; do
 			echo -en "$A\x00icon\x1f$DIR/$A\n"
 		done
 	} | rofi -dmenu -i -config "$HOME/.config/RofiScripts/WallpaperChanger/WC.rasi"

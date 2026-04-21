@@ -1,6 +1,9 @@
 .hm-config.rasi
+.codex
+.config/hypr/scripts/obs_cli.env
+.config/hypr/scripts/obs_cmd.env
+.config/hypr/scripts/obs_websocket.env
 
 # Logs
 *.log
 .config/OpenRGB/logs/
-.codex

@@ -9,9 +9,9 @@ back_label="← Back"
 	chosen=$(
 		printf "%s\n" \
 			"$back_label" \
-			"Vertical Animations" \
-			"Horizontal Animations" |
-			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/Animations/A.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Control+j,Control+m,Return,KP_Enter,Right"
+			"Horizontal Animations" \
+			"Vertical Animations" |
+			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/Animations/A.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
 	)
 	rc=$?
 

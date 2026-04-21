@@ -11,7 +11,7 @@ back_label="← Back"
 			"$back_label" \
 			"Dark Mode" \
 			"Light Mode" |
-			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/Animations/A.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Control+j,Control+m,Return,KP_Enter,Right"
+			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/Animations/A.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
 	)
 	rc=$?
 
