@@ -12,7 +12,7 @@ export LC_ALL LANG
 		"󰜗" \
 		"󰌾" \
 		"󰀄" |
-		rofi -dmenu -i -selected-row 0 -config "$HOME/.config/RofiScripts/powermenu/P.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-row-left "Left" -kb-row-right "Right" -kb-accept-entry "Control+j,Control+m,Return,KP_Enter"
+		rofi -dmenu -i -selected-row 0 -config "$HOME/.config/RofiScripts/powermenu/P.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-row-left "Left" -kb-row-right "Right" -kb-accept-entry "Return,KP_Enter"
 	)
 	rc=$?
 

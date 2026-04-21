@@ -7,15 +7,12 @@ export LC_ALL LANG
 chosen=$(
 	printf "%s\n" \
 		" Apps Launcher" \
-		" System" \
-		"󰅌 Clipboard" \
 		"󰃬 Calculator" \
-		" Waybar" \
-			" Color Scheme" \
-			"󰘇 Decorations" \
-			"󰥛 Animations" \
-			" Wallpapers" |
-			rofi -dmenu -i -config "$HOME/.config/RofiScripts/Launcher/L.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Control+j,Control+m,Return,KP_Enter,Right"
+		"󰅌 Clipboard" \
+		" Recording" \
+		" Settings" \
+		" System" \
+			| rofi -dmenu -i -selected-row 5 -config "$HOME/.config/RofiScripts/Launcher/L.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
 )
 rc=$?
 
@@ -25,13 +22,10 @@ fi
 
 case "$chosen" in
    " Apps Launcher") rofi -show drun -ml-row-left ScrollUp -ml-row-right ScrollDown -ml-row-up ScrollLeft -ml-row-down ScrollRight ;;
-   " System") ~/.config/RofiScripts/SystemSettings/system.sh ;;
-   "󰅌 Clipboard") ~/.config/RofiScripts/Clipboard/Clipboard.sh ;;
    "󰃬 Calculator") ~/.config/RofiScripts/RofiCalc/Calc.sh ;;
-   " Waybar") ~/.config/RofiScripts/Waybars/Waybar.sh ;;
-   " Color Scheme") ~/.config/RofiScripts/Dark-Light-Mode/DLmode.sh ;;
-   "󰘇 Decorations") ~/.config/RofiScripts/Rounding/Rounding.sh ;;
-   "󰥛 Animations") ~/.config/RofiScripts/Animations/Animations.sh ;;
-   " Wallpapers") ~/.config/RofiScripts/WallpaperChanger/WallMenu.sh ;;
+   "󰅌 Clipboard") ~/.config/RofiScripts/Clipboard/Clipboard.sh ;;
+   " Recording") ~/.config/RofiScripts/Recording/Recording.sh ;;
+   " Settings") ~/.config/RofiScripts/Settings/Settings.sh ;;
+   " System") ~/.config/RofiScripts/SystemSettings/system.sh ;;
    *) exit 1 ;;
 esac

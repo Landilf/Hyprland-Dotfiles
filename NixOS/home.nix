@@ -304,6 +304,7 @@ in
     nitch
     nwg-dock-hyprland
     nwg-look
+    obs-cmd
     obsidian
     pamixer
     pavucontrol

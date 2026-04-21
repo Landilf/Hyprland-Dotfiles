@@ -13,14 +13,24 @@ if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
   done
 fi
 
+sleep "${HYPR_RESUME_GRACE:-0.3}"
+
 if ! pgrep -x hyprlock >/dev/null 2>&1; then
   hyprlock >/dev/null 2>&1 &
   disown || true
 fi
 
+dpms_on() {
+  if command -v timeout >/dev/null 2>&1; then
+    timeout 1s hyprctl dispatch dpms on >/dev/null 2>&1
+  else
+    hyprctl dispatch dpms on >/dev/null 2>&1
+  fi
+}
+
 dpms_ok=0
 for _ in $(seq 1 30); do
-  if hyprctl dispatch dpms on >/dev/null 2>&1; then
+  if dpms_on; then
     dpms_ok=1
     break
   fi

@@ -75,11 +75,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1776169885,
-        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
+        "lastModified": 1776548001,
+        "narHash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
+        "rev": "b12141ef619e0a9c1c84dc8c684040326f27cdcc",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1776067740,
-        "narHash": "sha256-B35lpsqnSZwn1Lmz06BpwF7atPgFmUgw1l8KAV3zpVQ=",
+        "lastModified": 1776434932,
+        "narHash": "sha256-gyqXNMgk3sh+ogY5svd2eNLJ6oEwzbAeaoBrrxD0lKk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7e495b747b51f95ae15e74377c5ce1fe69c1765f",
+        "rev": "c7f47036d3df2add644c46d712d14262b7d86c0c",
         "type": "github"
       },
       "original": {
@@ -124,16 +124,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1775862519,
-        "narHash": "sha256-e/GCP2dTUG0OkFsC2P7a5A3d0nSev3A6IjWzbTO7JQQ=",
+        "lastModified": 1776386905,
+        "narHash": "sha256-m6H7IIn7RjZ9C42/x6v/p/TvOl0TDEpqz4fEa6+wFow=",
         "owner": "Diegiwg",
         "repo": "PrismLauncher-Cracked",
-        "rev": "abeae049008f6d6ea9b0c13186e86d08664afa4b",
+        "rev": "9d2de362503d5a7f9ff37c435b3dc4c38223d57e",
         "type": "github"
       },
       "original": {
         "owner": "Diegiwg",
-        "ref": "develop",
         "repo": "PrismLauncher-Cracked",
         "type": "github"
       }

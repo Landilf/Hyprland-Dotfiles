@@ -10,9 +10,9 @@ back_label="← Back"
 		printf "%s\n" \
 			"$back_label" \
 			" Configuration" \
-			"󰋜 Home Manager" \
-			" Flake" |
-			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/SystemSettings/S.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Control+j,Control+m,Return,KP_Enter,Right"
+			" Flake" \
+			"󰋜 Home Manager" |
+			rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/SystemSettings/S.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
 	)
 	rc=$?
 
@@ -23,7 +23,7 @@ fi
 
 case "$chosen" in
    " Configuration") codium ~/Hyprland-Dotfiles/NixOS/configuration.nix ;;
-   "󰋜 Home Manager") codium ~/Hyprland-Dotfiles/NixOS/home.nix ;;
    " Flake") codium ~/Hyprland-Dotfiles/NixOS/flake.nix ;;
+   "󰋜 Home Manager") codium ~/Hyprland-Dotfiles/NixOS/home.nix ;;
    *) exit 1 ;;
 esac
