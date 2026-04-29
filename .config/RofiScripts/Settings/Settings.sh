@@ -24,12 +24,12 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 	exit 0
 fi
 
-case "$chosen" in
-	"󰥛 Animations") ~/.config/RofiScripts/Animations/Animations.sh ;;
-	" Color Scheme") ~/.config/RofiScripts/Dark-Light-Mode/DLmode.sh ;;
-	"󰘇 Decorations") ~/.config/RofiScripts/Rounding/Rounding.sh ;;
-	"󰓅 Performance") ~/.config/RofiScripts/Performance/Performance.sh ;;
-	" Wallpapers") ~/.config/RofiScripts/WallpaperChanger/WallMenu.sh ;;
-	" Waybar") ~/.config/RofiScripts/Waybars/Waybar.sh ;;
-	*) exit 1 ;;
-esac
+	case "$chosen" in
+		"󰥛 Animations") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Animations/Animations.sh ;;
+		" Color Scheme") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Dark-Light-Mode/DLmode.sh ;;
+		"󰘇 Decorations") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Rounding/Rounding.sh ;;
+		"󰓅 Performance") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Performance/Performance.sh ;;
+		" Wallpapers") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/WallpaperChanger/WallMenu.sh ;;
+		" Waybar") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Waybars/Waybar.sh ;;
+		*) exit 1 ;;
+	esac

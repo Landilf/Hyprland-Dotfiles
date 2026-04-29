@@ -276,6 +276,7 @@ in
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
+      baobab
       bluez
       bubblewrap
       docker
@@ -300,6 +301,7 @@ in
       nix-search-tv
       openrgb-with-all-plugins
       p7zip
+      playerctl
       powertop
       ppsspp-sdl-wayland
       protonplus
@@ -309,6 +311,7 @@ in
       scanmem
       tenacity
       vim
+      wev
       winetricks
       xrandr
     ]);

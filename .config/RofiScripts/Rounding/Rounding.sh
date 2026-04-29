@@ -5,6 +5,7 @@
 export LC_ALL LANG
 
 back_label="← Back"
+back_cmd="${ROFI_BACK_CMD:-$HOME/.config/RofiScripts/Launcher/Launcher.sh}"
 
 	chosen=$(
 		printf "%s\n" \
@@ -16,10 +17,10 @@ back_label="← Back"
 	)
 	rc=$?
 
-if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
-	~/.config/RofiScripts/Launcher/Launcher.sh
-	exit 0
-fi
+	if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
+		"$back_cmd"
+		exit 0
+	fi
 
 case "$chosen" in
    "Gentle Round") ~/.config/RofiScripts/Rounding/RoundingThemes/10px/softround.sh ;;

@@ -198,6 +198,22 @@ in
   # SwayOSD service
   services.swayosd.enable = true;
 
+  # Bluetooth media buttons
+  systemd.user.services.mpris-proxy = {
+    Unit = {
+      Description = "Bluetooth MPRIS Proxy";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   # KDE Connect configuration
   services.kdeconnect = {
     package = 
