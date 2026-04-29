@@ -276,6 +276,7 @@ in
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
+      baobab
       bluez
       bubblewrap
       docker
