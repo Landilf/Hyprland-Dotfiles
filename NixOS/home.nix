@@ -1,34 +1,59 @@
 { config, pkgs, ... }:
 
-let
-  ideaVersion = "2025.2.6.1";
-  ideaUltimatePinned = pkgs.jetbrains.idea.overrideAttrs (_old: {
-    version = ideaVersion;
-    src = pkgs.fetchurl {
-      url = "https://download.jetbrains.com/idea/ideaIU-${ideaVersion}.tar.gz";
-      hash = "sha256-TOix8nLmQn3nCYmk5BQFSGuXxO8urN3Zv70bv5EtP7I=";
-    };
-  });
-  ideaVmOptions = pkgs.writeText "idea64.vmoptions" ''
-    -javaagent:/home/landilf/ProgrammingSoftware/JetBrains/jetbra/ja-netfilter.jar=jetbrains 
-    --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED 
-    --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
-  '';
-  ideaUltimateWrapped = ideaUltimatePinned.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
-    postFixup =
-      (old.postFixup or "")
-      + ''
-        if [ -x "$out/bin/idea-ultimate" ]; then
-          wrapProgram "$out/bin/idea-ultimate" --set IDEA_VM_OPTIONS "${ideaVmOptions}"
-        fi
+	let
+    jetbrainsVmOptions = pkgs.writeText "jetbrains.vmoptions" ''
+      -javaagent:/home/landilf/ProgrammingSoftware/JetBrains/jetbra/ja-netfilter.jar=jetbrains 
+      --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED 
+      --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+	  '';
 
-        if [ -x "$out/bin/idea" ]; then
-          wrapProgram "$out/bin/idea" --set IDEA_VM_OPTIONS "${ideaVmOptions}"
-        fi
-      '';
-  });
-in
+    # JetBrains IDEA wrapper
+	  ideaVersion = "2025.2.6.1";
+	  ideaUltimatePinned = pkgs.jetbrains.idea.overrideAttrs (_old: {
+	    version = ideaVersion;
+	    src = pkgs.fetchurl {
+	      url = "https://download.jetbrains.com/idea/ideaIU-${ideaVersion}.tar.gz";
+	      hash = "sha256-TOix8nLmQn3nCYmk5BQFSGuXxO8urN3Zv70bv5EtP7I=";
+	    };
+	  });
+	  ideaUltimateWrapped = ideaUltimatePinned.overrideAttrs (old: {
+	    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+	    postFixup =
+	      (old.postFixup or "")
+	      + ''
+	        if [ -x "$out/bin/idea-ultimate" ]; then
+	          wrapProgram "$out/bin/idea-ultimate" --set IDEA_VM_OPTIONS "${jetbrainsVmOptions}"
+	        fi
+
+	        if [ -x "$out/bin/idea" ]; then
+	          wrapProgram "$out/bin/idea" --set IDEA_VM_OPTIONS "${jetbrainsVmOptions}"
+	        fi
+	      '';
+	  });
+
+	  # JetBrains PyCharm wrapper
+	  pycharmVersion = "2025.2.6.1";
+	  pycharmPinned = pkgs.jetbrains.pycharm.overrideAttrs (_old: {
+	    version = pycharmVersion;
+	    src = pkgs.fetchurl {
+	      url = "https://download.jetbrains.com/python/pycharm-${pycharmVersion}.tar.gz";
+	      hash = "sha256-OT7zpi34LbwI4g+RUyS/SYu/KJX+gtb3kOO4U96Psqc=";
+	    };
+	  });
+	  pycharmBase = pycharmPinned;
+    pycharmWrapped = pycharmBase.overrideAttrs (old: {
+      nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+      postFixup =
+        (old.postFixup or "")
+        + ''
+          for bin in "$out/bin/pycharm" "$out/bin/pycharm-community" "$out/bin/pycharm-professional"; do
+            if [ -x "$bin" ]; then
+              wrapProgram "$bin" --set PYCHARM_VM_OPTIONS "${jetbrainsVmOptions}"
+            fi
+          done
+        '';
+    });
+	in
 {
 
   imports = [
@@ -327,6 +352,7 @@ in
     python3
     python3Packages.pip
     python3Packages.virtualenv
+    pycharmWrapped
     pywalfox-native
     slurp
     socat

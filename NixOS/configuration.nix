@@ -309,6 +309,7 @@ in
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem
+      shotcut
       tenacity
       vim
       wev
