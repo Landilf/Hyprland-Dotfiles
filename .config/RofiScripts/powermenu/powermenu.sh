@@ -21,11 +21,11 @@ if [ "$rc" -ne 0 ] || [ -z "$chosen" ]; then
 fi
 
 case "$chosen" in
-   "󰐥") poweroff ;;
-   "󰜉") reboot ;;
-   "󰒲") systemctl suspend ;;
-   "󰜗") systemctl hibernate ;;
-   "󰌾") hyprlock ;;
-   "󰀄") hyprctl dispatch exit ;;
-   *) exit 1 ;;
+	"󰐥") poweroff ;;
+	"󰜉") reboot ;;
+	"󰒲") systemctl suspend ;;
+	"󰜗") systemctl hibernate ;;
+	"󰌾") hyprlock ;;
+	"󰀄") hyprctl dispatch exit ;;
+	*) exit 1 ;;
 esac

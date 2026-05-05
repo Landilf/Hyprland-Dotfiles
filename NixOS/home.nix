@@ -303,6 +303,16 @@
 
   # User-specific packages
   home.packages = with pkgs; [
+    (python3.withPackages (ps: with ps; [
+      matplotlib
+      numpy
+      pandas
+      scikit-learn
+      ps.spacy
+      ps."spacy-models".ru_core_news_sm
+      torch
+      transformers
+    ]))
     adw-gtk3
     android-studio
     android-tools
@@ -323,6 +333,7 @@
     dconf-editor
     decibels
     discord
+    drawio
     eza
     file-roller
     gimp
@@ -349,9 +360,6 @@
     obsidian
     pamixer
     pavucontrol
-    python3
-    python3Packages.pip
-    python3Packages.virtualenv
     pycharmWrapped
     pywalfox-native
     slurp

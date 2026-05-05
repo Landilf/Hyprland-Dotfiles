@@ -281,7 +281,6 @@ in
       bubblewrap
       docker
       docker-compose
-      drawio
       flameshot
       font-awesome
       freerdp
@@ -305,6 +304,7 @@ in
       powertop
       ppsspp-sdl-wayland
       protonplus
+      protontricks
       rpcs3
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
