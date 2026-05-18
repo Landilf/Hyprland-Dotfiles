@@ -304,14 +304,21 @@
   # User-specific packages
   home.packages = with pkgs; [
     (python3.withPackages (ps: with ps; [
+      beautifulsoup4
       matplotlib
       numpy
+      openpyxl
       pandas
-      scikit-learn
-      ps.spacy
+      playwright
+      plotly
       ps."spacy-models".ru_core_news_sm
+      requests
+      scikit-learn
+      spacy
+      streamlit
       torch
       transformers
+      wordcloud
     ]))
     adw-gtk3
     android-studio

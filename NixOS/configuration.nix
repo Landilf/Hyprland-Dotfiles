@@ -53,7 +53,7 @@ in
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
-  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" ];
+  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" "ztu7tomnvx" ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -80,6 +80,29 @@ in
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
     };
+  };
+
+  # ASUS battery charge limit (helps reduce heat while plugged in and improves battery longevity).
+  # This writes the kernel threshold on boot if supported by the laptop firmware/driver.
+  systemd.services.asus-battery-charge-limit = {
+    description = "Set ASUS battery charge end threshold";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+    };
+    script = ''
+      set -euo pipefail
+      limit=95
+
+      for bat in /sys/class/power_supply/BAT*; do
+        [ -d "$bat" ] || continue
+        f="$bat/charge_control_end_threshold"
+        if [ -w "$f" ]; then
+          echo "$limit" >"$f"
+        fi
+      done
+    '';
   };
 
   # Throne Settings
@@ -268,6 +291,7 @@ in
     (with pkgs-unstable; [
       codex
       easyeffects
+      gemini-cli
       throne
       yandex-music
       zerotierone
@@ -298,6 +322,7 @@ in
       mission-center
       neo
       nix-search-tv
+      nvd
       openrgb-with-all-plugins
       p7zip
       playerctl
