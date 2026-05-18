@@ -53,7 +53,7 @@ in
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
-  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" ];
+  networking.firewall.trustedInterfaces = [ "docker0" "winapps0" "ztu7tomnvx" ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -79,6 +79,10 @@ in
 
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
+
+      # ASUS battery charge thresholds (supported via kernel charge control interface).
+      # Keep battery around 95% (actually 98%) max while plugged in.
+      STOP_CHARGE_THRESH_BAT1 = 95;
     };
   };
 
@@ -268,6 +272,7 @@ in
     (with pkgs-unstable; [
       codex
       easyeffects
+      gemini-cli
       throne
       yandex-music
       zerotierone
@@ -281,7 +286,6 @@ in
       bubblewrap
       docker
       docker-compose
-      drawio
       flameshot
       font-awesome
       freerdp
@@ -299,16 +303,19 @@ in
       mission-center
       neo
       nix-search-tv
+      nvd
       openrgb-with-all-plugins
       p7zip
       playerctl
       powertop
       ppsspp-sdl-wayland
       protonplus
+      protontricks
       rpcs3
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem
+      shotcut
       tenacity
       vim
       wev
