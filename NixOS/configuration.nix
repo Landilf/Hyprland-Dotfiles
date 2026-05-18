@@ -79,30 +79,11 @@ in
 
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
-    };
-  };
 
-  # ASUS battery charge limit (helps reduce heat while plugged in and improves battery longevity).
-  # This writes the kernel threshold on boot if supported by the laptop firmware/driver.
-  systemd.services.asus-battery-charge-limit = {
-    description = "Set ASUS battery charge end threshold";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
+      # ASUS battery charge thresholds (supported via kernel charge control interface).
+      # Keep battery around 95% (actually 98%) max while plugged in.
+      STOP_CHARGE_THRESH_BAT1 = 95;
     };
-    script = ''
-      set -euo pipefail
-      limit=95
-
-      for bat in /sys/class/power_supply/BAT*; do
-        [ -d "$bat" ] || continue
-        f="$bat/charge_control_end_threshold"
-        if [ -w "$f" ]; then
-          echo "$limit" >"$f"
-        fi
-      done
-    '';
   };
 
   # Throne Settings
