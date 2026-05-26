@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-recordings_dir="${RECORDINGS_DIR:-/home/landilf/Recordings}"
+recordings_dir="${RECORDINGS_DIR:-/home/landilf/Videos/Recordings}"
 scene_monitor="${OBS_SCENE_MONITOR:-Monitor}"
 collection="${OBS_COLLECTION:-}"
 profile="${OBS_PROFILE:-}"

@@ -61,31 +61,11 @@ in
     HandleLidSwitchExternalPower = "hibernate";
   };
 
-  # Power profiles
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
-
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MAX_PERF_ON_BAT = 70;
-
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
-
-      # ASUS battery charge thresholds (supported via kernel charge control interface).
-      # Keep battery around 95% (actually 98%) max while plugged in.
-      STOP_CHARGE_THRESH_BAT1 = 95;
-    };
-  };
-
+  # ASUS control daemon
+  services.asusd.enable = true;
+  programs.rog-control-center.enable = true;
+  services.power-profiles-daemon.enable = true;
+  
   # Throne Settings
   security.wrappers.Throne = {
     source = "${pkgs-unstable.throne}/bin/Throne";
@@ -226,13 +206,6 @@ in
     };
   };
 
-  # OpenRGB
-  services.hardware.openrgb = {
-    enable = true;
-    motherboard = "amd";
-  };
-  systemd.services.openrgb.wantedBy = lib.mkForce [];
-
   # Audio
   services.pipewire = {
     enable = true;
@@ -281,6 +254,7 @@ in
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
+      asusctl
       baobab
       bluez
       bubblewrap
@@ -304,7 +278,6 @@ in
       neo
       nix-search-tv
       nvd
-      openrgb-with-all-plugins
       p7zip
       playerctl
       powertop
