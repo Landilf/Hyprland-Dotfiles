@@ -43,7 +43,7 @@ elif [ "$1" == "mute" ]; then
 fi
 
 # Final fetch for notification
-NEW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}' | cut -d. -f1)
+NEW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100 + 0.5)}')
 
 # Notification logic
 if [ "$IS_MUTED" == "true" ]; then
