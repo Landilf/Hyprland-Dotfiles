@@ -311,14 +311,12 @@
       pandas
       playwright
       plotly
-      ps."spacy-models".ru_core_news_sm
+      pymorphy3
       requests
       scikit-learn
-      spacy
       streamlit
       torch
       transformers
-      wordcloud
     ]))
     adw-gtk3
     android-studio

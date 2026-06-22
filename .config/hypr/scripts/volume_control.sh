@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Volume settings
-STEP=4
+STEP=2
 MAX_VOLUME=100
 
 # Handle Mic Mute

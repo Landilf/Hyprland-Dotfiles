@@ -139,6 +139,9 @@ in
   # SSH configuration
   programs.ssh.startAgent = true;
 
+  # ADB configuration
+  programs.adb.enable = true;
+
   # Java configuration
   programs.java = {
     enable = true;
@@ -288,6 +291,7 @@ in
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem
+      scrcpy
       shotcut
       tenacity
       vim
