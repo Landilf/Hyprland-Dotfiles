@@ -2,6 +2,7 @@
 set -euo pipefail
 
 runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+waybar_bin="/etc/profiles/per-user/landilf/bin/waybar"
 
 # Ensure we don't keep a stale Waybar from a previous session.
 pkill -x waybar 2>/dev/null || true
@@ -28,5 +29,5 @@ systemctl --user is-active --quiet xdg-desktop-portal.service && break
   sleep 0.1
 done
 
-waybar -l off >/dev/null 2>&1 &
+"$waybar_bin" -l off >/dev/null 2>&1 &
 disown || true

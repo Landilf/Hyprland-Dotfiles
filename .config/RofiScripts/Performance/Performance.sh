@@ -35,9 +35,20 @@ res="$(get_res)"
 [ -n "$res" ] || res="?"
 res_label="󰍹 Resolution: ${res}"
 
+get_profile() {
+	bash "$HOME/.config/hypr/scripts/asus_power_profile.sh" --status 2>/dev/null | tr -d '\n'
+}
+
+profile_raw="$(get_profile)"
+profile_icon="$(printf "%s" "$profile_raw" | awk '{print $1}')"
+profile_status="$(printf "%s" "$profile_raw" | cut -d' ' -f2-)"
+[ -n "$profile_status" ] || profile_status="Unknown"
+profile_label="${profile_icon} Power mode: ${profile_status}"
+
 chosen=$(
 	printf "%s\n" \
 		"$back_label" \
+		"$profile_label" \
 		"$toggle_label" \
 		"$res_label" |
 		rofi -dmenu -i -selected-row 1 -config "$HOME/.config/RofiScripts/Launcher/L.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
@@ -50,6 +61,12 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 fi
 
 	case "$chosen" in
+		"$profile_label")
+			if ! bash "$HOME/.config/hypr/scripts/asus_power_profile.sh" --toggle; then
+				notify-send "Performance" "Failed to switch power mode"
+			fi
+			exec "$0"
+			;;
 		"$toggle_label")
 			bash "$HOME/.config/hypr/scripts/power_refresh.sh" --toggle
 			exec "$0"

@@ -66,6 +66,9 @@
   home.sessionVariables = {
     ANDROID_HOME = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
     ANDROID_SDK_ROOT = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk";
+    ANDROID_USER_HOME = "${config.home.homeDirectory}/.android";
+    ANDROID_EMULATOR_HOME = "${config.home.homeDirectory}/.android";
+    ANDROID_AVD_HOME = "${config.home.homeDirectory}/.android/avd";
   };
 
   # mimeApps
@@ -165,6 +168,7 @@
   # Firefox with pywalfox
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     nativeMessagingHosts = [ pkgs.pywalfox-native ];
     languagePacks= [ "ru" ];
   };
@@ -187,6 +191,7 @@
       '';
     };
     shellAliases = {
+      adb = "~/ProgrammingSoftware/Android/Sdk/platform-tools/adb";
       nrs = "sudo nixos-rebuild switch --flake ~/Hyprland-Dotfiles/NixOS#nix-btw";
       nrb = "sudo nixos-rebuild boot --flake ~/Hyprland-Dotfiles/NixOS#nix-btw";
       nfu = "nix flake update";
@@ -233,6 +238,22 @@
     Service = {
       ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
       Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
+  systemd.user.services.sdk-adb = {
+    Unit = {
+      Description = "Android SDK adb server";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk/platform-tools/adb nodaemon server";
+      Restart = "always";
+      RestartSec = 2;
     };
     Install = {
       WantedBy = [ "graphical-session.target" ];
@@ -311,22 +332,22 @@
       pandas
       playwright
       plotly
-      ps."spacy-models".ru_core_news_sm
+      pymorphy3
       requests
       scikit-learn
-      spacy
       streamlit
       torch
       transformers
-      wordcloud
     ]))
     adw-gtk3
     android-studio
-    android-tools
     (writeShellScriptBin "android-studio-rofi" ''
       export QT_QPA_PLATFORM=xcb
       export ANDROID_HOME="$HOME/ProgrammingSoftware/Android/Sdk"
       export ANDROID_SDK_ROOT="$ANDROID_HOME"
+      export ANDROID_USER_HOME="$HOME/.android"
+      export ANDROID_EMULATOR_HOME="$HOME/.android"
+      export ANDROID_AVD_HOME="$HOME/.android/avd"
       export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
       exec android-studio "$@"
     '')
@@ -373,7 +394,7 @@
     socat
     stow
     swaynotificationcenter
-    swww
+    awww
     telegram-desktop
     tesseract
     unimatrix

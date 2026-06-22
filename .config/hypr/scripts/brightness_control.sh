@@ -3,40 +3,45 @@
 # Limit settings in percent
 LIMIT_MIN_PC=0
 LIMIT_MAX_PC=50
-STEP_PC=2
+STEP_PC=4
 
 # Get hardware data
 MAX_RAW=$(brightnessctl m)
 CURRENT_RAW=$(brightnessctl g)
 
-# Convert percentages to raw values
+# Convert limits to raw values
 MIN_RAW=$(( MAX_RAW * LIMIT_MIN_PC / 100 ))
 MAX_RAW_LIMIT=$(( MAX_RAW * LIMIT_MAX_PC / 100 ))
-STEP_RAW=$(( MAX_RAW * STEP_PC / 100 ))
+RANGE_RAW=$(( MAX_RAW_LIMIT - MIN_RAW ))
 
-# Calculate new value
+# Calculate current relative percentage (rounded)
+if [ "$RANGE_RAW" -le 0 ]; then
+    CURRENT_REL=100
+else
+    CURRENT_REL=$(awk -v c="$CURRENT_RAW" -v m="$MIN_RAW" -v r="$RANGE_RAW" 'BEGIN { printf "%d", (c - m) * 100 / r + 0.5 }')
+fi
+
+# Calculate new relative percentage
 if [ "$1" == "up" ]; then
-    NEW_RAW=$(( CURRENT_RAW + STEP_RAW ))
+    NEW_REL=$(( CURRENT_REL + STEP_PC ))
 elif [ "$1" == "down" ]; then
-    NEW_RAW=$(( CURRENT_RAW - STEP_RAW ))
+    NEW_REL=$(( CURRENT_REL - STEP_PC ))
 else
     exit 0
 fi
 
-# Clamp result to limits
-[ "$NEW_RAW" -gt "$MAX_RAW_LIMIT" ] && NEW_RAW=$MAX_RAW_LIMIT
-[ "$NEW_RAW" -lt "$MIN_RAW" ] && NEW_RAW=$MIN_RAW
+# Clamp relative to 0-100 limits
+[ "$NEW_REL" -gt 100 ] && NEW_REL=100
+[ "$NEW_REL" -lt 0 ] && NEW_REL=0
+
+# Convert back to raw value for setting (rounded)
+NEW_RAW=$(awk -v nr="$NEW_REL" -v m="$MIN_RAW" -v r="$RANGE_RAW" 'BEGIN { printf "%d", m + (nr * r / 100) + 0.5 }')
 
 # Set brightness
 brightnessctl set "$NEW_RAW"
 
-# Calculate relative percentage for OSD indicator
-RANGE_RAW=$(( MAX_RAW_LIMIT - MIN_RAW ))
-if [ "$RANGE_RAW" -le 0 ]; then
-    RELATIVE=100
-else
-    RELATIVE=$(( (NEW_RAW - MIN_RAW) * 100 / RANGE_RAW ))
-fi
+# Use exact step for OSD indicator
+RELATIVE=$NEW_REL
 
 # Use notify-send: reliable, no conflicts or errors
 notify-send -e -h string:x-canonical-private-synchronous:brightness \
