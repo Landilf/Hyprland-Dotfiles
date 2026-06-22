@@ -130,7 +130,10 @@ in
   zramSwap.enable = true;
 
   # Desktop Environment
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
   programs.dconf.enable = true;
   
   # Shell (required for user shell)
@@ -139,13 +142,19 @@ in
   # SSH configuration
   programs.ssh.startAgent = true;
 
-  # ADB configuration
-  programs.adb.enable = true;
-
   # Java configuration
   programs.java = {
     enable = true;
     package = pkgs.jdk25;
+  };
+
+  # Allow Android SDK binaries like adb to run natively on NixOS.
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+      zlib
+    ];
   };
 
   # Docker configuration
