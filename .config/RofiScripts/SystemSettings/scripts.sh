@@ -4,6 +4,17 @@
 : "${LANG:=C.UTF-8}"
 export LC_ALL LANG
 
+open_codium() {
+	target="$1"
+	repo_root="$(git -C "$(dirname "$target")" rev-parse --show-toplevel 2>/dev/null || true)"
+
+	if [ -n "$repo_root" ]; then
+		codium --reuse-window "$repo_root" "$target"
+	else
+		codium --reuse-window "$target"
+	fi
+}
+
 back_label="← Back"
 
 	chosen=$(
@@ -22,8 +33,8 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 fi
 
 case "$chosen" in
-	"󰃠 Brightness") codium ~/.config/hypr/scripts/brightness_control.sh ;;
-	"󰥔 Idle Timers") codium ~/.config/hypr/hypridle.conf ;;
-	"󰕾 Sound") codium ~/.config/hypr/scripts/volume_control.sh ;;
+	"󰃠 Brightness") open_codium ~/.config/hypr/scripts/brightness_control.sh ;;
+	"󰥔 Idle Timers") open_codium ~/.config/hypr/hypridle.conf ;;
+	"󰕾 Sound") open_codium ~/.config/hypr/scripts/volume_control.sh ;;
 	*) exit 1 ;;
 esac

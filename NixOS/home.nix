@@ -175,6 +175,16 @@
 
   # Chromium 
   programs.chromium.enable = true;
+
+  # VSCodium defaults
+  xdg.configFile."VSCodium/User/settings.json".text = builtins.toJSON {
+    "python.defaultInterpreterPath" = "${config.home.homeDirectory}/ProgrammingSoftware/PythonVenv/bin/python";
+    "security.workspace.trust.untrustedFiles" = "open";
+    "git.decorations.enabled" = true;
+    "git.autoRepositoryDetection" = "subFolders";
+    "git.openRepositoryInParentFolders" = "always";
+    "scm.diffDecorations" = "all";
+  };
   
   # Fish shell configuration
   programs.fish = {

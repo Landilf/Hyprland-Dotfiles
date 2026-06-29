@@ -54,6 +54,9 @@ in
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
   networking.firewall.trustedInterfaces = [ "docker0" "winapps0" "ztu7tomnvx" ];
+  # LocalSend port exception
+  networking.firewall.allowedTCPPorts = [ 53317 ];
+  networking.firewall.allowedUDPPorts = [ 53317 ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -252,6 +255,11 @@ in
   # GVFS for trash support in file managers
   services.gvfs.enable = true;
 
+  # Allowed insecure packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+  ];
+
   # System packages (only system-level stuff)
   environment.systemPackages = 
     (with pkgs-unstable; [
@@ -285,6 +293,7 @@ in
       libnotify
       libqalculate
       libsForQt5.qt5ct
+      localsend
       mangohud
       mission-center
       neo
