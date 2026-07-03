@@ -408,6 +408,7 @@
     telegram-desktop
     tesseract
     unimatrix
+    wtype
     vscodium
     waybar
     wl-clip-persist

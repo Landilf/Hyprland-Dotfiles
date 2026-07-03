@@ -1,0 +1,19 @@
+configuration{
+ font: "JetBrainsMono Nerd Font 20";
+ modi: "dmenu";
+ fixed-num-lines: false;
+ show-icons: false;
+ icon-theme: "Icons";
+ eh: 1;
+ dpi: 100;
+}
+
+@import "~/.config/RofiScripts/Launcher/LT.rasi"
+
+window {
+  width: 24em;
+}
+
+listview {
+  lines: 10;
+}
