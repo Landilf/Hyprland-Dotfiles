@@ -312,6 +312,7 @@ in
       scrcpy
       shotcut
       tenacity
+      tree
       vim
       wev
       winetricks
