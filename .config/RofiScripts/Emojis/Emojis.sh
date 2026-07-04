@@ -229,34 +229,30 @@ build_menu() {
 EOF
 }
 
-usage_counts="$(awk '
-	{
-		count[$0]++
-	}
-	END {
-		for (emoji in count) {
-			printf "%s\t%s\n", count[emoji], emoji
-		}
-	}
-' "$usage_file")"
-
 menu="$(
 	build_menu |
-	while IFS="$(printf '\t')" read -r item_id item_label; do
-		[ -z "$item_id" ] && continue
-		[ "$item_id" = "$back_id" ] && continue
-		emoji="$(printf "%s" "$item_label" | cut -d' ' -f1)"
+	awk -F "$(printf '\t')" '
+		NR == FNR {
+			usage[$0]++
+			next
+		}
 
-		count="$(
-			printf "%s\n" "$usage_counts" |
-				awk -F "$(printf '\t')" -v key="$emoji" '$2 == key { print $1; exit }'
-		)"
+		{
+			item_id = $1
+			item_label = $2
 
-		[ -z "$count" ] && count=0
-		printf "%s\t%s\t%s\n" "$count" "$item_id" "$item_label"
-		done |
-		sort -t "$(printf '\t')" -k1,1nr -k2,2n |
-		cut -f2-
+			if (item_id == 0) {
+				next
+			}
+
+			split(item_label, parts, /[[:space:]]+/)
+			emoji = parts[1]
+			count = (emoji in usage) ? usage[emoji] : 0
+			printf "%s\t%s\t%s\n", count, item_id, item_label
+		}
+	' "$usage_file" - |
+	sort -t "$(printf '\t')" -k1,1nr -k2,2n |
+	cut -f2-
 )"
 menu="$(printf "%s\t%s\n%s" "$back_id" "$back_label" "$menu")"
 selected_row=1
