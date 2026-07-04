@@ -165,6 +165,23 @@
     };
   };
 
+  # Telegram override for rofi drun history/ranking.
+  # Keep the same desktop id, but disable DBus activation so launches are
+  # tracked like a normal app entry.
+  xdg.desktopEntries."org.telegram.desktop" = {
+    name = "Telegram";
+    comment = "New era of messaging";
+    categories = [ "Chat" "Network" "InstantMessaging" "Qt" ];
+    exec = "Telegram -- %U";
+    icon = "org.telegram.desktop";
+    terminal = false;
+    startupNotify = true;
+    settings = {
+      StartupWMClass = "TelegramDesktop";
+      DBusActivatable = "false";
+    };
+  };
+
   # Firefox with pywalfox
   programs.firefox = {
     enable = true;

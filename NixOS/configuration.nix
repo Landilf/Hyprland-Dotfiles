@@ -15,6 +15,10 @@ let
         --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/hyprland_kath.conf"
     '';
   };
+
+  # RPCS3 still expects the old wolfSSL ABI, so we wrap it in a tiny local package.
+  rpcs3WithWolfssl = pkgs.callPackage ./pkgs/rpcs3-with-wolfssl.nix { };
+
 in
 {
 
@@ -305,7 +309,7 @@ in
       ppsspp-sdl-wayland
       protonplus
       protontricks
-      rpcs3
+      rpcs3WithWolfssl
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem
