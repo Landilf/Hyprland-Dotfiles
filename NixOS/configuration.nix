@@ -316,6 +316,7 @@ in
       scrcpy
       shotcut
       tenacity
+      transmission_4-gtk
       tree
       vim
       wev
