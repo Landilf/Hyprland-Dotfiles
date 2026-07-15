@@ -21,6 +21,23 @@
     "image-visibility": "when-available",
     "transition-time": 0,
     "hide-on-action": false,
+    "notification-visibility": {
+      "osd-volume": {
+        "state": "enabled",
+        "summary": "^Volume:|^Muted$",
+        "override-urgency": "critical"
+      },
+      "osd-brightness": {
+        "state": "enabled",
+        "summary": "^Brightness:",
+        "override-urgency": "critical"
+      },
+      "osd-mic": {
+        "state": "enabled",
+        "summary": "^Mic (Muted|Unmuted)$",
+        "override-urgency": "critical"
+      }
+    },
     "text-empty": "No notifications",
     "control-center-width": 580,
     "fit-to-screen": true,
