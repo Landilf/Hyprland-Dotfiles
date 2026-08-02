@@ -71,7 +71,6 @@ in
   # ASUS control daemon
   services.asusd.enable = true;
   programs.rog-control-center.enable = true;
-  services.power-profiles-daemon.enable = true;
   
   # Throne Settings
   security.wrappers.Throne = {
@@ -210,7 +209,7 @@ in
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -226,6 +225,7 @@ in
   };
 
   # Audio
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;

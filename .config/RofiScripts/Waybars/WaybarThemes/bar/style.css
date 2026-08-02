@@ -27,7 +27,7 @@ window#waybar {
     margin-left: 0.6rem;
 }
 #custom-System:hover { color: @primary; }
-#clock {
+#custom-clock {
     background: @surface_container;
     font-size: 1.32375rem;
     font-weight: bold;
@@ -39,7 +39,7 @@ window#waybar {
     transition: 0.3s all ease;
     margin: 0.5rem 0.2rem;
 }
-#clock:hover { color: @primary; }
+#custom-clock:hover { color: @primary; }
 #custom-kb_layout {
     background: @surface_container;
     font-size: 1.32375rem;

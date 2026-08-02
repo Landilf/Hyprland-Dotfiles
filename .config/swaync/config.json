@@ -12,7 +12,7 @@
     "notification-2fa-action": true,
     "timeout": 10,
     "timeout-low": 5,
-    "timeout-critical": 0,
+    "timeout-critical": 5,
     "control-center-preferred-output": "eDP-1",
     "notification-window-width": 500,
     "notification-window-height": -1,

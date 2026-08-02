@@ -74,6 +74,16 @@
   # mimeApps
   xdg.mimeApps.enable = true;
 
+  # Keep XDG downloads aligned with the existing English-named directory.
+  # Home Manager makes user-dirs.dirs immutable, so locale updates cannot
+  # recreate an unused Russian-named Downloads folder.
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = false;
+    setSessionVariables = false;
+    download = "${config.home.homeDirectory}/Downloads";
+  };
+
   xdg.mimeApps.defaultApplications = {
 
     # Images
@@ -188,6 +198,11 @@
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     nativeMessagingHosts = [ pkgs.pywalfox-native ];
     languagePacks= [ "ru" ];
+    policies.Preferences = {
+      # Firefox otherwise sends both FileManager1.ShowItems and a normal
+      # directory open, causing Nautilus to create two Downloads windows.
+      "browser.open.dbus.enable" = false;
+    };
   };
 
   # Chromium 
