@@ -15,6 +15,10 @@ let
         --replace "ConfigFile=Themes/astronaut.conf" "ConfigFile=Themes/hyprland_kath.conf"
     '';
   };
+
+  # RPCS3 still expects the old wolfSSL ABI, so we wrap it in a tiny local package.
+  rpcs3WithWolfssl = pkgs.callPackage ./pkgs/rpcs3-with-wolfssl.nix { };
+
 in
 {
 
@@ -54,6 +58,9 @@ in
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
   networking.firewall.trustedInterfaces = [ "docker0" "winapps0" "ztu7tomnvx" ];
+  # LocalSend port exception
+  networking.firewall.allowedTCPPorts = [ 53317 ];
+  networking.firewall.allowedUDPPorts = [ 53317 ];
 
   # Hibernation when closing the laptop lid
   services.logind.settings.Login = {
@@ -64,7 +71,6 @@ in
   # ASUS control daemon
   services.asusd.enable = true;
   programs.rog-control-center.enable = true;
-  services.power-profiles-daemon.enable = true;
   
   # Throne Settings
   security.wrappers.Throne = {
@@ -203,7 +209,7 @@ in
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -219,6 +225,7 @@ in
   };
 
   # Audio
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -251,6 +258,11 @@ in
   
   # GVFS for trash support in file managers
   services.gvfs.enable = true;
+
+  # Allowed insecure packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-10.29.2"
+  ];
 
   # System packages (only system-level stuff)
   environment.systemPackages = 
@@ -285,6 +297,7 @@ in
       libnotify
       libqalculate
       libsForQt5.qt5ct
+      localsend
       mangohud
       mission-center
       neo
@@ -296,13 +309,15 @@ in
       ppsspp-sdl-wayland
       protonplus
       protontricks
-      rpcs3
+      rpcs3WithWolfssl
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem
       scrcpy
       shotcut
       tenacity
+      transmission_4-gtk
+      tree
       vim
       wev
       winetricks

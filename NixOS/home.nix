@@ -74,6 +74,16 @@
   # mimeApps
   xdg.mimeApps.enable = true;
 
+  # Keep XDG downloads aligned with the existing English-named directory.
+  # Home Manager makes user-dirs.dirs immutable, so locale updates cannot
+  # recreate an unused Russian-named Downloads folder.
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = false;
+    setSessionVariables = false;
+    download = "${config.home.homeDirectory}/Downloads";
+  };
+
   xdg.mimeApps.defaultApplications = {
 
     # Images
@@ -165,16 +175,48 @@
     };
   };
 
+  # Telegram override for rofi drun history/ranking.
+  # Keep the same desktop id, but disable DBus activation so launches are
+  # tracked like a normal app entry.
+  xdg.desktopEntries."org.telegram.desktop" = {
+    name = "Telegram";
+    comment = "New era of messaging";
+    categories = [ "Chat" "Network" "InstantMessaging" "Qt" ];
+    exec = "Telegram -- %U";
+    icon = "org.telegram.desktop";
+    terminal = false;
+    startupNotify = true;
+    settings = {
+      StartupWMClass = "TelegramDesktop";
+      DBusActivatable = "false";
+    };
+  };
+
   # Firefox with pywalfox
   programs.firefox = {
     enable = true;
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     nativeMessagingHosts = [ pkgs.pywalfox-native ];
     languagePacks= [ "ru" ];
+    policies.Preferences = {
+      # Firefox otherwise sends both FileManager1.ShowItems and a normal
+      # directory open, causing Nautilus to create two Downloads windows.
+      "browser.open.dbus.enable" = false;
+    };
   };
 
   # Chromium 
   programs.chromium.enable = true;
+
+  # VSCodium defaults
+  xdg.configFile."VSCodium/User/settings.json".text = builtins.toJSON {
+    "python.defaultInterpreterPath" = "${config.home.homeDirectory}/ProgrammingSoftware/PythonVenv/bin/python";
+    "security.workspace.trust.untrustedFiles" = "open";
+    "git.decorations.enabled" = true;
+    "git.autoRepositoryDetection" = "subFolders";
+    "git.openRepositoryInParentFolders" = "always";
+    "scm.diffDecorations" = "all";
+  };
   
   # Fish shell configuration
   programs.fish = {
@@ -398,6 +440,7 @@
     telegram-desktop
     tesseract
     unimatrix
+    wtype
     vscodium
     waybar
     wl-clip-persist

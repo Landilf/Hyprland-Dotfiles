@@ -14,7 +14,7 @@
  "modules-left": [
  "custom/System",
  "custom/notifications",
- "clock",
+ "custom/clock",
  "hyprland/workspaces",
  
 ],

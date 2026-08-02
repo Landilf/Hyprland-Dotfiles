@@ -92,10 +92,8 @@ apply_asusctl_rgb() {
   [[ "${SYNC_ASUSCTL:-1}" != "0" ]] || return 1
   command -v "$asusctl_bin" >/dev/null 2>&1 || return 1
 
-  # The current asusctl build exposes aura modes with a shared colour option.
-  "$asusctl_bin" aura static -c "$hex" >/dev/null 2>&1 && return 0
-  "$asusctl_bin" aura static --colours "$hex" >/dev/null 2>&1 && return 0
-  "$asusctl_bin" aura static "$hex" >/dev/null 2>&1 && return 0
+  # asusctl 6.3 exposes keyboard effects below `aura effect`.
+  "$asusctl_bin" aura effect static -c "$hex" >/dev/null 2>&1 && return 0
 
   return 1
 }

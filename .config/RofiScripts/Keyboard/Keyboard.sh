@@ -74,23 +74,20 @@ apply_mode() {
 		Breathe)
 			# Adaptive breathe: re-apply colours from wallpaper palette on wallpaper changes.
 			set_state adaptive:breathe
-			asusctl_try aura breathe -c "$primary_hex" -c "$secondary_hex" || \
-			asusctl_try aura breathe --colours "$primary_hex" --colours "$secondary_hex" || true
+			asusctl_try aura effect breathe --colour "$primary_hex" --colour2 "$secondary_hex" --speed med || true
 			;;
 		Pulse)
 			# Adaptive pulse: re-apply colour from wallpaper palette on wallpaper changes.
 			set_state adaptive:pulse
-			asusctl_try aura pulse -c "$primary_hex" || \
-			asusctl_try aura pulse --colours "$primary_hex" || \
-			asusctl_try aura pulse || true
+			asusctl_try aura effect pulse -c "$primary_hex" || true
 			;;
 		RainbowCycle)
 			set_state manual
-			asusctl_try aura rainbow-cycle || true
+			asusctl_try aura effect rainbow-cycle --speed med || true
 			;;
 		RainbowWave)
 			set_state manual
-			asusctl_try aura rainbow-wave || true
+			asusctl_try aura effect rainbow-wave --direction right --speed med || true
 			;;
 	esac
 

@@ -106,26 +106,14 @@
 	 "format": "",
    "tooltip": false,
 },
-"clock": {
-  "timezone": "Europe/Moscow",
-  "locale": "ru_RU.UTF-8",
-  "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-  "format" : " {:%H:%M}",
-  "format-alt" : "󰸗 {:%a %d.%m.%y}", 
-    "calendar": {
-    "mode"          : "year",
-"mode-mon-col"  : 3,
-"weeks-pos"     : "",
-"on-scroll"     : 1,
-"format": {
-"months":     "<span><b>{}</b></span>",
-"days":       "<span><b>{}</b></span>",
-"weeks":      "<span><b>W{}</b></span>",
-"weekdays":   "<span><b>{}</b></span>",
-"today":      "<span><b><u>{}</u></b></span>"
-  }
-        }, 
-        }, 
+"custom/clock": {
+  "return-type": "json",
+  "interval": 1,
+  "exec": "python3 ~/.config/waybar/scripts/clock_calendar.py",
+  "on-click": "bash -lc 'state_file=\"$HOME/.local/state/waybar-clock-mode\"; mkdir -p \"$(dirname \"$state_file\")\"; if [ \"$(cat \"$state_file\" 2>/dev/null)\" = alt ]; then printf default > \"$state_file\"; else printf alt > \"$state_file\"; fi; pkill -SIGRTMIN+10 waybar'",
+  "signal": 10,
+  "tooltip": true
+},
 "network": {
   "tooltip": true,
   "format": "{icon}",

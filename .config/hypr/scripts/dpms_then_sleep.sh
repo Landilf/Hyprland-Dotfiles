@@ -30,7 +30,9 @@ start_pending() {
       sleep 0.5
     fi
 
-    systemctl suspend -i
+    # Preserve the session on disk before entering the otherwise unreliable
+    # s2idle state used by this laptop's automatic idle timer.
+    systemctl hybrid-sleep -i
   ) &
 
   printf '%s\n' "$!" > "$pid_file"

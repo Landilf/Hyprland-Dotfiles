@@ -28,7 +28,7 @@ IS_MUTED=$(echo "$VOLUME_DATA" | grep -q "MUTED" && echo "true" || echo "false")
 if [ "$1" == "up" ]; then
     # Unmute if muted when raising volume
     [ "$IS_MUTED" == "true" ] && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-    
+
     NEW=$((CURRENT + STEP))
     [ $NEW -gt $MAX_VOLUME ] && NEW=$MAX_VOLUME
     wpctl set-volume @DEFAULT_AUDIO_SINK@ "${NEW}%"

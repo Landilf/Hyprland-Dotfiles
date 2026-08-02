@@ -7,7 +7,7 @@ profiles=("Quiet" "Balanced" "Performance")
 get_current_profile() {
   local out profile
 
-  out="$(asusctl profile -p 2>/dev/null || true)"
+  out="$(asusctl profile get 2>/dev/null || sudo -n asusctl profile get 2>/dev/null || true)"
   profile="$(printf "%s\n" "$out" | grep -oE '(Quiet|Balanced|Performance)' | head -n1 || true)"
 
   if [ -z "$profile" ]; then
@@ -20,11 +20,11 @@ get_current_profile() {
 set_profile() {
   local target="$1"
 
-  if asusctl profile -P "$target" >/dev/null 2>&1; then
+  if asusctl profile set "$target" >/dev/null 2>&1; then
     return 0
   fi
 
-  if sudo -n asusctl profile -P "$target" >/dev/null 2>&1; then
+  if sudo -n asusctl profile set "$target" >/dev/null 2>&1; then
     return 0
   fi
 
@@ -61,9 +61,9 @@ case "${1:-}" in
     print_status
     ;;
   --toggle)
-    current="$(get_current_profile)"
-    target="$(next_profile "$current")"
-    set_profile "$target"
+    if ! asusctl profile next >/dev/null 2>&1; then
+      sudo -n asusctl profile next >/dev/null 2>&1 || true
+    fi
     ;;
   --set)
     shift

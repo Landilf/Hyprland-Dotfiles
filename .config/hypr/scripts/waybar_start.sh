@@ -3,6 +3,8 @@ set -euo pipefail
 
 runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 waybar_bin="/etc/profiles/per-user/landilf/bin/waybar"
+export LANG="ru_RU.UTF-8"
+export LC_TIME="ru_RU.UTF-8"
 
 # Ensure we don't keep a stale Waybar from a previous session.
 pkill -x waybar 2>/dev/null || true

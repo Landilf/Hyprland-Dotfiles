@@ -3,6 +3,7 @@
 import calendar
 import json
 from datetime import datetime
+from pathlib import Path
 
 try:
     from zoneinfo import ZoneInfo  # py3.9+
@@ -11,21 +12,23 @@ except Exception:  # pragma: no cover
 
 
 TZ = "Europe/Moscow"
-
-# Filled circle with "cut-out" digit (renders as background color).
-NEG_CIRCLED = {
-    "0": "⓿",
-    "1": "❶",
-    "2": "❷",
-    "3": "❸",
-    "4": "❹",
-    "5": "❺",
-    "6": "❻",
-    "7": "❼",
-    "8": "❽",
-    "9": "❾",
-}
-
+STATE_FILE = Path.home() / ".local" / "state" / "waybar-clock-mode"
+RU_WEEKDAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+RU_MONTH_NAMES = [
+    "",
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+]
 
 def now_in_tz() -> datetime:
     if ZoneInfo is None:
@@ -36,35 +39,35 @@ def now_in_tz() -> datetime:
         return datetime.now()
 
 
-def neg_circled_number(n: int) -> str:
-    s = str(n)
-    if n == 10:
-        return "❿"
-    if 11 <= n <= 20:
-        return chr(0x24EB + (n - 11))  # ⓫..⓴
-    return "".join(NEG_CIRCLED.get(ch, ch) for ch in s)
-
-
 def month_block(year: int, month: int, today: datetime) -> list[str]:
     cal = calendar.Calendar(firstweekday=0)  # Monday
-    month_name = calendar.month_name[month]
+    month_name = RU_MONTH_NAMES[month]
 
     width = 20
     header = month_name.center(width)
-    weekdays = "Mo Tu We Th Fr Sa Su"
+    weekdays = " ".join(RU_WEEKDAYS)
 
     lines = [header, weekdays]
     for week in cal.monthdayscalendar(year, month):
         cells: list[str] = []
+        today_index = None
         for day in week:
             if day == 0:
                 cells.append("  ")
             elif year == today.year and month == today.month and day == today.day:
-                mark = neg_circled_number(day)
-                cells.append(mark.rjust(2))
+                today_index = len(cells)
+                cells.append(f"[{day:>2}]")
             else:
                 cells.append(str(day).rjust(2))
-        lines.append(" ".join(cells))
+        week_line = " ".join(cells)
+        if today_index is not None:
+            week_line = week_line.replace(" [", "[")
+            week_line = week_line.replace("] ", "]")
+            if today_index == 0:
+                week_line = f" {week_line}"
+            elif today_index == len(cells) - 1:
+                week_line = f"{week_line} "
+        lines.append(week_line)
 
     while len(lines) < 8:
         lines.append(" " * width)
@@ -85,10 +88,19 @@ def year_calendar(year: int, today: datetime) -> str:
 def main() -> None:
     now = now_in_tz()
     tooltip = f"<big>{now.year}</big>\n<tt><small>{year_calendar(now.year, now)}</small></tt>"
-    text = now.strftime(" %H:%M")
+    mode = "default"
+    try:
+        mode = STATE_FILE.read_text(encoding="utf-8").strip() or "default"
+    except FileNotFoundError:
+        pass
+
+    if mode == "alt":
+        weekday = RU_WEEKDAYS[now.weekday()]
+        text = f"󰸗 {weekday} {now:%d.%m.%y}"
+    else:
+        text = now.strftime(" %H:%M")
     print(json.dumps({"text": text, "tooltip": tooltip}))
 
 
 if __name__ == "__main__":
     main()
-

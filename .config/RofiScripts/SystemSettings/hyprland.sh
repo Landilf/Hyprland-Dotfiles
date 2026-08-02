@@ -4,6 +4,17 @@
 : "${LANG:=C.UTF-8}"
 export LC_ALL LANG
 
+open_codium() {
+	target="$1"
+	repo_root="$(git -C "$(dirname "$target")" rev-parse --show-toplevel 2>/dev/null || true)"
+
+	if [ -n "$repo_root" ]; then
+		codium --reuse-window "$repo_root" "$target"
+	else
+		codium --reuse-window "$target"
+	fi
+}
+
 back_label="← Back"
 
 chosen=$(
@@ -32,18 +43,18 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 fi
 
 case "$chosen" in
-   "󰥛 Animations (Variables!)") codium ~/.config/hypr/hyprconfigs/hypranimations.conf ;;
-   "󱓞 Autostart") codium ~/.config/hypr/hyprconfigs/hyprautostart.conf ;;
-   "󰘇 Decoration (Variables!)") codium ~/.config/hypr/hyprconfigs/hyprdecoration.conf ;;
-   "󰪫 Environment") codium ~/.config/hypr/hyprconfigs/hyprenvironment.conf ;;
-   "󰍽 Input") codium ~/.config/hypr/hyprconfigs/hyprinput.conf ;;
-   "󰌌 Keybindings") codium ~/.config/hypr/hyprconfigs/hyprkeybinds.conf ;;
-   " Look and Feel") codium ~/.config/hypr/hyprconfigs/hyprlookandfeel.conf ;;
-   "󰍹 Monitors") codium ~/.config/hypr/hyprconfigs/hyprmonitors.conf ;;
-   " Permissions") codium ~/.config/hypr/hyprconfigs/hyprpermissions.conf ;;
-   " Plugins") codium ~/.config/hypr/hyprconfigs/hyprplugins.conf ;;
-   " Programs") codium ~/.config/hypr/hyprconfigs/hyprprograms.conf ;;
+   "󰥛 Animations (Variables!)") open_codium ~/.config/hypr/hyprconfigs/hypranimations.conf ;;
+   "󱓞 Autostart") open_codium ~/.config/hypr/hyprconfigs/hyprautostart.conf ;;
+   "󰘇 Decoration (Variables!)") open_codium ~/.config/hypr/hyprconfigs/hyprdecoration.conf ;;
+   "󰪫 Environment") open_codium ~/.config/hypr/hyprconfigs/hyprenvironment.conf ;;
+   "󰍽 Input") open_codium ~/.config/hypr/hyprconfigs/hyprinput.conf ;;
+   "󰌌 Keybindings") open_codium ~/.config/hypr/hyprconfigs/hyprkeybinds.conf ;;
+   " Look and Feel") open_codium ~/.config/hypr/hyprconfigs/hyprlookandfeel.conf ;;
+   "󰍹 Monitors") open_codium ~/.config/hypr/hyprconfigs/hyprmonitors.conf ;;
+   " Permissions") open_codium ~/.config/hypr/hyprconfigs/hyprpermissions.conf ;;
+   " Plugins") open_codium ~/.config/hypr/hyprconfigs/hyprplugins.conf ;;
+   " Programs") open_codium ~/.config/hypr/hyprconfigs/hyprprograms.conf ;;
    "󰆍 Scripts") ~/.config/RofiScripts/SystemSettings/scripts.sh ;;
-   " Windows and Workspaces") codium ~/.config/hypr/hyprconfigs/hyprwindowsandworkspaces.conf ;;
+   " Windows and Workspaces") open_codium ~/.config/hypr/hyprconfigs/hyprwindowsandworkspaces.conf ;;
    *) exit 1 ;;
 esac
