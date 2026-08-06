@@ -43,9 +43,11 @@ def month_block(year: int, month: int, today: datetime) -> list[str]:
     cal = calendar.Calendar(firstweekday=0)  # Monday
     month_name = RU_MONTH_NAMES[month]
 
-    width = 20
+    # The outer padding is consumed when today's brackets sit at either edge.
+    # This keeps every month row the same width as the unmarked calendar grid.
+    width = 22
     header = month_name.center(width)
-    weekdays = " ".join(RU_WEEKDAYS)
+    weekdays = f" {' '.join(RU_WEEKDAYS)} "
 
     lines = [header, weekdays]
     for week in cal.monthdayscalendar(year, month):
@@ -59,14 +61,20 @@ def month_block(year: int, month: int, today: datetime) -> list[str]:
                 cells.append(f"[{day:>2}]")
             else:
                 cells.append(str(day).rjust(2))
-        week_line = " ".join(cells)
-        if today_index is not None:
-            week_line = week_line.replace(" [", "[")
-            week_line = week_line.replace("] ", "]")
-            if today_index == 0:
-                week_line = f" {week_line}"
-            elif today_index == len(cells) - 1:
-                week_line = f"{week_line} "
+        parts: list[str] = []
+        for index, cell in enumerate(cells):
+            if index == 0:
+                # At the edges, brackets replace the outer padding.
+                if today_index != 0:
+                    parts.append(" ")
+            elif index != today_index and index - 1 != today_index:
+                # Inside the row, brackets replace the separators on both sides.
+                parts.append(" ")
+            parts.append(cell)
+
+        if today_index != len(cells) - 1:
+            parts.append(" ")
+        week_line = "".join(parts)
         lines.append(week_line)
 
     while len(lines) < 8:

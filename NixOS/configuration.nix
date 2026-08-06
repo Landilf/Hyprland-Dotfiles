@@ -68,6 +68,27 @@ in
     HandleLidSwitchExternalPower = "hibernate";
   };
 
+  # Free the emulator's VM memory before every hibernation path, including
+  # manual hibernation and lid-close hibernation handled by logind.
+  systemd.services.stop-android-emulators-before-hibernate = {
+    description = "Stop Android Emulator before hibernation";
+    requiredBy = [
+      "systemd-hibernate.service"
+      "systemd-hybrid-sleep.service"
+      "systemd-suspend-then-hibernate.service"
+    ];
+    before = [
+      "systemd-hibernate.service"
+      "systemd-hybrid-sleep.service"
+      "systemd-suspend-then-hibernate.service"
+    ];
+    path = [ pkgs.procps pkgs.coreutils ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash /home/landilf/.config/hypr/scripts/stop_android_emulators.sh";
+    };
+  };
+
   # ASUS control daemon
   services.asusd.enable = true;
   programs.rog-control-center.enable = true;
@@ -133,7 +154,11 @@ in
 
   # System-wide settings
   nixpkgs.config.allowUnfree = true;
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    # Keep the disk-backed swap preferred so hibernation can build its image.
+    priority = -3;
+  };
 
   # Desktop Environment
   programs.hyprland = {

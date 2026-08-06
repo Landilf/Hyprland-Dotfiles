@@ -199,9 +199,9 @@
     nativeMessagingHosts = [ pkgs.pywalfox-native ];
     languagePacks= [ "ru" ];
     policies.Preferences = {
-      # Firefox otherwise sends both FileManager1.ShowItems and a normal
-      # directory open, causing Nautilus to create two Downloads windows.
-      "browser.open.dbus.enable" = false;
+      # Nautilus can need over one second to activate through FileManager1.
+      # Wait for ShowItems instead of opening Downloads through the fallback.
+      "widget.gtk.file-manager-show-items-timeout-ms" = 3000;
     };
   };
 

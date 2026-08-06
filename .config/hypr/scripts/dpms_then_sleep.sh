@@ -30,9 +30,9 @@ start_pending() {
       sleep 0.5
     fi
 
-    # Preserve the session on disk before entering the otherwise unreliable
-    # s2idle state used by this laptop's automatic idle timer.
-    systemctl hybrid-sleep -i
+    # s2idle is unreliable on this laptop, so automatic idle uses the
+    # disk-backed sleep mode while manual power-menu actions stay unchanged.
+    systemctl hibernate -i
   ) &
 
   printf '%s\n' "$!" > "$pid_file"
