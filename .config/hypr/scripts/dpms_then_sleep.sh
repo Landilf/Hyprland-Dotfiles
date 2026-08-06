@@ -23,7 +23,7 @@ start_pending() {
   (
     sleep "$delay"
 
-    hyprctl dispatch dpms on >/dev/null 2>&1 || true
+    hyprctl dispatch 'hl.dsp.dpms({ action = "on" })' >/dev/null 2>&1 || true
 
     if ! pgrep -x hyprlock >/dev/null 2>&1; then
       hyprlock >/dev/null 2>&1 &
@@ -36,7 +36,7 @@ start_pending() {
   ) &
 
   printf '%s\n' "$!" > "$pid_file"
-  hyprctl dispatch dpms off >/dev/null 2>&1 || true
+  hyprctl dispatch 'hl.dsp.dpms({ action = "off" })' >/dev/null 2>&1 || true
 }
 
 case "${1:-}" in

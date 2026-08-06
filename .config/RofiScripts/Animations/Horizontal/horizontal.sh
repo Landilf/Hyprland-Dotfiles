@@ -1,3 +1,3 @@
 #! /bin/sh
 
-ln -sf ~/.config/RofiScripts/Animations/Horizontal/hypranimations.conf ~/.config/hypr/hyprconfigs/hypranimations.conf
+"$HOME/.config/hypr/scripts/set_lua_preset.sh" animation horizontal

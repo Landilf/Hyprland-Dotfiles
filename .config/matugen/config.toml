@@ -18,6 +18,15 @@ input_path = '~/.config/matugen/templates/hyprcolors.conf'
 output_path = '~/.config/colors/hyprcolors.conf'
 post_hook = 'hyprctl reload || true'
 
+[templates.hyprland_lua]
+input_path = '~/.config/matugen/templates/hyprcolors.lua'
+output_path = '~/.config/colors/hyprcolors.lua'
+post_hook = 'hyprctl reload || true'
+
+[templates.quickshell_overview]
+input_path = '~/.config/matugen/templates/quickshell-overview.qml'
+output_path = '~/.config/quickshell/overview/common/Appearance.colors.qml'
+
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'

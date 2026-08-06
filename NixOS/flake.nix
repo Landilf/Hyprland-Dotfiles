@@ -14,6 +14,11 @@
     matugen = {
       url = "github:InioX/Matugen?ref=refs/tags/v3.1.0";
     };
+
+    quickshell-overview = {
+      url = "github:Shanu-Kumawat/quickshell-overview";
+      flake = false;
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, nixpkgs-unstable, prism-cracked, ... }: {
@@ -33,6 +38,7 @@
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.landilf = import ./home.nix;
         }
       ];

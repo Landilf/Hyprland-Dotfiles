@@ -51,6 +51,13 @@
   "icon": true,
   "icon-size": 24,
 },
+"custom/window_manage": {
+  "tooltip": false,
+  "format": "{}",
+  "exec-if": "bash -c 'test -s \"$XDG_RUNTIME_DIR/hypr-window-manage-mode\"'",
+  "exec": "bash -c 'cat \"$XDG_RUNTIME_DIR/hypr-window-manage-mode\"'",
+  "signal": 11,
+},
 "hyprland/workspaces": {
  "disable-scroll": true,
   "all-outputs": false,
@@ -128,7 +135,7 @@
   "tooltip-format-ethernet": " {ifname}",
   "tooltip-format-disconnected": "󰤦 Disconnected!",
   "tooltip-format-disabled": "󰤦 Connection turned off!",
-  "on-click": "hyprctl dispatch exec '[float; size 879 879] kitty nmtui'",
+  "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd(\"kitty nmtui\", { float = true, size = { 879, 879 } })'",
   "on-click-right": "setsid ~/.config/swaync/scripts/network.sh",
           },
 "bluetooth": {
@@ -140,7 +147,7 @@
   "tooltip-format-connected": "{controller_alias}\n{num_connections} Connected\n\n{device_alias}",
   "tooltip-format-enumerate-connected": "{device_alias}",
   "tooltip-format-enumerate-connected-battery": "{device_alias}\t󰥄 {device_battery_percentage}%",
-  "on-click": "hyprctl dispatch exec '[float; size 879 879] blueman-manager'",
+  "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd(\"blueman-manager\", { float = true, size = { 879, 879 } })'",
   "on-click-right": "setsid ~/.config/swaync/scripts/bluetooth.sh",
 },
 "custom/theme": {
@@ -164,7 +171,7 @@
   "default": ["󰋋"]
                 },
   "on-click": "pamixer -t",                        
-  "on-click-right": "hyprctl dispatch exec '[float; size 879 879] pavucontrol'",        
+  "on-click-right": "hyprctl dispatch 'hl.dsp.exec_cmd(\"pavucontrol\", { float = true, size = { 879, 879 } })'",
               }, 
 "pulseaudio/slider": {
   "tooltip": false,
@@ -211,7 +218,7 @@
     "interval": 3600,                     
     "exec": "checkupdates | wc -l",
     "exec-if": "exit 0",                  
-    "on-click": "hyprctl dispatch exec \"[float; size 879 879] kitty bash -c \\\"figlet SYSTEMUPDATE! && yay -Syu && pkill -SIGRTMIN+8 waybar\\\"\"",
+    "on-click": "hyprctl dispatch 'hl.dsp.exec_cmd([[kitty bash -c \"figlet SYSTEMUPDATE! && yay -Syu && pkill -SIGRTMIN+8 waybar\"]], { float = true, size = { 879, 879 } })'",
     "signal": 8,
     "tooltip-format": "{}  System package(s) ready for update" 
 },

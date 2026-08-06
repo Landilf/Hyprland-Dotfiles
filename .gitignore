@@ -4,6 +4,9 @@
 .config/hypr/scripts/obs_cmd.env
 .config/hypr/scripts/obs_websocket.env
 
+# Deployed from the pinned quickshell-overview input by Home Manager.
+.config/quickshell/overview/
+
 # Logs
 *.log
 .config/OpenRGB/logs/

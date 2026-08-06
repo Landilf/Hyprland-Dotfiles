@@ -47,7 +47,7 @@ set_resolution() {
 	pos="${pos:-0x0}"
 	scale="${scale:-1}"
 
-	hyprctl keyword monitor "$monitor,${new_res}@${rate},${pos},${scale}" >/dev/null
+	hyprctl eval "hl.monitor({ output = \"$monitor\", mode = \"${new_res}@${rate}\", position = \"$pos\", scale = $scale })" >/dev/null
 }
 
 get_current_res() {

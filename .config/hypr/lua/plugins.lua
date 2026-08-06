@@ -1,0 +1,2 @@
+-- No in-process Hyprland plugins are active.
+-- The workspace overview is provided separately by quickshell-overview.

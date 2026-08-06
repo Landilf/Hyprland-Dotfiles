@@ -20,6 +20,7 @@
 ],
  "modules-center": [
   "hyprland/window",
+  "custom/window_manage",
 ],
  "modules-right": [
   "custom/recording",

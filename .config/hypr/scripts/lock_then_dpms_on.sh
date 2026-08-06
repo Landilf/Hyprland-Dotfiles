@@ -22,9 +22,9 @@ fi
 
 dpms_on() {
   if command -v timeout >/dev/null 2>&1; then
-    timeout 1s hyprctl dispatch dpms on >/dev/null 2>&1
+    timeout 1s hyprctl dispatch 'hl.dsp.dpms({ action = "on" })' >/dev/null 2>&1
   else
-    hyprctl dispatch dpms on >/dev/null 2>&1
+    hyprctl dispatch 'hl.dsp.dpms({ action = "on" })' >/dev/null 2>&1
   fi
 }
 

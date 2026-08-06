@@ -26,6 +26,6 @@ case "$chosen" in
 	"󰒲") systemctl suspend ;;
 	"󰜗") systemctl hibernate ;;
 	"󰌾") hyprlock ;;
-	"󰀄") hyprctl dispatch exit ;;
+	"󰀄") hyprshutdown || hyprctl dispatch 'hl.dsp.exit()' ;;
 	*) exit 1 ;;
 esac

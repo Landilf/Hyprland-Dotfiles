@@ -176,7 +176,7 @@ window#waybar {
 }
 
 #network:hover, #bluetooth:hover, #pulseaudio:hover, #traywer:hover { color: @primary; }
-#mpris, #custom-theme, #custom-bar, #custom-notifications, #window {
+#mpris, #custom-theme, #custom-bar, #custom-notifications, #custom-window_manage, #window {
     font-size: 1.32375rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
@@ -201,6 +201,7 @@ window#waybar.empty #window {
 #mpris:hover, #custom-theme:hover, #custom-bar:hover, #custom-powermenu:hover, #custom-notifications:hover, #window:hover {
     color: @primary;
 }
+#custom-window_manage { color: @primary; font-weight: bold; }
 #battery, #custom-pacman, #temperature, #custom-auto_cpufreq, #custom-recording {
     font-size: 1.32375rem;
     padding-left: 1.2rem;

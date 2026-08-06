@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 	let
     jetbrainsVmOptions = pkgs.writeText "jetbrains.vmoptions" ''
@@ -41,7 +41,7 @@
 	    };
 	  });
 	  pycharmBase = pycharmPinned;
-    pycharmWrapped = pycharmBase.overrideAttrs (old: {
+	  pycharmWrapped = pycharmBase.overrideAttrs (old: {
       nativeBuildInputs = (old.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
       postFixup =
         (old.postFixup or "")
@@ -52,7 +52,17 @@
             fi
           done
         '';
-    });
+	    });
+
+    # The upstream overview briefly passes an empty color during QML startup
+    # and asks the icon provider for a fallback for windows without a desktop entry.
+    quickshellOverview = pkgs.runCommand "quickshell-overview-patched" { } ''
+      cp -R ${inputs.quickshell-overview}/. "$out"
+      substituteInPlace "$out/common/functions/ColorUtils.qml" \
+        --replace-fail 'function applyAlpha(color, alpha) {' 'function applyAlpha(color, alpha) { if (!color) return "transparent";'
+      substituteInPlace "$out/modules/overview/OverviewWindow.qml" \
+        --replace-fail 'property var iconPath: Quickshell.iconPath(iconName, "image-missing")' 'property var iconPath: entry?.icon ? Quickshell.iconPath(iconName) : ""'
+    '';
 	in
 {
 
@@ -69,6 +79,35 @@
     ANDROID_USER_HOME = "${config.home.homeDirectory}/.android";
     ANDROID_EMULATOR_HOME = "${config.home.homeDirectory}/.android";
     ANDROID_AVD_HOME = "${config.home.homeDirectory}/.android/avd";
+  };
+
+  # Keep the overview module pinned through flake.lock while allowing the
+  # user-specific options below to remain writable Home Manager files.
+  home.file.".config/quickshell/overview" = {
+    source = quickshellOverview;
+    recursive = true;
+  };
+
+  home.file.".config/quickshell/overview/config.json".text = builtins.toJSON {
+    appearance = {
+      colorSource = "matugen";
+      font = {
+        family = {
+          main = "JetBrains Mono Nerd Font";
+          title = "JetBrains Mono Nerd Font";
+          expressive = "JetBrains Mono Nerd Font";
+        };
+      };
+    };
+    overview = {
+      rows = 2;
+      columns = 5;
+      hideEmptyRows = true;
+      previewsEnabled = true;
+      previewMode = "live";
+      includeInactiveMonitorPreviews = true;
+      showSpecialWorkspaces = true;
+    };
   };
 
   # mimeApps
@@ -432,6 +471,8 @@
     pavucontrol
     pycharmWrapped
     pywalfox-native
+    quickshell
+    qt6.qtwayland
     slurp
     socat
     stow

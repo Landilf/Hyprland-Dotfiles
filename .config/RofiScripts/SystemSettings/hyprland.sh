@@ -20,9 +20,9 @@ back_label="← Back"
 chosen=$(
 	printf "%s\n" \
 		"$back_label" \
-		"󰥛 Animations (Variables!)" \
+		"󰥛 Animations" \
 		"󱓞 Autostart" \
-		"󰘇 Decoration (Variables!)" \
+		"󰘇 Decoration" \
 		"󰪫 Environment" \
 		"󰍽 Input" \
 		"󰌌 Keybindings" \
@@ -43,18 +43,18 @@ if [ "$rc" -eq 10 ] || [ "$chosen" = "$back_label" ]; then
 fi
 
 case "$chosen" in
-   "󰥛 Animations (Variables!)") open_codium ~/.config/hypr/hyprconfigs/hypranimations.conf ;;
-   "󱓞 Autostart") open_codium ~/.config/hypr/hyprconfigs/hyprautostart.conf ;;
-   "󰘇 Decoration (Variables!)") open_codium ~/.config/hypr/hyprconfigs/hyprdecoration.conf ;;
-   "󰪫 Environment") open_codium ~/.config/hypr/hyprconfigs/hyprenvironment.conf ;;
-   "󰍽 Input") open_codium ~/.config/hypr/hyprconfigs/hyprinput.conf ;;
-   "󰌌 Keybindings") open_codium ~/.config/hypr/hyprconfigs/hyprkeybinds.conf ;;
-   " Look and Feel") open_codium ~/.config/hypr/hyprconfigs/hyprlookandfeel.conf ;;
-   "󰍹 Monitors") open_codium ~/.config/hypr/hyprconfigs/hyprmonitors.conf ;;
-   " Permissions") open_codium ~/.config/hypr/hyprconfigs/hyprpermissions.conf ;;
-   " Plugins") open_codium ~/.config/hypr/hyprconfigs/hyprplugins.conf ;;
-   " Programs") open_codium ~/.config/hypr/hyprconfigs/hyprprograms.conf ;;
+   "󰥛 Animations") open_codium ~/.config/hypr/lua/animations.lua ;;
+   "󱓞 Autostart") open_codium ~/.config/hypr/lua/autostart.lua ;;
+   "󰘇 Decoration") open_codium ~/.config/hypr/lua/look_and_feel.lua ;;
+   "󰪫 Environment") open_codium ~/.config/uwsm/env-hyprland ;;
+   "󰍽 Input") open_codium ~/.config/hypr/lua/input.lua ;;
+   "󰌌 Keybindings") open_codium ~/.config/hypr/lua/keybinds.lua ;;
+   " Look and Feel") open_codium ~/.config/hypr/lua/look_and_feel.lua ;;
+   "󰍹 Monitors") open_codium ~/.config/hypr/lua/monitors.lua ;;
+   " Permissions") open_codium ~/.config/hypr/lua/permissions.lua ;;
+   " Plugins") open_codium ~/.config/hypr/lua/plugins.lua ;;
+   " Programs") open_codium ~/.config/hypr/lua/programs.lua ;;
    "󰆍 Scripts") ~/.config/RofiScripts/SystemSettings/scripts.sh ;;
-   " Windows and Workspaces") open_codium ~/.config/hypr/hyprconfigs/hyprwindowsandworkspaces.conf ;;
+   " Windows and Workspaces") open_codium ~/.config/hypr/lua/windows_and_workspaces.lua ;;
    *) exit 1 ;;
 esac

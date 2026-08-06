@@ -46,7 +46,7 @@ set_refresh() {
     pos="${pos:-0x0}"
     scale="${scale:-1}"
 
-    hyprctl keyword monitor "$monitor,${res}@${rate},${pos},${scale}" >/dev/null
+    hyprctl eval "hl.monitor({ output = \"$monitor\", mode = \"${res}@${rate}\", position = \"$pos\", scale = $scale })" >/dev/null
 }
 
 get_current_rate_int() {
