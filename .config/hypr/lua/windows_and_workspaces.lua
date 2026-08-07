@@ -12,7 +12,7 @@ hl.window_rule({ name = "blueman", match = { class = "blueman-manager" }, float 
 for _, class in ipairs({ "thunar", "Thunar", "org.gnome.Nautilus" }) do hl.window_rule({ name = "file-manager-opacity-" .. class, match = { class = class }, opacity = "0.80 0.75" }) end
 hl.window_rule({ name = "text-editor-opacity", match = { class = "org.gnome.TextEditor" }, opacity = "0.90 0.85" })
 hl.window_rule({ name = "vscodium-opacity", match = { class = "VSCodium" }, opacity = "0.90 0.85" })
-hl.window_rule({ name = "steam-workspace", match = { class = "steam" }, workspace = workspaces.selector("steam") })
+hl.window_rule({ name = "steam-workspace", match = { class = "steam" }, workspace = workspaces.numeric.steam })
 for _, class in ipairs({ "^(Microsoft Windows)$", "^(xfreerdp)$", "^(msword-rdp)$", "^(msexcel-rdp)$", "^(mspowerpoint-rdp)$" }) do
-  hl.window_rule({ name = "windows-workspace-" .. class, match = { class = class }, workspace = workspaces.selector("windows") })
+  hl.window_rule({ name = "windows-workspace-" .. class, match = { class = class }, workspace = workspaces.numeric.windows })
 end

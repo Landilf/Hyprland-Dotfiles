@@ -51,10 +51,10 @@ local function set_window_manage_mode(enabled)
   end
 end
 
-hl.bind(main_mod .. " + M", function() set_window_manage_mode(true) end)
+hl.bind(main_mod .. " + Z", function() set_window_manage_mode(true) end)
 hl.define_submap("window-manage", function()
   local repeating = { repeating = true }
-  hl.bind(main_mod .. " + M", function() set_window_manage_mode(false) end)
+  hl.bind(main_mod .. " + Z", function() set_window_manage_mode(false) end)
   for key, direction in pairs({ up = "u", down = "d", left = "l", right = "r" }) do
     hl.bind(key, hl.dsp.window.move({ direction = direction }), repeating)
   end
@@ -67,22 +67,18 @@ for workspace = 1, 10 do
   hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
   hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
 end
-for _, navigation in ipairs({ { "A", -1 }, { "D", 1 }, { "W", -5 }, { "S", 5 } }) do
-  local horizontal = navigation[1] == "A" or navigation[1] == "D"
-  local focus = horizontal
-    and workspaces.focus_open_relative(navigation[2])
-    or workspaces.focus_relative_on_active_monitor(navigation[2])
-  local move = horizontal
-    and workspaces.move_active_window_open_relative(navigation[2])
-    or workspaces.move_active_window_relative_on_active_monitor(navigation[2])
-  hl.bind(main_mod .. " + " .. navigation[1], focus)
-  hl.bind(main_mod .. " + SHIFT + " .. navigation[1], move)
+for _, navigation in ipairs({ { "A", -1 }, { "D", 1 } }) do
+  local key, delta = navigation[1], navigation[2]
+  hl.bind(main_mod .. " + " .. key, workspaces.focus_grid_relative(delta))
+  hl.bind(main_mod .. " + CTRL + " .. key, workspaces.focus_open_relative(delta))
+  hl.bind(main_mod .. " + SHIFT + " .. key, workspaces.move_active_window_grid_relative(delta))
+  hl.bind(main_mod .. " + CTRL + SHIFT + " .. key, workspaces.move_active_window_open_relative(delta))
 end
-hl.bind(main_mod .. " + G", hl.dsp.focus({ workspace = "name:" })); hl.bind(main_mod .. " + U", workspaces.focus("steam")); hl.bind(main_mod .. " + I", workspaces.focus("windows"))
-hl.bind(main_mod .. " + SHIFT + U", workspaces.move_active_window("steam")); hl.bind(main_mod .. " + SHIFT + I", workspaces.move_active_window("windows"))
-hl.bind(main_mod .. " + Z", hl.dsp.workspace.toggle_special(workspaces.special.magic)); hl.bind(main_mod .. " + SHIFT + Z", hl.dsp.window.move({ workspace = workspaces.special_selector("magic") }))
-hl.bind(main_mod .. " + CTRL + left", workspaces.focus_relative_on_active_monitor(-1)); hl.bind(main_mod .. " + CTRL + right", workspaces.focus_relative_on_active_monitor(1))
-hl.bind(main_mod .. " + SHIFT + left", workspaces.move_active_window_relative_on_active_monitor(-1)); hl.bind(main_mod .. " + SHIFT + right", workspaces.move_active_window_relative_on_active_monitor(1))
+hl.bind(main_mod .. " + S", workspaces.focus_grid_relative(5))
+hl.bind(main_mod .. " + SHIFT + S", workspaces.move_active_window_grid_relative(5))
+hl.bind(main_mod .. " + G", hl.dsp.focus({ workspace = "name:" })); hl.bind(main_mod .. " + O", workspaces.focus("steam"))
+hl.bind(main_mod .. " + SHIFT + O", workspaces.move_active_window("steam"))
+hl.bind(main_mod .. " + W", hl.dsp.workspace.toggle_special(workspaces.special.magic)); hl.bind(main_mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = workspaces.special_selector("magic") }))
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true }); hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 local locked_repeating = { locked = true, repeating = true }

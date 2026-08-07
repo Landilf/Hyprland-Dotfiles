@@ -320,6 +320,7 @@ in
       lazydocker
       lazygit
       libnotify
+      librewolf
       libqalculate
       libsForQt5.qt5ct
       localsend
