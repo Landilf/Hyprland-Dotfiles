@@ -19,6 +19,18 @@ let
   # RPCS3 still expects the old wolfSSL ABI, so we wrap it in a tiny local package.
   rpcs3WithWolfssl = pkgs.callPackage ./pkgs/rpcs3-with-wolfssl.nix { };
 
+  # The current upstream AppImage uses DwarFS, which appimage-run cannot unpack.
+  # Run it in Steam's FHS environment and provide libcom_err from e2fsprogs.
+  rpcs3Latest = pkgs.writeShellApplication {
+    name = "rpcs3-latest";
+    runtimeInputs = [ pkgs.steam-run ];
+    text = ''
+      export APPIMAGE_EXTRACT_AND_RUN=1
+      export LD_LIBRARY_PATH="${lib.makeLibraryPath [ pkgs.e2fsprogs ]}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+      exec steam-run /home/landilf/Games/RPCS3/rpcs3-v0.0.42-19895-c6e96729_linux64.AppImage "$@"
+    '';
+  };
+
 in
 {
 
@@ -66,6 +78,37 @@ in
   services.logind.settings.Login = {
     HandleLidSwitch = "hibernate";
     HandleLidSwitchExternalPower = "hibernate";
+  };
+
+  # Some firmware restores the panel at a brighter level after hibernation.
+  # Reapply the exact raw level captured immediately before hibernation.
+  environment.etc."systemd/system-sleep/restore-hibernate-brightness" = {
+    mode = "0755";
+    source = pkgs.writeShellScript "restore-hibernate-brightness" ''
+      state_file=/run/hibernate-backlight-level
+      brightnessctl=${pkgs.brightnessctl}/bin/brightnessctl
+      cat=${pkgs.coreutils}/bin/cat
+      rm=${pkgs.coreutils}/bin/rm
+      sleep=${pkgs.coreutils}/bin/sleep
+
+      case "$1:$2" in
+        pre:hibernate)
+          "$brightnessctl" get > "$state_file" 2>/dev/null || true
+          ;;
+        post:hibernate)
+          if [ -s "$state_file" ]; then
+            brightness=$("$cat" "$state_file")
+            "$sleep" 1
+            "$brightnessctl" set "$brightness" >/dev/null 2>&1 || true
+            # Firmware may overwrite the backlight while the panel and DPMS
+            # finish resuming, so reapply the saved level once more.
+            "$sleep" 3
+            "$brightnessctl" set "$brightness" >/dev/null 2>&1 || true
+            "$rm" -f "$state_file"
+          fi
+          ;;
+      esac
+    '';
   };
 
   # Free the emulator's VM memory before every hibernation path, including
@@ -165,6 +208,7 @@ in
     enable = true;
     withUWSM = true;
   };
+
   programs.dconf.enable = true;
   
   # Shell (required for user shell)
@@ -294,7 +338,7 @@ in
     (with pkgs-unstable; [
       codex
       easyeffects
-      gemini-cli
+      antigravity-cli
       throne
       yandex-music
       zerotierone
@@ -303,6 +347,7 @@ in
       inputs.matugen.packages.${config.nixpkgs.hostPlatform.system}.default
       inputs.prism-cracked.packages.${config.nixpkgs.hostPlatform.system}.prismlauncher
       alsa-plugins
+      appimage-run
       asusctl
       baobab
       bluez
@@ -336,6 +381,7 @@ in
       protonplus
       protontricks
       rpcs3WithWolfssl
+      rpcs3Latest
       sddm-astronaut
       sddmAstronautHyprlandKathTheme
       scanmem

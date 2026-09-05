@@ -12,7 +12,7 @@ chosen=$(
 		"󰥛 Animations" \
 		" Color Scheme" \
 		"󰘇 Decorations" \
-		"󰌌 Keyboard" \
+		"󰍽 Input" \
 		"󰓅 Performance" \
 		" Wallpapers" \
 		" Waybar" |
@@ -29,7 +29,7 @@ fi
 		"󰥛 Animations") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Animations/Animations.sh ;;
 		" Color Scheme") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Dark-Light-Mode/DLmode.sh ;;
 		"󰘇 Decorations") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Rounding/Rounding.sh ;;
-		"󰌌 Keyboard") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Keyboard/Keyboard.sh ;;
+		"󰍽 Input") ~/.config/RofiScripts/Settings/input.sh ;;
 		"󰓅 Performance") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Performance/Performance.sh ;;
 		" Wallpapers") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/WallpaperChanger/WallMenu.sh ;;
 		" Waybar") ROFI_BACK_CMD="$HOME/.config/RofiScripts/Settings/Settings.sh" ~/.config/RofiScripts/Waybars/Waybar.sh ;;

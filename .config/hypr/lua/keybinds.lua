@@ -15,7 +15,7 @@ exec(main_mod .. " + R", programs.menu); exec(main_mod .. " + Y", programs.sysmo
 exec(main_mod .. " + space", "pkill -x rofi || pkill -x .rofi-wrapped || ~/.config/RofiScripts/Launcher/Launcher.sh")
 exec(main_mod .. " + F", programs.browser); exec(main_mod .. " + X", "~/.config/RofiScripts/Emojis/Emojis.sh")
 exec(main_mod .. " + comma", "playerctl previous"); exec(main_mod .. " + period", "playerctl next"); exec(main_mod .. " + slash", "playerctl play-pause")
-exec(main_mod .. " + P", "flameshot gui"); exec(main_mod .. " + SHIFT + T", "~/.config/hypr/scripts/ocr.sh")
+exec(main_mod .. " + SHIFT + G", "flameshot gui"); exec(main_mod .. " + SHIFT + T", "~/.config/hypr/scripts/ocr.sh")
 exec(main_mod .. " + B", "pkill hyprsunset || hyprsunset -t 5300")
 exec(main_mod .. " + TAB", "qs ipc -p ~/.config/quickshell/overview call overview toggle")
 hl.bind(main_mod .. " + SHIFT + F", hl.dsp.window.fullscreen())
@@ -76,7 +76,7 @@ for _, navigation in ipairs({ { "A", -1 }, { "D", 1 } }) do
 end
 hl.bind(main_mod .. " + S", workspaces.focus_grid_relative(5))
 hl.bind(main_mod .. " + SHIFT + S", workspaces.move_active_window_grid_relative(5))
-hl.bind(main_mod .. " + G", hl.dsp.focus({ workspace = "name:" })); hl.bind(main_mod .. " + O", workspaces.focus("steam"))
+hl.bind(main_mod .. " + O", workspaces.focus("steam"))
 hl.bind(main_mod .. " + SHIFT + O", workspaces.move_active_window("steam"))
 hl.bind(main_mod .. " + W", hl.dsp.workspace.toggle_special(workspaces.special.magic)); hl.bind(main_mod .. " + SHIFT + W", hl.dsp.window.move({ workspace = workspaces.special_selector("magic") }))
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true }); hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })

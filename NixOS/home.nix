@@ -113,6 +113,14 @@
   # mimeApps
   xdg.mimeApps.enable = true;
 
+  # Throne is started once by Hyprland, which places it on special:magic.
+  # This override prevents the duplicate XDG autostart invocation.
+  xdg.configFile."autostart/Throne.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Hidden=true
+  '';
+
   # Keep XDG downloads aligned with the existing English-named directory.
   # Home Manager makes user-dirs.dirs immutable, so locale updates cannot
   # recreate an unused Russian-named Downloads folder.
@@ -211,6 +219,21 @@
     terminal = false;
     settings = {
       StartupWMClass = "jetbrains-studio";
+    };
+  };
+
+  xdg.desktopEntries.rpcs3-latest = {
+    name = "RPCS3 0.0.42";
+    genericName = "PlayStation 3 Emulator";
+    comment = "An open-source PlayStation 3 emulator/debugger written in C++.";
+    categories = [ "Game" "Emulator" ];
+    exec = "rpcs3-latest";
+    icon = "rpcs3";
+    terminal = false;
+    startupNotify = true;
+    settings = {
+      Keywords = "PS3;Playstation;";
+      StartupWMClass = "rpcs3";
     };
   };
 
