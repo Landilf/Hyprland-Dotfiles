@@ -31,6 +31,19 @@ let
     '';
   };
 
+  # Throne starts this helper for TUN mode. Keep the privileged binary separate
+  # from the launcher so NixOS can apply CAP_NET_ADMIN through its wrapper.
+  throneWithWrappedCore = pkgs-unstable.throne.overrideAttrs (old: {
+    postInstall = (old.postInstall or "") + ''
+      mv "$out/share/throne/ThroneCore" "$out/share/throne/ThroneCore.real"
+      cat > "$out/share/throne/ThroneCore" <<'EOF'
+      #!${pkgs.runtimeShell}
+      exec /run/wrappers/bin/throne-core "$@"
+      EOF
+      chmod +x "$out/share/throne/ThroneCore"
+    '';
+  });
+
 in
 {
 
@@ -136,13 +149,13 @@ in
   services.asusd.enable = true;
   programs.rog-control-center.enable = true;
   
-  # Throne Settings
-  security.wrappers.Throne = {
-    source = "${pkgs-unstable.throne}/bin/Throne";
-    owner = "root";
-    group = "root";
-    capabilities = "cap_net_admin+ep";
+  programs.throne = {
+    enable = true;
+    package = throneWithWrappedCore;
+    tunMode.enable = true;
   };
+
+  security.wrappers."throne-core".source = lib.mkForce "${throneWithWrappedCore}/share/throne/ThroneCore.real";
 
   # ZeroTierOne Settings
   services.zerotierone.enable = true;
@@ -339,7 +352,6 @@ in
       codex
       easyeffects
       antigravity-cli
-      throne
       yandex-music
       zerotierone
     ])
@@ -352,6 +364,7 @@ in
       baobab
       bluez
       bubblewrap
+      chromedriver
       docker
       docker-compose
       flameshot

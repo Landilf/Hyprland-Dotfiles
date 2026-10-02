@@ -293,6 +293,38 @@
             kitty @ --to unix:$socket set-colors ~/.config/kitty/themes/Matugen.conf
           end
       '';
+      region = ''
+        set -l country (${pkgs.curl}/bin/curl \
+          --connect-timeout 3 \
+          --max-time 8 \
+          --silent \
+          --show-error \
+          --fail \
+          https://www.cloudflare.com/cdn-cgi/trace \
+          | ${pkgs.gnugrep}/bin/grep '^loc=' \
+          | ${pkgs.coreutils}/bin/cut -d= -f2)
+
+        if test -z "$country"
+          echo 'Не удалось определить страну внешнего IP.' >&2
+          return 1
+        end
+
+        echo $country
+      '';
+      codex = ''
+        # The request follows the system route, so it reflects the active VPN exit.
+        set -l country (region)
+        if test -z "$country"
+          return 1
+        end
+
+        if test "$country" = RU
+          echo 'Codex не запущен: внешний IP определяется как RU. Включи VPN в Throne.' >&2
+          return 1
+        end
+
+        command codex $argv
+      '';
     };
     shellAliases = {
       adb = "~/ProgrammingSoftware/Android/Sdk/platform-tools/adb";
