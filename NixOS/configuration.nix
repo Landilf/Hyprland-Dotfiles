@@ -44,6 +44,8 @@ let
     '';
   });
 
+  lolka = pkgs.callPackage ./pkgs/lolka.nix { };
+
 in
 {
 
@@ -212,8 +214,9 @@ in
   nixpkgs.config.allowUnfree = true;
   zramSwap = {
     enable = true;
-    # Keep the disk-backed swap preferred so hibernation can build its image.
-    priority = -3;
+    # zram-generator accepts only positive priorities. Keep zram below the
+    # disk-backed swap so hibernation can still build its image there.
+    priority = 1;
   };
 
   # Desktop Environment
@@ -381,6 +384,7 @@ in
       librewolf
       libqalculate
       libsForQt5.qt5ct
+      lolka
       localsend
       mangohud
       mission-center
