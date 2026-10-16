@@ -13,6 +13,6 @@ for _, class in ipairs({ "thunar", "Thunar", "org.gnome.Nautilus" }) do hl.windo
 hl.window_rule({ name = "text-editor-opacity", match = { class = "org.gnome.TextEditor" }, opacity = "0.90 0.85" })
 hl.window_rule({ name = "vscodium-opacity", match = { class = "VSCodium" }, opacity = "0.90 0.85" })
 hl.window_rule({ name = "steam-workspace", match = { class = "steam" }, workspace = workspaces.numeric.steam })
-for _, class in ipairs({ "^(Microsoft Windows)$", "^(xfreerdp)$", "^(msword-rdp)$", "^(msexcel-rdp)$", "^(mspowerpoint-rdp)$" }) do
+for _, class in ipairs({ "^(Microsoft Windows)$", "^(xfreerdp)$" }) do
   hl.window_rule({ name = "windows-workspace-" .. class, match = { class = class }, workspace = workspaces.numeric.windows })
 end

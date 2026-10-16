@@ -31,6 +31,11 @@ let
     '';
   };
 
+  # Alpaca 9.2.5 imports pandas at startup, but its nixpkgs recipe omits it.
+  alpacaWithPandas = pkgs-unstable.alpaca.overridePythonAttrs (old: {
+    dependencies = (old.dependencies or [ ]) ++ [ pkgs-unstable.python3Packages.pandas ];
+  });
+
   # Throne starts this helper for TUN mode. Keep the privileged binary separate
   # from the launcher so NixOS can apply CAP_NET_ADMIN through its wrapper.
   throneWithWrappedCore = pkgs-unstable.throne.overrideAttrs (old: {
@@ -248,6 +253,12 @@ in
     ];
   };
 
+  # Run AppImages installed by ArtCraft Launcher directly from ~/Applications.
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Docker configuration
   virtualisation.docker = {
     enable = true;
@@ -309,6 +320,19 @@ in
     };
   };
 
+  # Run local models through the discrete NVIDIA GPU when available.
+  services.ollama = {
+    enable = true;
+    host = "0.0.0.0";
+    openFirewall = true;
+    package = pkgs.ollama-cuda;
+    environmentVariables = {
+      OLLAMA_CONTEXT_LENGTH = "8192";
+      OLLAMA_FLASH_ATTENTION = "1";
+      OLLAMA_KV_CACHE_TYPE = "q8_0";
+    };
+  };
+
   # Audio
   security.rtkit.enable = true;
   services.pipewire = {
@@ -352,6 +376,7 @@ in
   # System packages (only system-level stuff)
   environment.systemPackages = 
     (with pkgs-unstable; [
+      alpacaWithPandas
       codex
       easyeffects
       antigravity-cli

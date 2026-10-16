@@ -79,6 +79,8 @@
     ANDROID_USER_HOME = "${config.home.homeDirectory}/.android";
     ANDROID_EMULATOR_HOME = "${config.home.homeDirectory}/.android";
     ANDROID_AVD_HOME = "${config.home.homeDirectory}/.android/avd";
+    # Avoid waiting on an unavailable IPv6 localhost when the adb server restarts.
+    ADB_SERVER_SOCKET = "tcp:127.0.0.1:5037";
   };
 
   # Keep the overview module pinned through flake.lock while allowing the
@@ -151,42 +153,6 @@
     "x-scheme-handler/http"  = [ "firefox.desktop" ];
     "x-scheme-handler/https" = [ "firefox.desktop" ];
     "application/pdf" = [ "firefox.desktop" ];
-
-    # ---- Microsoft Word ----
-    "application/msword" =
-      [ "msword.desktop" ];
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
-      [ "msword.desktop" ];
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.template" =
-      [ "msword.desktop" ];
-    "application/vnd.ms-word.document.macroEnabled.12" =
-      [ "msword.desktop" ];
-    "application/rtf" =
-      [ "msword.desktop" ];
-
-    # ---- Microsoft Excel ----
-    "application/vnd.ms-excel" =
-      [ "msexcel.desktop" ];
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" =
-      [ "msexcel.desktop" ];
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.template" =
-      [ "msexcel.desktop" ];
-    "application/vnd.ms-excel.sheet.macroEnabled.12" =
-      [ "msexcel.desktop" ];
-    "text/csv" =
-      [ "msexcel.desktop" ];
-
-    # ---- Microsoft PowerPoint ----
-    "application/vnd.ms-powerpoint" =
-      [ "mspowerpoint.desktop" ];
-    "application/vnd.openxmlformats-officedocument.presentationml.presentation" =
-      [ "mspowerpoint.desktop" ];
-    "application/vnd.openxmlformats-officedocument.presentationml.template" =
-      [ "mspowerpoint.desktop" ];
-    "application/vnd.openxmlformats-officedocument.presentationml.slideshow" =
-      [ "mspowerpoint.desktop" ];
-    "application/vnd.ms-powerpoint.presentation.macroEnabled.12" =
-      [ "mspowerpoint.desktop" ];
 
     # Audio
     "audio/mpeg" = [ "org.gnome.Decibels.desktop" ];
@@ -387,7 +353,9 @@
       PartOf = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk/platform-tools/adb nodaemon server";
+      # Override ADB_SERVER_SOCKET for the listener: adb cannot bind a named host.
+      ExecStart = "${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk/platform-tools/adb -L tcp:5037 nodaemon server";
+      ExecStartPost = "${pkgs.coreutils}/bin/timeout 10 ${pkgs.bash}/bin/bash -c 'until ${config.home.homeDirectory}/ProgrammingSoftware/Android/Sdk/platform-tools/adb -H 127.0.0.1 start-server; do sleep 0.1; done'";
       Restart = "always";
       RestartSec = 2;
     };
@@ -460,6 +428,7 @@
 
   # User-specific packages
   home.packages = with pkgs; [
+    (pkgs.callPackage ./pkgs/artcraft-launcher.nix { })
     (python3.withPackages (ps: with ps; [
       beautifulsoup4
       matplotlib
@@ -484,7 +453,9 @@
       export ANDROID_USER_HOME="$HOME/.android"
       export ANDROID_EMULATOR_HOME="$HOME/.android"
       export ANDROID_AVD_HOME="$HOME/.android/avd"
+      export ADB_SERVER_SOCKET=tcp:127.0.0.1:5037
       export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+      ${pkgs.systemd}/bin/systemctl --user start sdk-adb.service || exit 1
       exec android-studio "$@"
     '')
     ani-cli
