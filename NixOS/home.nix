@@ -454,6 +454,7 @@
   home.packages = with pkgs; [
     (pkgs.callPackage ./pkgs/artcraft-launcher.nix { })
     (pkgs.callPackage ./pkgs/schoolgame.nix { })
+    (pkgs.callPackage ./pkgs/snowhush.nix { })
     # Local menu scripts need Python's standard library; project dependencies
     # live in the Jupyter and ReviewAnalyzer containers.
     python3
