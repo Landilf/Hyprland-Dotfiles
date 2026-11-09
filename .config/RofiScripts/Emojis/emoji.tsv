@@ -1,0 +1,1914 @@
+1	😀	smileys	grinning face
+2	😃	smileys	grinning face with big eyes
+3	😄	smileys	grinning face with smiling eyes
+4	😁	smileys	beaming face with smiling eyes
+5	😂	smileys	face with tears of joy
+6	🤣	smileys	rolling on the floor laughing
+7	😊	smileys	smiling face with smiling eyes
+8	😇	smileys	smiling face with halo
+9	🙂	smileys	slightly smiling face
+10	🙃	smileys	upside-down face
+11	😉	smileys	winking face
+12	😍	smileys	smiling face with heart-eyes
+13	😘	smileys	face blowing a kiss
+14	😎	smileys	smiling face with sunglasses
+15	🤔	smileys	thinking face
+16	😴	smileys	sleeping face
+17	😢	smileys	crying face
+18	😭	smileys	loudly crying face
+19	😡	smileys	pouting face
+20	👍	people	thumbs up
+21	👎	people	thumbs down
+22	👏	people	clapping hands
+23	🙏	people	folded hands
+24	🤝	people	handshake
+25	💪	people	flexed biceps
+26	👋	people	waving hand
+27	👌	people	OK hand
+28	✌	people	victory hand
+29	🤞	people	crossed fingers
+30	🤘	people	sign of the horns
+31	💖	smileys	sparkling heart
+32	💘	smileys	heart with arrow
+33	💝	smileys	heart with ribbon
+34	❤️	smileys	red heart
+35	🧡	smileys	orange heart
+36	💛	smileys	yellow heart
+37	💚	smileys	green heart
+38	💙	smileys	blue heart
+39	💜	smileys	purple heart
+40	🖤	smileys	black heart
+41	🤍	smileys	white heart
+42	💔	smileys	broken heart
+43	✨	activities	sparkles
+44	🔥	travel	fire
+45	⭐	travel	star
+46	🌟	travel	glowing star
+47	💯	smileys	hundred points
+48	✅	symbols	check mark
+49	❌	symbols	cross mark
+50	⚠	symbols	warning
+51	ℹ	symbols	information
+52	💡	objects	light bulb
+53	🔔	objects	bell
+54	🔒	objects	lock
+55	🔑	objects	key
+56	🗑	objects	trash can
+57	📎	objects	paperclip
+58	📌	objects	pushpin
+59	📝	objects	memo
+60	📷	objects	camera
+61	🎵	objects	musical note
+62	🎉	activities	party popper
+63	🌈	travel	rainbow
+64	☀	travel	sun
+65	🌙	travel	crescent moon
+66	☁	travel	cloud
+67	🌧	travel	cloud with rain
+68	❄	travel	snowflake
+69	🌸	nature	cherry blossom
+70	🌻	nature	sunflower
+71	🍕	food	pizza
+72	☕	food	hot beverage
+73	🍺	food	beer mug
+74	🚀	travel	rocket
+75	🎮	activities	video game
+76	💻	objects	laptop
+77	📚	objects	books
+78	🛠	objects	hammer and wrench
+79	⚙	objects	gear
+80	⌛	travel	hourglass done
+81	⏳	travel	hourglass not done
+82	🚫	symbols	prohibited
+83	🔋	objects	battery
+84	📶	symbols	antenna bars
+85	🌍	travel	globe showing Europe-Africa
+86	🧠	people	brain
+87	🧩	activities	puzzle piece
+88	🎯	activities	direct hit
+89	🧭	travel	compass
+90	🧪	objects	test tube
+91	🥳	smileys	partying face
+92	😌	smileys	relieved face
+93	😔	smileys	pensive face
+94	😕	smileys	confused face
+95	🙁	smileys	slightly frowning face
+96	☹	smileys	frowning face
+97	😤	smileys	face with steam from nose
+98	🤯	smileys	exploding head
+99	😱	smileys	face screaming in fear
+100	🤗	smileys	smiling face with open hands
+101	🫡	smileys	saluting face
+102	🫠	smileys	melting face
+103	🤠	smileys	cowboy hat face
+104	🥶	smileys	cold face
+105	🥵	smileys	hot face
+106	🥺	smileys	pleading face
+107	😈	smileys	smiling face with horns
+108	👀	people	eyes
+109	🫶	people	heart hands
+110	🤲	people	palms up together
+111	🫱	people	rightwards hand
+112	🫲	people	leftwards hand
+113	🖐	people	hand with fingers splayed
+114	🤙	people	call me hand
+115	🫰	people	hand with index finger and thumb crossed
+116	🤚	people	raised back of hand
+117	✍	people	writing hand
+118	🫵	people	index pointing at the viewer
+119	🫳	people	palm down hand
+120	🫴	people	palm up hand
+121	💌	smileys	love letter
+122	💞	smileys	revolving hearts
+123	💓	smileys	beating heart
+124	💗	smileys	growing heart
+125	💥	smileys	collision
+126	💫	smileys	dizzy
+127	💢	smileys	anger symbol
+128	💦	smileys	sweat droplets
+129	💤	smileys	zz
+130	💬	smileys	speech balloon
+131	🗨	smileys	left speech bubble
+132	🗯	smileys	right anger bubble
+133	💭	smileys	thought balloon
+134	🚦	travel	vertical traffic light
+135	🚗	travel	automobile
+136	🚕	travel	taxi
+137	🚌	travel	bus
+138	🚎	travel	trolleybus
+139	🚓	travel	police car
+140	🚑	travel	ambulance
+141	🚒	travel	fire engine
+142	🚜	travel	tractor
+143	🛵	travel	motor scooter
+144	🏍	travel	motorcycle
+145	🚲	travel	bicycle
+146	🛹	travel	skateboard
+147	🧳	travel	luggage
+148	📱	objects	mobile phone
+149	⌨	objects	keyboard
+150	🖱	objects	computer mouse
+151	🖨	objects	printer
+152	🧵	activities	thread
+153	🪡	activities	sewing needle
+154	🪛	objects	screwdriver
+155	🔧	objects	wrench
+156	🔨	objects	hammer
+157	🪓	objects	axe
+158	🧰	objects	toolbox
+159	🪣	objects	bucket
+160	🧹	objects	broom
+161	🧽	objects	sponge
+162	🧯	objects	fire extinguisher
+163	📦	objects	package
+164	📁	objects	folder
+165	📂	objects	open file folder
+166	📅	objects	calendar
+167	🗓	objects	spiral calendar
+168	🕒	travel	three o'clock
+169	⏱	travel	stopwatch
+170	⏲	travel	timer clock
+171	🧿	objects	nazar amulet
+172	🪬	objects	hamsa
+173	🔭	objects	telescope
+174	📡	objects	satellite antenna
+175	🧫	objects	petri dish
+176	🧬	objects	dna
+177	🦠	animals	microbe
+178	🧱	travel	brick
+179	🍏	food	green apple
+180	🍎	food	red apple
+181	🍊	food	tangerine
+182	🍌	food	banana
+183	🍇	food	grapes
+184	🍓	food	strawberry
+185	🍒	food	cherries
+186	🍑	food	peach
+187	🍍	food	pineapple
+188	🥐	food	croissant
+189	🥨	food	pretzel
+190	🍔	food	hamburger
+191	🍟	food	french fries
+192	🍣	food	sushi
+193	🍜	food	steaming bowl
+194	🍩	food	doughnut
+195	🍪	food	cookie
+196	🧁	food	cupcake
+197	🍿	food	popcorn
+198	🍫	food	chocolate bar
+199	🥤	food	cup with straw
+200	🧃	food	beverage box
+201	🤡	smileys	clown face
+202	🤮	smileys	face vomiting
+203	💩	smileys	pile of poo
+204	😆	smileys	grinning squinting face
+205	😅	smileys	grinning face with sweat
+206	🥰	smileys	smiling face with hearts
+207	🤩	smileys	star-struck
+208	😗	smileys	kissing face
+209	☺️	smileys	smiling face
+210	😚	smileys	kissing face with closed eyes
+211	😙	smileys	kissing face with smiling eyes
+212	🥲	smileys	smiling face with tear
+213	😋	smileys	face savoring food
+214	😛	smileys	face with tongue
+215	😜	smileys	winking face with tongue
+216	🤪	smileys	zany face
+217	😝	smileys	squinting face with tongue
+218	🤑	smileys	money-mouth face
+219	🤭	smileys	face with hand over mouth
+220	🫢	smileys	face with open eyes and hand over mouth
+221	🫣	smileys	face with peeking eye
+222	🤫	smileys	shushing face
+223	🤐	smileys	zipper-mouth face
+224	🤨	smileys	face with raised eyebrow
+225	😐	smileys	neutral face
+226	😑	smileys	expressionless face
+227	😶	smileys	face without mouth
+228	🫥	smileys	dotted line face
+229	😶‍🌫️	smileys	face in clouds
+230	😏	smileys	smirking face
+231	😒	smileys	unamused face
+232	🙄	smileys	face with rolling eyes
+233	😬	smileys	grimacing face
+234	😮‍💨	smileys	face exhaling
+235	🤥	smileys	lying face
+236	🫨	smileys	shaking face
+237	🙂‍↔️	smileys	head shaking horizontally
+238	🙂‍↕️	smileys	head shaking vertically
+239	😪	smileys	sleepy face
+240	🤤	smileys	drooling face
+241	🫩	smileys	face with bags under eyes
+242	😷	smileys	face with medical mask
+243	🤒	smileys	face with thermometer
+244	🤕	smileys	face with head-bandage
+245	🤢	smileys	nauseated face
+246	🤧	smileys	sneezing face
+247	🥴	smileys	woozy face
+248	😵	smileys	face with crossed-out eyes
+249	😵‍💫	smileys	face with spiral eyes
+250	🥸	smileys	disguised face
+251	🤓	smileys	nerd face
+252	🧐	smileys	face with monocle
+253	🫤	smileys	face with diagonal mouth
+254	😟	smileys	worried face
+255	😮	smileys	face with open mouth
+256	😯	smileys	hushed face
+257	😲	smileys	astonished face
+258	😳	smileys	flushed face
+259	🫪	smileys	distorted face
+260	🥹	smileys	face holding back tears
+261	😦	smileys	frowning face with open mouth
+262	😧	smileys	anguished face
+263	😨	smileys	fearful face
+264	😰	smileys	anxious face with sweat
+265	😥	smileys	sad but relieved face
+266	😖	smileys	confounded face
+267	😣	smileys	persevering face
+268	😞	smileys	disappointed face
+269	😓	smileys	downcast face with sweat
+270	😩	smileys	weary face
+271	😫	smileys	tired face
+272	🥱	smileys	yawning face
+273	😠	smileys	angry face
+274	🤬	smileys	face with symbols on mouth
+275	👿	smileys	angry face with horns
+276	💀	smileys	skull
+277	☠️	smileys	skull and crossbones
+278	👹	smileys	ogre
+279	👺	smileys	goblin
+280	👻	smileys	ghost
+281	👽	smileys	alien
+282	👾	smileys	alien monster
+283	🤖	smileys	robot
+284	😺	smileys	grinning cat
+285	😸	smileys	grinning cat with smiling eyes
+286	😹	smileys	cat with tears of joy
+287	😻	smileys	smiling cat with heart-eyes
+288	😼	smileys	cat with wry smile
+289	😽	smileys	kissing cat
+290	🙀	smileys	weary cat
+291	😿	smileys	crying cat
+292	😾	smileys	pouting cat
+293	🙈	smileys	see-no-evil monkey
+294	🙉	smileys	hear-no-evil monkey
+295	🙊	smileys	speak-no-evil monkey
+296	💕	smileys	two hearts
+297	💟	smileys	heart decoration
+298	❣️	smileys	heart exclamation
+299	❤️‍🔥	smileys	heart on fire
+300	❤️‍🩹	smileys	mending heart
+301	🩷	smileys	pink heart
+302	🩵	smileys	light blue heart
+303	🤎	smileys	brown heart
+304	🩶	smileys	grey heart
+305	💋	smileys	kiss mark
+306	🫯	smileys	fight cloud
+307	💨	smileys	dashing away
+308	🕳️	smileys	hole
+309	👁️‍🗨️	smileys	eye in speech bubble
+310	🐵	animals	monkey face
+311	🐒	animals	monkey
+312	🦍	animals	gorilla
+313	🦧	animals	orangutan
+314	🐶	animals	dog face
+315	🐕	animals	dog
+316	🦮	animals	guide dog
+317	🐕‍🦺	animals	service dog
+318	🐩	animals	poodle
+319	🐺	animals	wolf
+320	🦊	animals	fox
+321	🦝	animals	raccoon
+322	🐱	animals	cat face
+323	🐈	animals	cat
+324	🐈‍⬛	animals	black cat
+325	🦁	animals	lion
+326	🐯	animals	tiger face
+327	🐅	animals	tiger
+328	🐆	animals	leopard
+329	🐴	animals	horse face
+330	🫎	animals	moose
+331	🫏	animals	donkey
+332	🐎	animals	horse
+333	🦄	animals	unicorn
+334	🦓	animals	zebra
+335	🦌	animals	deer
+336	🦬	animals	bison
+337	🐮	animals	cow face
+338	🐂	animals	ox
+339	🐃	animals	water buffalo
+340	🐄	animals	cow
+341	🐷	animals	pig face
+342	🐖	animals	pig
+343	🐗	animals	boar
+344	🐽	animals	pig nose
+345	🐏	animals	ram
+346	🐑	animals	ewe
+347	🐐	animals	goat
+348	🐪	animals	camel
+349	🐫	animals	two-hump camel
+350	🦙	animals	llama
+351	🦒	animals	giraffe
+352	🐘	animals	elephant
+353	🦣	animals	mammoth
+354	🦏	animals	rhinoceros
+355	🦛	animals	hippopotamus
+356	🐭	animals	mouse face
+357	🐁	animals	mouse
+358	🐀	animals	rat
+359	🐹	animals	hamster
+360	🐰	animals	rabbit face
+361	🐇	animals	rabbit
+362	🐿️	animals	chipmunk
+363	🦫	animals	beaver
+364	🦔	animals	hedgehog
+365	🦇	animals	bat
+366	🐻	animals	bear
+367	🐻‍❄️	animals	polar bear
+368	🐨	animals	koala
+369	🐼	animals	panda
+370	🦥	animals	sloth
+371	🦦	animals	otter
+372	🦨	animals	skunk
+373	🦘	animals	kangaroo
+374	🦡	animals	badger
+375	🐾	animals	paw prints
+376	🦃	animals	turkey
+377	🐔	animals	chicken
+378	🐓	animals	rooster
+379	🐣	animals	hatching chick
+380	🐤	animals	baby chick
+381	🐥	animals	front-facing baby chick
+382	🐦	animals	bird
+383	🐧	animals	penguin
+384	🕊️	animals	dove
+385	🦅	animals	eagle
+386	🦆	animals	duck
+387	🦢	animals	swan
+388	🦉	animals	owl
+389	🦤	animals	dodo
+390	🪶	animals	feather
+391	🦩	animals	flamingo
+392	🦚	animals	peacock
+393	🦜	animals	parrot
+394	🪽	animals	wing
+395	🐦‍⬛	animals	black bird
+396	🪿	animals	goose
+397	🐦‍🔥	animals	phoenix
+398	🐸	animals	frog
+399	🐊	animals	crocodile
+400	🐢	animals	turtle
+401	🦎	animals	lizard
+402	🐍	animals	snake
+403	🐲	animals	dragon face
+404	🐉	animals	dragon
+405	🦕	animals	sauropod
+406	🦖	animals	T-Rex
+407	🐳	animals	spouting whale
+408	🐋	animals	whale
+409	🐬	animals	dolphin
+410	🫍	animals	orca
+411	🦭	animals	seal
+412	🐟	animals	fish
+413	🐠	animals	tropical fish
+414	🐡	animals	blowfish
+415	🦈	animals	shark
+416	🐙	animals	octopus
+417	🐚	animals	spiral shell
+418	🪸	animals	coral
+419	🪼	animals	jellyfish
+420	🦀	animals	crab
+421	🦞	animals	lobster
+422	🦐	animals	shrimp
+423	🦑	animals	squid
+424	🦪	animals	oyster
+425	🐌	animals	snail
+426	🦋	animals	butterfly
+427	🐛	animals	bug
+428	🐜	animals	ant
+429	🐝	animals	honeybee
+430	🪲	animals	beetle
+431	🐞	animals	lady beetle
+432	🦗	animals	cricket
+433	🪳	animals	cockroach
+434	🕷️	animals	spider
+435	🕸️	animals	spider web
+436	🦂	animals	scorpion
+437	🦟	animals	mosquito
+438	🪰	animals	fly
+439	🪱	animals	worm
+455	✋	people	raised hand
+461	🖖	people	vulcan salute
+487	🫷	people	leftwards pushing hand
+493	🫸	people	rightwards pushing hand
+504	🤌	people	pinched fingers
+510	🤏	people	pinching hand
+531	🤟	people	love-you gesture
+547	👈	people	backhand index pointing left
+553	👉	people	backhand index pointing right
+559	👆	people	backhand index pointing up
+565	🖕	people	middle finger
+571	👇	people	backhand index pointing down
+577	☝️	people	index pointing up
+598	✊	people	raised fist
+604	👊	people	oncoming fist
+610	🤛	people	left-facing fist
+616	🤜	people	right-facing fist
+627	🙌	people	raising hands
+638	👐	people	open hands
+684	💅	people	nail polish
+690	🤳	people	selfie
+701	🦾	people	mechanical arm
+702	🦿	people	mechanical leg
+703	🦵	people	leg
+709	🦶	people	foot
+715	👂	people	ear
+721	🦻	people	ear with hearing aid
+727	👃	people	nose
+733	🫀	people	anatomical heart
+734	🫁	people	lungs
+735	🦷	people	tooth
+736	🦴	people	bone
+737	👁️	people	eye
+738	👅	people	tongue
+739	👄	people	mouth
+740	🫦	people	biting lip
+741	👶	people	baby
+747	🧒	people	child
+753	👦	people	boy
+759	👧	people	girl
+765	🧑	people	person
+771	👱	people	person: blond hair
+777	👨	people	man
+783	🧔	people	person: beard
+789	🧔‍♂️	people	man: beard
+795	🧔‍♀️	people	woman: beard
+801	👨‍🦰	people	man: red hair
+807	👨‍🦱	people	man: curly hair
+813	👨‍🦳	people	man: white hair
+819	👨‍🦲	people	man: bald
+825	👩	people	woman
+831	👩‍🦰	people	woman: red hair
+837	🧑‍🦰	people	person: red hair
+843	👩‍🦱	people	woman: curly hair
+849	🧑‍🦱	people	person: curly hair
+855	👩‍🦳	people	woman: white hair
+861	🧑‍🦳	people	person: white hair
+867	👩‍🦲	people	woman: bald
+873	🧑‍🦲	people	person: bald
+879	👱‍♀️	people	woman: blond hair
+885	👱‍♂️	people	man: blond hair
+891	🧓	people	older person
+897	👴	people	old man
+903	👵	people	old woman
+909	🙍	people	person frowning
+915	🙍‍♂️	people	man frowning
+921	🙍‍♀️	people	woman frowning
+927	🙎	people	person pouting
+933	🙎‍♂️	people	man pouting
+939	🙎‍♀️	people	woman pouting
+945	🙅	people	person gesturing NO
+951	🙅‍♂️	people	man gesturing NO
+957	🙅‍♀️	people	woman gesturing NO
+963	🙆	people	person gesturing OK
+969	🙆‍♂️	people	man gesturing OK
+975	🙆‍♀️	people	woman gesturing OK
+981	💁	people	person tipping hand
+987	💁‍♂️	people	man tipping hand
+993	💁‍♀️	people	woman tipping hand
+999	🙋	people	person raising hand
+1005	🙋‍♂️	people	man raising hand
+1011	🙋‍♀️	people	woman raising hand
+1017	🧏	people	deaf person
+1023	🧏‍♂️	people	deaf man
+1029	🧏‍♀️	people	deaf woman
+1035	🙇	people	person bowing
+1041	🙇‍♂️	people	man bowing
+1047	🙇‍♀️	people	woman bowing
+1053	🤦	people	person facepalming
+1059	🤦‍♂️	people	man facepalming
+1065	🤦‍♀️	people	woman facepalming
+1071	🤷	people	person shrugging
+1077	🤷‍♂️	people	man shrugging
+1083	🤷‍♀️	people	woman shrugging
+1089	🧑‍⚕️	people	health worker
+1095	👨‍⚕️	people	man health worker
+1101	👩‍⚕️	people	woman health worker
+1107	🧑‍🎓	people	student
+1113	👨‍🎓	people	man student
+1119	👩‍🎓	people	woman student
+1125	🧑‍🏫	people	teacher
+1131	👨‍🏫	people	man teacher
+1137	👩‍🏫	people	woman teacher
+1143	🧑‍⚖️	people	judge
+1149	👨‍⚖️	people	man judge
+1155	👩‍⚖️	people	woman judge
+1161	🧑‍🌾	people	farmer
+1167	👨‍🌾	people	man farmer
+1173	👩‍🌾	people	woman farmer
+1179	🧑‍🍳	people	cook
+1185	👨‍🍳	people	man cook
+1191	👩‍🍳	people	woman cook
+1197	🧑‍🔧	people	mechanic
+1203	👨‍🔧	people	man mechanic
+1209	👩‍🔧	people	woman mechanic
+1215	🧑‍🏭	people	factory worker
+1221	👨‍🏭	people	man factory worker
+1227	👩‍🏭	people	woman factory worker
+1233	🧑‍💼	people	office worker
+1239	👨‍💼	people	man office worker
+1245	👩‍💼	people	woman office worker
+1251	🧑‍🔬	people	scientist
+1257	👨‍🔬	people	man scientist
+1263	👩‍🔬	people	woman scientist
+1269	🧑‍💻	people	technologist
+1275	👨‍💻	people	man technologist
+1281	👩‍💻	people	woman technologist
+1287	🧑‍🎤	people	singer
+1293	👨‍🎤	people	man singer
+1299	👩‍🎤	people	woman singer
+1305	🧑‍🎨	people	artist
+1311	👨‍🎨	people	man artist
+1317	👩‍🎨	people	woman artist
+1323	🧑‍✈️	people	pilot
+1329	👨‍✈️	people	man pilot
+1335	👩‍✈️	people	woman pilot
+1341	🧑‍🚀	people	astronaut
+1347	👨‍🚀	people	man astronaut
+1353	👩‍🚀	people	woman astronaut
+1359	🧑‍🚒	people	firefighter
+1365	👨‍🚒	people	man firefighter
+1371	👩‍🚒	people	woman firefighter
+1377	👮	people	police officer
+1383	👮‍♂️	people	man police officer
+1389	👮‍♀️	people	woman police officer
+1395	🕵️	people	detective
+1401	🕵️‍♂️	people	man detective
+1407	🕵️‍♀️	people	woman detective
+1413	💂	people	guard
+1419	💂‍♂️	people	man guard
+1425	💂‍♀️	people	woman guard
+1431	🥷	people	ninja
+1437	👷	people	construction worker
+1443	👷‍♂️	people	man construction worker
+1449	👷‍♀️	people	woman construction worker
+1455	🫅	people	person with crown
+1461	🤴	people	prince
+1467	👸	people	princess
+1473	👳	people	person wearing turban
+1479	👳‍♂️	people	man wearing turban
+1485	👳‍♀️	people	woman wearing turban
+1491	👲	people	person with skullcap
+1497	🧕	people	woman with headscarf
+1503	🤵	people	person in tuxedo
+1509	🤵‍♂️	people	man in tuxedo
+1515	🤵‍♀️	people	woman in tuxedo
+1521	👰	people	person with veil
+1527	👰‍♂️	people	man with veil
+1533	👰‍♀️	people	woman with veil
+1539	🤰	people	pregnant woman
+1545	🫃	people	pregnant man
+1551	🫄	people	pregnant person
+1557	🤱	people	breast-feeding
+1563	👩‍🍼	people	woman feeding baby
+1569	👨‍🍼	people	man feeding baby
+1575	🧑‍🍼	people	person feeding baby
+1581	👼	people	baby angel
+1587	🎅	people	Santa Claus
+1593	🤶	people	Mrs. Claus
+1599	🧑‍🎄	people	Mx Claus
+1605	🦸	people	superhero
+1611	🦸‍♂️	people	man superhero
+1617	🦸‍♀️	people	woman superhero
+1623	🦹	people	supervillain
+1629	🦹‍♂️	people	man supervillain
+1635	🦹‍♀️	people	woman supervillain
+1641	🧙	people	mage
+1647	🧙‍♂️	people	man mage
+1653	🧙‍♀️	people	woman mage
+1659	🧚	people	fairy
+1665	🧚‍♂️	people	man fairy
+1671	🧚‍♀️	people	woman fairy
+1677	🧛	people	vampire
+1683	🧛‍♂️	people	man vampire
+1689	🧛‍♀️	people	woman vampire
+1695	🧜	people	merperson
+1701	🧜‍♂️	people	merman
+1707	🧜‍♀️	people	mermaid
+1713	🧝	people	elf
+1719	🧝‍♂️	people	man elf
+1725	🧝‍♀️	people	woman elf
+1731	🧞	people	genie
+1732	🧞‍♂️	people	man genie
+1733	🧞‍♀️	people	woman genie
+1734	🧟	people	zombie
+1735	🧟‍♂️	people	man zombie
+1736	🧟‍♀️	people	woman zombie
+1737	🧌	people	troll
+1738	🫈	people	hairy creature
+1739	💆	people	person getting massage
+1745	💆‍♂️	people	man getting massage
+1751	💆‍♀️	people	woman getting massage
+1757	💇	people	person getting haircut
+1763	💇‍♂️	people	man getting haircut
+1769	💇‍♀️	people	woman getting haircut
+1775	🚶	people	person walking
+1781	🚶‍♂️	people	man walking
+1787	🚶‍♀️	people	woman walking
+1793	🚶‍➡️	people	person walking facing right
+1799	🚶‍♀️‍➡️	people	woman walking facing right
+1805	🚶‍♂️‍➡️	people	man walking facing right
+1811	🧍	people	person standing
+1817	🧍‍♂️	people	man standing
+1823	🧍‍♀️	people	woman standing
+1829	🧎	people	person kneeling
+1835	🧎‍♂️	people	man kneeling
+1841	🧎‍♀️	people	woman kneeling
+1847	🧎‍➡️	people	person kneeling facing right
+1853	🧎‍♀️‍➡️	people	woman kneeling facing right
+1859	🧎‍♂️‍➡️	people	man kneeling facing right
+1865	🧑‍🦯	people	person with white cane
+1871	🧑‍🦯‍➡️	people	person with white cane facing right
+1877	👨‍🦯	people	man with white cane
+1883	👨‍🦯‍➡️	people	man with white cane facing right
+1889	👩‍🦯	people	woman with white cane
+1895	👩‍🦯‍➡️	people	woman with white cane facing right
+1901	🧑‍🦼	people	person in motorized wheelchair
+1907	🧑‍🦼‍➡️	people	person in motorized wheelchair facing right
+1913	👨‍🦼	people	man in motorized wheelchair
+1919	👨‍🦼‍➡️	people	man in motorized wheelchair facing right
+1925	👩‍🦼	people	woman in motorized wheelchair
+1931	👩‍🦼‍➡️	people	woman in motorized wheelchair facing right
+1937	🧑‍🦽	people	person in manual wheelchair
+1943	🧑‍🦽‍➡️	people	person in manual wheelchair facing right
+1949	👨‍🦽	people	man in manual wheelchair
+1955	👨‍🦽‍➡️	people	man in manual wheelchair facing right
+1961	👩‍🦽	people	woman in manual wheelchair
+1967	👩‍🦽‍➡️	people	woman in manual wheelchair facing right
+1973	🏃	people	person running
+1979	🏃‍♂️	people	man running
+1985	🏃‍♀️	people	woman running
+1991	🏃‍➡️	people	person running facing right
+1997	🏃‍♀️‍➡️	people	woman running facing right
+2003	🏃‍♂️‍➡️	people	man running facing right
+2009	🧑‍🩰	people	ballet dancer
+2015	💃	people	woman dancing
+2021	🕺	people	man dancing
+2027	🕴️	people	person in suit levitating
+2033	👯	people	people with bunny ears
+2039	👯‍♂️	people	men with bunny ears
+2045	👯‍♀️	people	women with bunny ears
+2111	🧖	people	person in steamy room
+2117	🧖‍♂️	people	man in steamy room
+2123	🧖‍♀️	people	woman in steamy room
+2129	🧗	people	person climbing
+2135	🧗‍♂️	people	man climbing
+2141	🧗‍♀️	people	woman climbing
+2147	🤺	people	person fencing
+2148	🏇	people	horse racing
+2154	⛷️	people	skier
+2155	🏂	people	snowboarder
+2161	🏌️	people	person golfing
+2167	🏌️‍♂️	people	man golfing
+2173	🏌️‍♀️	people	woman golfing
+2179	🏄	people	person surfing
+2185	🏄‍♂️	people	man surfing
+2191	🏄‍♀️	people	woman surfing
+2197	🚣	people	person rowing boat
+2203	🚣‍♂️	people	man rowing boat
+2209	🚣‍♀️	people	woman rowing boat
+2215	🏊	people	person swimming
+2221	🏊‍♂️	people	man swimming
+2227	🏊‍♀️	people	woman swimming
+2233	⛹️	people	person bouncing ball
+2239	⛹️‍♂️	people	man bouncing ball
+2245	⛹️‍♀️	people	woman bouncing ball
+2251	🏋️	people	person lifting weights
+2257	🏋️‍♂️	people	man lifting weights
+2263	🏋️‍♀️	people	woman lifting weights
+2269	🚴	people	person biking
+2275	🚴‍♂️	people	man biking
+2281	🚴‍♀️	people	woman biking
+2287	🚵	people	person mountain biking
+2293	🚵‍♂️	people	man mountain biking
+2299	🚵‍♀️	people	woman mountain biking
+2305	🤸	people	person cartwheeling
+2311	🤸‍♂️	people	man cartwheeling
+2317	🤸‍♀️	people	woman cartwheeling
+2323	🤼	people	people wrestling
+2329	🤼‍♂️	people	men wrestling
+2335	🤼‍♀️	people	women wrestling
+2401	🤽	people	person playing water polo
+2407	🤽‍♂️	people	man playing water polo
+2413	🤽‍♀️	people	woman playing water polo
+2419	🤾	people	person playing handball
+2425	🤾‍♂️	people	man playing handball
+2431	🤾‍♀️	people	woman playing handball
+2437	🤹	people	person juggling
+2443	🤹‍♂️	people	man juggling
+2449	🤹‍♀️	people	woman juggling
+2455	🧘	people	person in lotus position
+2461	🧘‍♂️	people	man in lotus position
+2467	🧘‍♀️	people	woman in lotus position
+2473	🛀	people	person taking bath
+2479	🛌	people	person in bed
+2485	🧑‍🤝‍🧑	people	people holding hands
+2511	👭	people	women holding hands
+2537	👫	people	woman and man holding hands
+2563	👬	people	men holding hands
+2589	💏	people	kiss
+2615	👩‍❤️‍💋‍👨	people	kiss: woman, man
+2641	👨‍❤️‍💋‍👨	people	kiss: man, man
+2667	👩‍❤️‍💋‍👩	people	kiss: woman, woman
+2693	💑	people	couple with heart
+2719	👩‍❤️‍👨	people	couple with heart: woman, man
+2745	👨‍❤️‍👨	people	couple with heart: man, man
+2771	👩‍❤️‍👩	people	couple with heart: woman, woman
+2797	👨‍👩‍👦	people	family: man, woman, boy
+2798	👨‍👩‍👧	people	family: man, woman, girl
+2799	👨‍👩‍👧‍👦	people	family: man, woman, girl, boy
+2800	👨‍👩‍👦‍👦	people	family: man, woman, boy, boy
+2801	👨‍👩‍👧‍👧	people	family: man, woman, girl, girl
+2802	👨‍👨‍👦	people	family: man, man, boy
+2803	👨‍👨‍👧	people	family: man, man, girl
+2804	👨‍👨‍👧‍👦	people	family: man, man, girl, boy
+2805	👨‍👨‍👦‍👦	people	family: man, man, boy, boy
+2806	👨‍👨‍👧‍👧	people	family: man, man, girl, girl
+2807	👩‍👩‍👦	people	family: woman, woman, boy
+2808	👩‍👩‍👧	people	family: woman, woman, girl
+2809	👩‍👩‍👧‍👦	people	family: woman, woman, girl, boy
+2810	👩‍👩‍👦‍👦	people	family: woman, woman, boy, boy
+2811	👩‍👩‍👧‍👧	people	family: woman, woman, girl, girl
+2812	👨‍👦	people	family: man, boy
+2813	👨‍👦‍👦	people	family: man, boy, boy
+2814	👨‍👧	people	family: man, girl
+2815	👨‍👧‍👦	people	family: man, girl, boy
+2816	👨‍👧‍👧	people	family: man, girl, girl
+2817	👩‍👦	people	family: woman, boy
+2818	👩‍👦‍👦	people	family: woman, boy, boy
+2819	👩‍👧	people	family: woman, girl
+2820	👩‍👧‍👦	people	family: woman, girl, boy
+2821	👩‍👧‍👧	people	family: woman, girl, girl
+2822	🗣️	people	speaking head
+2823	👤	people	bust in silhouette
+2824	👥	people	busts in silhouette
+2825	🫂	people	people hugging
+2826	👪	people	family
+2827	🧑‍🧑‍🧒	people	family: adult, adult, child
+2828	🧑‍🧑‍🧒‍🧒	people	family: adult, adult, child, child
+2829	🧑‍🧒	people	family: adult, child
+2830	🧑‍🧒‍🧒	people	family: adult, child, child
+2831	👣	people	footprints
+2832	🫆	people	fingerprint
+2833	💐	nature	bouquet
+2834	💮	nature	white flower
+2835	🪷	nature	lotus
+2836	🏵️	nature	rosette
+2837	🌹	nature	rose
+2838	🥀	nature	wilted flower
+2839	🌺	nature	hibiscus
+2840	🌼	nature	blossom
+2841	🌷	nature	tulip
+2842	🪻	nature	hyacinth
+2843	🌱	nature	seedling
+2844	🪴	nature	potted plant
+2845	🌲	nature	evergreen tree
+2846	🌳	nature	deciduous tree
+2847	🌴	nature	palm tree
+2848	🌵	nature	cactus
+2849	🌾	nature	sheaf of rice
+2850	🌿	nature	herb
+2851	☘️	nature	shamrock
+2852	🍀	nature	four leaf clover
+2853	🍁	nature	maple leaf
+2854	🍂	nature	fallen leaf
+2855	🍃	nature	leaf fluttering in wind
+2856	🪹	nature	empty nest
+2857	🪺	nature	nest with eggs
+2858	🍄	nature	mushroom
+2859	🪾	nature	leafless tree
+2860	🍈	food	melon
+2861	🍉	food	watermelon
+2862	🍋	food	lemon
+2863	🍋‍🟩	food	lime
+2864	🥭	food	mango
+2865	🍐	food	pear
+2866	🫐	food	blueberries
+2867	🥝	food	kiwi fruit
+2868	🍅	food	tomato
+2869	🫒	food	olive
+2870	🥥	food	coconut
+2871	🥑	food	avocado
+2872	🍆	food	eggplant
+2873	🥔	food	potato
+2874	🥕	food	carrot
+2875	🌽	food	ear of corn
+2876	🌶️	food	hot pepper
+2877	🫑	food	bell pepper
+2878	🥒	food	cucumber
+2879	🥬	food	leafy green
+2880	🥦	food	broccoli
+2881	🧄	food	garlic
+2882	🧅	food	onion
+2883	🥜	food	peanuts
+2884	🫘	food	beans
+2885	🌰	food	chestnut
+2886	🫚	food	ginger root
+2887	🫛	food	pea pod
+2888	🍄‍🟫	food	brown mushroom
+2889	🫜	food	root vegetable
+2890	🍞	food	bread
+2891	🥖	food	baguette bread
+2892	🫓	food	flatbread
+2893	🥯	food	bagel
+2894	🥞	food	pancakes
+2895	🧇	food	waffle
+2896	🧀	food	cheese wedge
+2897	🍖	food	meat on bone
+2898	🍗	food	poultry leg
+2899	🥩	food	cut of meat
+2900	🥓	food	bacon
+2901	🌭	food	hot dog
+2902	🥪	food	sandwich
+2903	🌮	food	taco
+2904	🌯	food	burrito
+2905	🫔	food	tamale
+2906	🥙	food	stuffed flatbread
+2907	🧆	food	falafel
+2908	🥚	food	egg
+2909	🍳	food	cooking
+2910	🥘	food	shallow pan of food
+2911	🍲	food	pot of food
+2912	🫕	food	fondue
+2913	🥣	food	bowl with spoon
+2914	🥗	food	green salad
+2915	🧈	food	butter
+2916	🧂	food	salt
+2917	🥫	food	canned food
+2918	🍱	food	bento box
+2919	🍘	food	rice cracker
+2920	🍙	food	rice ball
+2921	🍚	food	cooked rice
+2922	🍛	food	curry rice
+2923	🍝	food	spaghetti
+2924	🍠	food	roasted sweet potato
+2925	🍢	food	oden
+2926	🍤	food	fried shrimp
+2927	🍥	food	fish cake with swirl
+2928	🥮	food	moon cake
+2929	🍡	food	dango
+2930	🥟	food	dumpling
+2931	🥠	food	fortune cookie
+2932	🥡	food	takeout box
+2933	🍦	food	soft ice cream
+2934	🍧	food	shaved ice
+2935	🍨	food	ice cream
+2936	🎂	food	birthday cake
+2937	🍰	food	shortcake
+2938	🥧	food	pie
+2939	🍬	food	candy
+2940	🍭	food	lollipop
+2941	🍮	food	custard
+2942	🍯	food	honey pot
+2943	🍼	food	baby bottle
+2944	🥛	food	glass of milk
+2945	🫖	food	teapot
+2946	🍵	food	teacup without handle
+2947	🍶	food	sake
+2948	🍾	food	bottle with popping cork
+2949	🍷	food	wine glass
+2950	🍸	food	cocktail glass
+2951	🍹	food	tropical drink
+2952	🍻	food	clinking beer mugs
+2953	🥂	food	clinking glasses
+2954	🥃	food	tumbler glass
+2955	🫗	food	pouring liquid
+2956	🧋	food	bubble tea
+2957	🧉	food	mate
+2958	🧊	food	ice
+2959	🥢	food	chopsticks
+2960	🍽️	food	fork and knife with plate
+2961	🍴	food	fork and knife
+2962	🥄	food	spoon
+2963	🔪	food	kitchen knife
+2964	🫙	food	jar
+2965	🏺	food	amphora
+2966	🌎	travel	globe showing Americas
+2967	🌏	travel	globe showing Asia-Australia
+2968	🌐	travel	globe with meridians
+2969	🗺️	travel	world map
+2970	🗾	travel	map of Japan
+2971	🏔️	travel	snow-capped mountain
+2972	⛰️	travel	mountain
+2973	🛘	travel	landslide
+2974	🌋	travel	volcano
+2975	🗻	travel	mount fuji
+2976	🏕️	travel	camping
+2977	🏖️	travel	beach with umbrella
+2978	🏜️	travel	desert
+2979	🏝️	travel	desert island
+2980	🏞️	travel	national park
+2981	🏟️	travel	stadium
+2982	🏛️	travel	classical building
+2983	🏗️	travel	building construction
+2984	🪨	travel	rock
+2985	🪵	travel	wood
+2986	🛖	travel	hut
+2987	🏘️	travel	houses
+2988	🏚️	travel	derelict house
+2989	🏠	travel	house
+2990	🏡	travel	house with garden
+2991	🏢	travel	office building
+2992	🏣	travel	Japanese post office
+2993	🏤	travel	post office
+2994	🏥	travel	hospital
+2995	🏦	travel	bank
+2996	🏨	travel	hotel
+2997	🏩	travel	love hotel
+2998	🏪	travel	convenience store
+2999	🏫	travel	school
+3000	🏬	travel	department store
+3001	🏭	travel	factory
+3002	🏯	travel	Japanese castle
+3003	🏰	travel	castle
+3004	💒	travel	wedding
+3005	🗼	travel	Tokyo tower
+3006	🗽	travel	Statue of Liberty
+3007	⛪	travel	church
+3008	🕌	travel	mosque
+3009	🛕	travel	hindu temple
+3010	🕍	travel	synagogue
+3011	⛩️	travel	shinto shrine
+3012	🕋	travel	kaaba
+3013	⛲	travel	fountain
+3014	⛺	travel	tent
+3015	🌁	travel	foggy
+3016	🌃	travel	night with stars
+3017	🏙️	travel	cityscape
+3018	🌄	travel	sunrise over mountains
+3019	🌅	travel	sunrise
+3020	🌆	travel	cityscape at dusk
+3021	🌇	travel	sunset
+3022	🌉	travel	bridge at night
+3023	♨️	travel	hot springs
+3024	🎠	travel	carousel horse
+3025	🛝	travel	playground slide
+3026	🎡	travel	ferris wheel
+3027	🎢	travel	roller coaster
+3028	💈	travel	barber pole
+3029	🎪	travel	circus tent
+3030	🚂	travel	locomotive
+3031	🚃	travel	railway car
+3032	🚄	travel	high-speed train
+3033	🚅	travel	bullet train
+3034	🚆	travel	train
+3035	🚇	travel	metro
+3036	🚈	travel	light rail
+3037	🚉	travel	station
+3038	🚊	travel	tram
+3039	🚝	travel	monorail
+3040	🚞	travel	mountain railway
+3041	🚋	travel	tram car
+3042	🚍	travel	oncoming bus
+3043	🚐	travel	minibus
+3044	🚔	travel	oncoming police car
+3045	🚖	travel	oncoming taxi
+3046	🚘	travel	oncoming automobile
+3047	🚙	travel	sport utility vehicle
+3048	🛻	travel	pickup truck
+3049	🚚	travel	delivery truck
+3050	🚛	travel	articulated lorry
+3051	🏎️	travel	racing car
+3052	🦽	travel	manual wheelchair
+3053	🦼	travel	motorized wheelchair
+3054	🛺	travel	auto rickshaw
+3055	🛴	travel	kick scooter
+3056	🛼	travel	roller skate
+3057	🚏	travel	bus stop
+3058	🛣️	travel	motorway
+3059	🛤️	travel	railway track
+3060	🛢️	travel	oil drum
+3061	⛽	travel	fuel pump
+3062	🛞	travel	wheel
+3063	🚨	travel	police car light
+3064	🚥	travel	horizontal traffic light
+3065	🛑	travel	stop sign
+3066	🚧	travel	construction
+3067	⚓	travel	anchor
+3068	🛟	travel	ring buoy
+3069	⛵	travel	sailboat
+3070	🛶	travel	canoe
+3071	🚤	travel	speedboat
+3072	🛳️	travel	passenger ship
+3073	⛴️	travel	ferry
+3074	🛥️	travel	motor boat
+3075	🚢	travel	ship
+3076	✈️	travel	airplane
+3077	🛩️	travel	small airplane
+3078	🛫	travel	airplane departure
+3079	🛬	travel	airplane arrival
+3080	🪂	travel	parachute
+3081	💺	travel	seat
+3082	🚁	travel	helicopter
+3083	🚟	travel	suspension railway
+3084	🚠	travel	mountain cableway
+3085	🚡	travel	aerial tramway
+3086	🛰️	travel	satellite
+3087	🛸	travel	flying saucer
+3088	🛎️	travel	bellhop bell
+3089	⌚	travel	watch
+3090	⏰	travel	alarm clock
+3091	🕰️	travel	mantelpiece clock
+3092	🕛	travel	twelve o’clock
+3093	🕧	travel	twelve-thirty
+3094	🕐	travel	one o’clock
+3095	🕜	travel	one-thirty
+3096	🕑	travel	two o’clock
+3097	🕝	travel	two-thirty
+3098	🕞	travel	three-thirty
+3099	🕓	travel	four o’clock
+3100	🕟	travel	four-thirty
+3101	🕔	travel	five o’clock
+3102	🕠	travel	five-thirty
+3103	🕕	travel	six o’clock
+3104	🕡	travel	six-thirty
+3105	🕖	travel	seven o’clock
+3106	🕢	travel	seven-thirty
+3107	🕗	travel	eight o’clock
+3108	🕣	travel	eight-thirty
+3109	🕘	travel	nine o’clock
+3110	🕤	travel	nine-thirty
+3111	🕙	travel	ten o’clock
+3112	🕥	travel	ten-thirty
+3113	🕚	travel	eleven o’clock
+3114	🕦	travel	eleven-thirty
+3115	🌑	travel	new moon
+3116	🌒	travel	waxing crescent moon
+3117	🌓	travel	first quarter moon
+3118	🌔	travel	waxing gibbous moon
+3119	🌕	travel	full moon
+3120	🌖	travel	waning gibbous moon
+3121	🌗	travel	last quarter moon
+3122	🌘	travel	waning crescent moon
+3123	🌚	travel	new moon face
+3124	🌛	travel	first quarter moon face
+3125	🌜	travel	last quarter moon face
+3126	🌡️	travel	thermometer
+3127	🌝	travel	full moon face
+3128	🌞	travel	sun with face
+3129	🪐	travel	ringed planet
+3130	🌠	travel	shooting star
+3131	🌌	travel	milky way
+3132	⛅	travel	sun behind cloud
+3133	⛈️	travel	cloud with lightning and rain
+3134	🌤️	travel	sun behind small cloud
+3135	🌥️	travel	sun behind large cloud
+3136	🌦️	travel	sun behind rain cloud
+3137	🌨️	travel	cloud with snow
+3138	🌩️	travel	cloud with lightning
+3139	🌪️	travel	tornado
+3140	🌫️	travel	fog
+3141	🌬️	travel	wind face
+3142	🌀	travel	cyclone
+3143	🌂	travel	closed umbrella
+3144	☂️	travel	umbrella
+3145	☔	travel	umbrella with rain drops
+3146	⛱️	travel	umbrella on ground
+3147	⚡	travel	high voltage
+3148	☃️	travel	snowman
+3149	⛄	travel	snowman without snow
+3150	☄️	travel	comet
+3151	💧	travel	droplet
+3152	🌊	travel	water wave
+3153	🎃	activities	jack-o-lantern
+3154	🎄	activities	Christmas tree
+3155	🎆	activities	fireworks
+3156	🎇	activities	sparkler
+3157	🧨	activities	firecracker
+3158	🎈	activities	balloon
+3159	🎊	activities	confetti ball
+3160	🎋	activities	tanabata tree
+3161	🎍	activities	pine decoration
+3162	🎎	activities	Japanese dolls
+3163	🎏	activities	carp streamer
+3164	🎐	activities	wind chime
+3165	🎑	activities	moon viewing ceremony
+3166	🧧	activities	red envelope
+3167	🎀	activities	ribbon
+3168	🎁	activities	wrapped gift
+3169	🎗️	activities	reminder ribbon
+3170	🎟️	activities	admission tickets
+3171	🎫	activities	ticket
+3172	🎖️	activities	military medal
+3173	🏆	activities	trophy
+3174	🏅	activities	sports medal
+3175	🥇	activities	1st place medal
+3176	🥈	activities	2nd place medal
+3177	🥉	activities	3rd place medal
+3178	⚽	activities	soccer ball
+3179	⚾	activities	baseball
+3180	🥎	activities	softball
+3181	🏀	activities	basketball
+3182	🏐	activities	volleyball
+3183	🏈	activities	american football
+3184	🏉	activities	rugby football
+3185	🎾	activities	tennis
+3186	🥏	activities	flying disc
+3187	🎳	activities	bowling
+3188	🏏	activities	cricket game
+3189	🏑	activities	field hockey
+3190	🏒	activities	ice hockey
+3191	🥍	activities	lacrosse
+3192	🏓	activities	ping pong
+3193	🏸	activities	badminton
+3194	🥊	activities	boxing glove
+3195	🥋	activities	martial arts uniform
+3196	🥅	activities	goal net
+3197	⛳	activities	flag in hole
+3198	⛸️	activities	ice skate
+3199	🎣	activities	fishing pole
+3200	🤿	activities	diving mask
+3201	🎽	activities	running shirt
+3202	🎿	activities	skis
+3203	🛷	activities	sled
+3204	🥌	activities	curling stone
+3205	🪀	activities	yo-yo
+3206	🪁	activities	kite
+3207	🔫	activities	water pistol
+3208	🎱	activities	pool 8 ball
+3209	🔮	activities	crystal ball
+3210	🪄	activities	magic wand
+3211	🕹️	activities	joystick
+3212	🎰	activities	slot machine
+3213	🎲	activities	game die
+3214	🧸	activities	teddy bear
+3215	🪅	activities	piñata
+3216	🪩	activities	mirror ball
+3217	🪆	activities	nesting dolls
+3218	♠️	activities	spade suit
+3219	♥️	activities	heart suit
+3220	♦️	activities	diamond suit
+3221	♣️	activities	club suit
+3222	♟️	activities	chess pawn
+3223	🃏	activities	joker
+3224	🀄	activities	mahjong red dragon
+3225	🎴	activities	flower playing cards
+3226	🎭	activities	performing arts
+3227	🖼️	activities	framed picture
+3228	🎨	activities	artist palette
+3229	🧶	activities	yarn
+3230	🪢	activities	knot
+3231	👓	objects	glasses
+3232	🕶️	objects	sunglasses
+3233	🥽	objects	goggles
+3234	🥼	objects	lab coat
+3235	🦺	objects	safety vest
+3236	👔	objects	necktie
+3237	👕	objects	t-shirt
+3238	👖	objects	jeans
+3239	🧣	objects	scarf
+3240	🧤	objects	gloves
+3241	🧥	objects	coat
+3242	🧦	objects	socks
+3243	👗	objects	dress
+3244	👘	objects	kimono
+3245	🥻	objects	sari
+3246	🩱	objects	one-piece swimsuit
+3247	🩲	objects	briefs
+3248	🩳	objects	shorts
+3249	👙	objects	bikini
+3250	👚	objects	woman’s clothes
+3251	🪭	objects	folding hand fan
+3252	👛	objects	purse
+3253	👜	objects	handbag
+3254	👝	objects	clutch bag
+3255	🛍️	objects	shopping bags
+3256	🎒	objects	backpack
+3257	🩴	objects	thong sandal
+3258	👞	objects	man’s shoe
+3259	👟	objects	running shoe
+3260	🥾	objects	hiking boot
+3261	🥿	objects	flat shoe
+3262	👠	objects	high-heeled shoe
+3263	👡	objects	woman’s sandal
+3264	🩰	objects	ballet shoes
+3265	👢	objects	woman’s boot
+3266	🪮	objects	hair pick
+3267	👑	objects	crown
+3268	👒	objects	woman’s hat
+3269	🎩	objects	top hat
+3270	🎓	objects	graduation cap
+3271	🧢	objects	billed cap
+3272	🪖	objects	military helmet
+3273	⛑️	objects	rescue worker’s helmet
+3274	📿	objects	prayer beads
+3275	💄	objects	lipstick
+3276	💍	objects	ring
+3277	💎	objects	gem stone
+3278	🔇	objects	muted speaker
+3279	🔈	objects	speaker low volume
+3280	🔉	objects	speaker medium volume
+3281	🔊	objects	speaker high volume
+3282	📢	objects	loudspeaker
+3283	📣	objects	megaphone
+3284	📯	objects	postal horn
+3285	🔕	objects	bell with slash
+3286	🎼	objects	musical score
+3287	🎶	objects	musical notes
+3288	🎙️	objects	studio microphone
+3289	🎚️	objects	level slider
+3290	🎛️	objects	control knobs
+3291	🎤	objects	microphone
+3292	🎧	objects	headphone
+3293	📻	objects	radio
+3294	🎷	objects	saxophone
+3295	🎺	objects	trumpet
+3296	🪊	objects	trombone
+3297	🪗	objects	accordion
+3298	🎸	objects	guitar
+3299	🎹	objects	musical keyboard
+3300	🎻	objects	violin
+3301	🪕	objects	banjo
+3302	🥁	objects	drum
+3303	🪘	objects	long drum
+3304	🪇	objects	maracas
+3305	🪈	objects	flute
+3306	🪉	objects	harp
+3307	📲	objects	mobile phone with arrow
+3308	☎️	objects	telephone
+3309	📞	objects	telephone receiver
+3310	📟	objects	pager
+3311	📠	objects	fax machine
+3312	🪫	objects	low battery
+3313	🔌	objects	electric plug
+3314	🖥️	objects	desktop computer
+3315	🖲️	objects	trackball
+3316	💽	objects	computer disk
+3317	💾	objects	floppy disk
+3318	💿	objects	optical disk
+3319	📀	objects	dvd
+3320	🧮	objects	abacus
+3321	🎥	objects	movie camera
+3322	🎞️	objects	film frames
+3323	📽️	objects	film projector
+3324	🎬	objects	clapper board
+3325	📺	objects	television
+3326	📸	objects	camera with flash
+3327	📹	objects	video camera
+3328	📼	objects	videocassette
+3329	🔍	objects	magnifying glass tilted left
+3330	🔎	objects	magnifying glass tilted right
+3331	🕯️	objects	candle
+3332	🔦	objects	flashlight
+3333	🏮	objects	red paper lantern
+3334	🪔	objects	diya lamp
+3335	📔	objects	notebook with decorative cover
+3336	📕	objects	closed book
+3337	📖	objects	open book
+3338	📗	objects	green book
+3339	📘	objects	blue book
+3340	📙	objects	orange book
+3341	📓	objects	notebook
+3342	📒	objects	ledger
+3343	📃	objects	page with curl
+3344	📜	objects	scroll
+3345	📄	objects	page facing up
+3346	📰	objects	newspaper
+3347	🗞️	objects	rolled-up newspaper
+3348	📑	objects	bookmark tabs
+3349	🔖	objects	bookmark
+3350	🏷️	objects	label
+3351	🪙	objects	coin
+3352	💰	objects	money bag
+3353	🪎	objects	treasure chest
+3354	💴	objects	yen banknote
+3355	💵	objects	dollar banknote
+3356	💶	objects	euro banknote
+3357	💷	objects	pound banknote
+3358	💸	objects	money with wings
+3359	💳	objects	credit card
+3360	🧾	objects	receipt
+3361	💹	objects	chart increasing with yen
+3362	✉️	objects	envelope
+3363	📧	objects	e-mail
+3364	📨	objects	incoming envelope
+3365	📩	objects	envelope with arrow
+3366	📤	objects	outbox tray
+3367	📥	objects	inbox tray
+3368	📫	objects	closed mailbox with raised flag
+3369	📪	objects	closed mailbox with lowered flag
+3370	📬	objects	open mailbox with raised flag
+3371	📭	objects	open mailbox with lowered flag
+3372	📮	objects	postbox
+3373	🗳️	objects	ballot box with ballot
+3374	✏️	objects	pencil
+3375	✒️	objects	black nib
+3376	🖋️	objects	fountain pen
+3377	🖊️	objects	pen
+3378	🖌️	objects	paintbrush
+3379	🖍️	objects	crayon
+3380	💼	objects	briefcase
+3381	🗂️	objects	card index dividers
+3382	📆	objects	tear-off calendar
+3383	🗒️	objects	spiral notepad
+3384	📇	objects	card index
+3385	📈	objects	chart increasing
+3386	📉	objects	chart decreasing
+3387	📊	objects	bar chart
+3388	📋	objects	clipboard
+3389	📍	objects	round pushpin
+3390	🖇️	objects	linked paperclips
+3391	📏	objects	straight ruler
+3392	📐	objects	triangular ruler
+3393	✂️	objects	scissors
+3394	🗃️	objects	card file box
+3395	🗄️	objects	file cabinet
+3396	🔓	objects	unlocked
+3397	🔏	objects	locked with pen
+3398	🔐	objects	locked with key
+3399	🗝️	objects	old key
+3400	⛏️	objects	pick
+3401	⚒️	objects	hammer and pick
+3402	🗡️	objects	dagger
+3403	⚔️	objects	crossed swords
+3404	💣	objects	bomb
+3405	🪃	objects	boomerang
+3406	🏹	objects	bow and arrow
+3407	🛡️	objects	shield
+3408	🪚	objects	carpentry saw
+3409	🔩	objects	nut and bolt
+3410	🗜️	objects	clamp
+3411	⚖️	objects	balance scale
+3412	🦯	objects	white cane
+3413	🔗	objects	link
+3414	⛓️‍💥	objects	broken chain
+3415	⛓️	objects	chains
+3416	🪝	objects	hook
+3417	🧲	objects	magnet
+3418	🪜	objects	ladder
+3419	🪏	objects	shovel
+3420	⚗️	objects	alembic
+3421	🔬	objects	microscope
+3422	💉	objects	syringe
+3423	🩸	objects	drop of blood
+3424	💊	objects	pill
+3425	🩹	objects	adhesive bandage
+3426	🩼	objects	crutch
+3427	🩺	objects	stethoscope
+3428	🩻	objects	x-ray
+3429	🚪	objects	door
+3430	🛗	objects	elevator
+3431	🪞	objects	mirror
+3432	🪟	objects	window
+3433	🛏️	objects	bed
+3434	🛋️	objects	couch and lamp
+3435	🪑	objects	chair
+3436	🚽	objects	toilet
+3437	🪠	objects	plunger
+3438	🚿	objects	shower
+3439	🛁	objects	bathtub
+3440	🪤	objects	mouse trap
+3441	🪒	objects	razor
+3442	🧴	objects	lotion bottle
+3443	🧷	objects	safety pin
+3444	🧺	objects	basket
+3445	🧻	objects	roll of paper
+3446	🧼	objects	soap
+3447	🫧	objects	bubbles
+3448	🪥	objects	toothbrush
+3449	🛒	objects	shopping cart
+3450	🚬	objects	cigarette
+3451	⚰️	objects	coffin
+3452	🪦	objects	headstone
+3453	⚱️	objects	funeral urn
+3454	🗿	objects	moai
+3455	🪧	objects	placard
+3456	🪪	objects	identification card
+3457	🏧	symbols	ATM sign
+3458	🚮	symbols	litter in bin sign
+3459	🚰	symbols	potable water
+3460	♿	symbols	wheelchair symbol
+3461	🚹	symbols	men’s room
+3462	🚺	symbols	women’s room
+3463	🚻	symbols	restroom
+3464	🚼	symbols	baby symbol
+3465	🚾	symbols	water closet
+3466	🛂	symbols	passport control
+3467	🛃	symbols	customs
+3468	🛄	symbols	baggage claim
+3469	🛅	symbols	left luggage
+3470	🚸	symbols	children crossing
+3471	⛔	symbols	no entry
+3472	🚳	symbols	no bicycles
+3473	🚭	symbols	no smoking
+3474	🚯	symbols	no littering
+3475	🚱	symbols	non-potable water
+3476	🚷	symbols	no pedestrians
+3477	📵	symbols	no mobile phones
+3478	🔞	symbols	no one under eighteen
+3479	☢️	symbols	radioactive
+3480	☣️	symbols	biohazard
+3481	⬆️	symbols	up arrow
+3482	↗️	symbols	up-right arrow
+3483	➡️	symbols	right arrow
+3484	↘️	symbols	down-right arrow
+3485	⬇️	symbols	down arrow
+3486	↙️	symbols	down-left arrow
+3487	⬅️	symbols	left arrow
+3488	↖️	symbols	up-left arrow
+3489	↕️	symbols	up-down arrow
+3490	↔️	symbols	left-right arrow
+3491	↩️	symbols	right arrow curving left
+3492	↪️	symbols	left arrow curving right
+3493	⤴️	symbols	right arrow curving up
+3494	⤵️	symbols	right arrow curving down
+3495	🔃	symbols	clockwise vertical arrows
+3496	🔄	symbols	counterclockwise arrows button
+3497	🔙	symbols	BACK arrow
+3498	🔚	symbols	END arrow
+3499	🔛	symbols	ON! arrow
+3500	🔜	symbols	SOON arrow
+3501	🔝	symbols	TOP arrow
+3502	🛐	symbols	place of worship
+3503	⚛️	symbols	atom symbol
+3504	🕉️	symbols	om
+3505	✡️	symbols	star of David
+3506	☸️	symbols	wheel of dharma
+3507	☯️	symbols	yin yang
+3508	✝️	symbols	latin cross
+3509	☦️	symbols	orthodox cross
+3510	☪️	symbols	star and crescent
+3511	☮️	symbols	peace symbol
+3512	🕎	symbols	menorah
+3513	🔯	symbols	dotted six-pointed star
+3514	🪯	symbols	khanda
+3515	♈	symbols	Aries
+3516	♉	symbols	Taurus
+3517	♊	symbols	Gemini
+3518	♋	symbols	Cancer
+3519	♌	symbols	Leo
+3520	♍	symbols	Virgo
+3521	♎	symbols	Libra
+3522	♏	symbols	Scorpio
+3523	♐	symbols	Sagittarius
+3524	♑	symbols	Capricorn
+3525	♒	symbols	Aquarius
+3526	♓	symbols	Pisces
+3527	⛎	symbols	Ophiuchus
+3528	🔀	symbols	shuffle tracks button
+3529	🔁	symbols	repeat button
+3530	🔂	symbols	repeat single button
+3531	▶️	symbols	play button
+3532	⏩	symbols	fast-forward button
+3533	⏭️	symbols	next track button
+3534	⏯️	symbols	play or pause button
+3535	◀️	symbols	reverse button
+3536	⏪	symbols	fast reverse button
+3537	⏮️	symbols	last track button
+3538	🔼	symbols	upwards button
+3539	⏫	symbols	fast up button
+3540	🔽	symbols	downwards button
+3541	⏬	symbols	fast down button
+3542	⏸️	symbols	pause button
+3543	⏹️	symbols	stop button
+3544	⏺️	symbols	record button
+3545	⏏️	symbols	eject button
+3546	🎦	symbols	cinema
+3547	🔅	symbols	dim button
+3548	🔆	symbols	bright button
+3549	🛜	symbols	wireless
+3550	📳	symbols	vibration mode
+3551	📴	symbols	mobile phone off
+3552	♀️	symbols	female sign
+3553	♂️	symbols	male sign
+3554	⚧️	symbols	transgender symbol
+3555	✖️	symbols	multiply
+3556	➕	symbols	plus
+3557	➖	symbols	minus
+3558	➗	symbols	divide
+3559	🟰	symbols	heavy equals sign
+3560	♾️	symbols	infinity
+3561	‼️	symbols	double exclamation mark
+3562	⁉️	symbols	exclamation question mark
+3563	❓	symbols	red question mark
+3564	❔	symbols	white question mark
+3565	❕	symbols	white exclamation mark
+3566	❗	symbols	red exclamation mark
+3567	〰️	symbols	wavy dash
+3568	💱	symbols	currency exchange
+3569	💲	symbols	heavy dollar sign
+3570	⚕️	symbols	medical symbol
+3571	♻️	symbols	recycling symbol
+3572	⚜️	symbols	fleur-de-lis
+3573	🔱	symbols	trident emblem
+3574	📛	symbols	name badge
+3575	🔰	symbols	Japanese symbol for beginner
+3576	⭕	symbols	hollow red circle
+3577	☑️	symbols	check box with check
+3578	✔️	symbols	check mark
+3579	❎	symbols	cross mark button
+3580	➰	symbols	curly loop
+3581	➿	symbols	double curly loop
+3582	〽️	symbols	part alternation mark
+3583	✳️	symbols	eight-spoked asterisk
+3584	✴️	symbols	eight-pointed star
+3585	❇️	symbols	sparkle
+3586	©️	symbols	copyright
+3587	®️	symbols	registered
+3588	™️	symbols	trade mark
+3589	🫟	symbols	splatter
+3590	#️⃣	symbols	keycap: #
+3591	*️⃣	symbols	keycap: *
+3592	0️⃣	symbols	keycap: 0
+3593	1️⃣	symbols	keycap: 1
+3594	2️⃣	symbols	keycap: 2
+3595	3️⃣	symbols	keycap: 3
+3596	4️⃣	symbols	keycap: 4
+3597	5️⃣	symbols	keycap: 5
+3598	6️⃣	symbols	keycap: 6
+3599	7️⃣	symbols	keycap: 7
+3600	8️⃣	symbols	keycap: 8
+3601	9️⃣	symbols	keycap: 9
+3602	🔟	symbols	keycap: 10
+3603	🔠	symbols	input latin uppercase
+3604	🔡	symbols	input latin lowercase
+3605	🔢	symbols	input numbers
+3606	🔣	symbols	input symbols
+3607	🔤	symbols	input latin letters
+3608	🅰️	symbols	A button (blood type)
+3609	🆎	symbols	AB button (blood type)
+3610	🅱️	symbols	B button (blood type)
+3611	🆑	symbols	CL button
+3612	🆒	symbols	COOL button
+3613	🆓	symbols	FREE button
+3614	🆔	symbols	ID button
+3615	Ⓜ️	symbols	circled M
+3616	🆕	symbols	NEW button
+3617	🆖	symbols	NG button
+3618	🅾️	symbols	O button (blood type)
+3619	🆗	symbols	OK button
+3620	🅿️	symbols	P button
+3621	🆘	symbols	SOS button
+3622	🆙	symbols	UP! button
+3623	🆚	symbols	VS button
+3624	🈁	symbols	Japanese “here” button
+3625	🈂️	symbols	Japanese “service charge” button
+3626	🈷️	symbols	Japanese “monthly amount” button
+3627	🈶	symbols	Japanese “not free of charge” button
+3628	🈯	symbols	Japanese “reserved” button
+3629	🉐	symbols	Japanese “bargain” button
+3630	🈹	symbols	Japanese “discount” button
+3631	🈚	symbols	Japanese “free of charge” button
+3632	🈲	symbols	Japanese “prohibited” button
+3633	🉑	symbols	Japanese “acceptable” button
+3634	🈸	symbols	Japanese “application” button
+3635	🈴	symbols	Japanese “passing grade” button
+3636	🈳	symbols	Japanese “vacancy” button
+3637	㊗️	symbols	Japanese “congratulations” button
+3638	㊙️	symbols	Japanese “secret” button
+3639	🈺	symbols	Japanese “open for business” button
+3640	🈵	symbols	Japanese “no vacancy” button
+3641	🔴	symbols	red circle
+3642	🟠	symbols	orange circle
+3643	🟡	symbols	yellow circle
+3644	🟢	symbols	green circle
+3645	🔵	symbols	blue circle
+3646	🟣	symbols	purple circle
+3647	🟤	symbols	brown circle
+3648	⚫	symbols	black circle
+3649	⚪	symbols	white circle
+3650	🟥	symbols	red square
+3651	🟧	symbols	orange square
+3652	🟨	symbols	yellow square
+3653	🟩	symbols	green square
+3654	🟦	symbols	blue square
+3655	🟪	symbols	purple square
+3656	🟫	symbols	brown square
+3657	⬛	symbols	black large square
+3658	⬜	symbols	white large square
+3659	◼️	symbols	black medium square
+3660	◻️	symbols	white medium square
+3661	◾	symbols	black medium-small square
+3662	◽	symbols	white medium-small square
+3663	▪️	symbols	black small square
+3664	▫️	symbols	white small square
+3665	🔶	symbols	large orange diamond
+3666	🔷	symbols	large blue diamond
+3667	🔸	symbols	small orange diamond
+3668	🔹	symbols	small blue diamond
+3669	🔺	symbols	red triangle pointed up
+3670	🔻	symbols	red triangle pointed down
+3671	💠	symbols	diamond with a dot
+3672	🔘	symbols	radio button
+3673	🔳	symbols	white square button
+3674	🔲	symbols	black square button
+3675	🏁	flags	chequered flag
+3676	🚩	flags	triangular flag
+3677	🎌	flags	crossed flags
+3678	🏴	flags	black flag
+3679	🏳️	flags	white flag
+3680	🏳️‍🌈	flags	rainbow flag
+3681	🏳️‍⚧️	flags	transgender flag
+3682	🏴‍☠️	flags	pirate flag
+3683	🇦🇨	flags	flag: Ascension Island
+3684	🇦🇩	flags	flag: Andorra
+3685	🇦🇪	flags	flag: United Arab Emirates
+3686	🇦🇫	flags	flag: Afghanistan
+3687	🇦🇬	flags	flag: Antigua & Barbuda
+3688	🇦🇮	flags	flag: Anguilla
+3689	🇦🇱	flags	flag: Albania
+3690	🇦🇲	flags	flag: Armenia
+3691	🇦🇴	flags	flag: Angola
+3692	🇦🇶	flags	flag: Antarctica
+3693	🇦🇷	flags	flag: Argentina
+3694	🇦🇸	flags	flag: American Samoa
+3695	🇦🇹	flags	flag: Austria
+3696	🇦🇺	flags	flag: Australia
+3697	🇦🇼	flags	flag: Aruba
+3698	🇦🇽	flags	flag: Åland Islands
+3699	🇦🇿	flags	flag: Azerbaijan
+3700	🇧🇦	flags	flag: Bosnia & Herzegovina
+3701	🇧🇧	flags	flag: Barbados
+3702	🇧🇩	flags	flag: Bangladesh
+3703	🇧🇪	flags	flag: Belgium
+3704	🇧🇫	flags	flag: Burkina Faso
+3705	🇧🇬	flags	flag: Bulgaria
+3706	🇧🇭	flags	flag: Bahrain
+3707	🇧🇮	flags	flag: Burundi
+3708	🇧🇯	flags	flag: Benin
+3709	🇧🇱	flags	flag: St. Barthélemy
+3710	🇧🇲	flags	flag: Bermuda
+3711	🇧🇳	flags	flag: Brunei
+3712	🇧🇴	flags	flag: Bolivia
+3713	🇧🇶	flags	flag: Caribbean Netherlands
+3714	🇧🇷	flags	flag: Brazil
+3715	🇧🇸	flags	flag: Bahamas
+3716	🇧🇹	flags	flag: Bhutan
+3717	🇧🇻	flags	flag: Bouvet Island
+3718	🇧🇼	flags	flag: Botswana
+3719	🇧🇾	flags	flag: Belarus
+3720	🇧🇿	flags	flag: Belize
+3721	🇨🇦	flags	flag: Canada
+3722	🇨🇨	flags	flag: Cocos (Keeling) Islands
+3723	🇨🇩	flags	flag: Congo - Kinshasa
+3724	🇨🇫	flags	flag: Central African Republic
+3725	🇨🇬	flags	flag: Congo - Brazzaville
+3726	🇨🇭	flags	flag: Switzerland
+3727	🇨🇮	flags	flag: Côte d’Ivoire
+3728	🇨🇰	flags	flag: Cook Islands
+3729	🇨🇱	flags	flag: Chile
+3730	🇨🇲	flags	flag: Cameroon
+3731	🇨🇳	flags	flag: China
+3732	🇨🇴	flags	flag: Colombia
+3733	🇨🇵	flags	flag: Clipperton Island
+3734	🇨🇶	flags	flag: Sark
+3735	🇨🇷	flags	flag: Costa Rica
+3736	🇨🇺	flags	flag: Cuba
+3737	🇨🇻	flags	flag: Cape Verde
+3738	🇨🇼	flags	flag: Curaçao
+3739	🇨🇽	flags	flag: Christmas Island
+3740	🇨🇾	flags	flag: Cyprus
+3741	🇨🇿	flags	flag: Czechia
+3742	🇩🇪	flags	flag: Germany
+3743	🇩🇬	flags	flag: Diego Garcia
+3744	🇩🇯	flags	flag: Djibouti
+3745	🇩🇰	flags	flag: Denmark
+3746	🇩🇲	flags	flag: Dominica
+3747	🇩🇴	flags	flag: Dominican Republic
+3748	🇩🇿	flags	flag: Algeria
+3749	🇪🇦	flags	flag: Ceuta & Melilla
+3750	🇪🇨	flags	flag: Ecuador
+3751	🇪🇪	flags	flag: Estonia
+3752	🇪🇬	flags	flag: Egypt
+3753	🇪🇭	flags	flag: Western Sahara
+3754	🇪🇷	flags	flag: Eritrea
+3755	🇪🇸	flags	flag: Spain
+3756	🇪🇹	flags	flag: Ethiopia
+3757	🇪🇺	flags	flag: European Union
+3758	🇫🇮	flags	flag: Finland
+3759	🇫🇯	flags	flag: Fiji
+3760	🇫🇰	flags	flag: Falkland Islands
+3761	🇫🇲	flags	flag: Micronesia
+3762	🇫🇴	flags	flag: Faroe Islands
+3763	🇫🇷	flags	flag: France
+3764	🇬🇦	flags	flag: Gabon
+3765	🇬🇧	flags	flag: United Kingdom
+3766	🇬🇩	flags	flag: Grenada
+3767	🇬🇪	flags	flag: Georgia
+3768	🇬🇫	flags	flag: French Guiana
+3769	🇬🇬	flags	flag: Guernsey
+3770	🇬🇭	flags	flag: Ghana
+3771	🇬🇮	flags	flag: Gibraltar
+3772	🇬🇱	flags	flag: Greenland
+3773	🇬🇲	flags	flag: Gambia
+3774	🇬🇳	flags	flag: Guinea
+3775	🇬🇵	flags	flag: Guadeloupe
+3776	🇬🇶	flags	flag: Equatorial Guinea
+3777	🇬🇷	flags	flag: Greece
+3778	🇬🇸	flags	flag: South Georgia & South Sandwich Islands
+3779	🇬🇹	flags	flag: Guatemala
+3780	🇬🇺	flags	flag: Guam
+3781	🇬🇼	flags	flag: Guinea-Bissau
+3782	🇬🇾	flags	flag: Guyana
+3783	🇭🇰	flags	flag: Hong Kong SAR China
+3784	🇭🇲	flags	flag: Heard & McDonald Islands
+3785	🇭🇳	flags	flag: Honduras
+3786	🇭🇷	flags	flag: Croatia
+3787	🇭🇹	flags	flag: Haiti
+3788	🇭🇺	flags	flag: Hungary
+3789	🇮🇨	flags	flag: Canary Islands
+3790	🇮🇩	flags	flag: Indonesia
+3791	🇮🇪	flags	flag: Ireland
+3792	🇮🇱	flags	flag: Israel
+3793	🇮🇲	flags	flag: Isle of Man
+3794	🇮🇳	flags	flag: India
+3795	🇮🇴	flags	flag: British Indian Ocean Territory
+3796	🇮🇶	flags	flag: Iraq
+3797	🇮🇷	flags	flag: Iran
+3798	🇮🇸	flags	flag: Iceland
+3799	🇮🇹	flags	flag: Italy
+3800	🇯🇪	flags	flag: Jersey
+3801	🇯🇲	flags	flag: Jamaica
+3802	🇯🇴	flags	flag: Jordan
+3803	🇯🇵	flags	flag: Japan
+3804	🇰🇪	flags	flag: Kenya
+3805	🇰🇬	flags	flag: Kyrgyzstan
+3806	🇰🇭	flags	flag: Cambodia
+3807	🇰🇮	flags	flag: Kiribati
+3808	🇰🇲	flags	flag: Comoros
+3809	🇰🇳	flags	flag: St. Kitts & Nevis
+3810	🇰🇵	flags	flag: North Korea
+3811	🇰🇷	flags	flag: South Korea
+3812	🇰🇼	flags	flag: Kuwait
+3813	🇰🇾	flags	flag: Cayman Islands
+3814	🇰🇿	flags	flag: Kazakhstan
+3815	🇱🇦	flags	flag: Laos
+3816	🇱🇧	flags	flag: Lebanon
+3817	🇱🇨	flags	flag: St. Lucia
+3818	🇱🇮	flags	flag: Liechtenstein
+3819	🇱🇰	flags	flag: Sri Lanka
+3820	🇱🇷	flags	flag: Liberia
+3821	🇱🇸	flags	flag: Lesotho
+3822	🇱🇹	flags	flag: Lithuania
+3823	🇱🇺	flags	flag: Luxembourg
+3824	🇱🇻	flags	flag: Latvia
+3825	🇱🇾	flags	flag: Libya
+3826	🇲🇦	flags	flag: Morocco
+3827	🇲🇨	flags	flag: Monaco
+3828	🇲🇩	flags	flag: Moldova
+3829	🇲🇪	flags	flag: Montenegro
+3830	🇲🇫	flags	flag: St. Martin
+3831	🇲🇬	flags	flag: Madagascar
+3832	🇲🇭	flags	flag: Marshall Islands
+3833	🇲🇰	flags	flag: North Macedonia
+3834	🇲🇱	flags	flag: Mali
+3835	🇲🇲	flags	flag: Myanmar (Burma)
+3836	🇲🇳	flags	flag: Mongolia
+3837	🇲🇴	flags	flag: Macao SAR China
+3838	🇲🇵	flags	flag: Northern Mariana Islands
+3839	🇲🇶	flags	flag: Martinique
+3840	🇲🇷	flags	flag: Mauritania
+3841	🇲🇸	flags	flag: Montserrat
+3842	🇲🇹	flags	flag: Malta
+3843	🇲🇺	flags	flag: Mauritius
+3844	🇲🇻	flags	flag: Maldives
+3845	🇲🇼	flags	flag: Malawi
+3846	🇲🇽	flags	flag: Mexico
+3847	🇲🇾	flags	flag: Malaysia
+3848	🇲🇿	flags	flag: Mozambique
+3849	🇳🇦	flags	flag: Namibia
+3850	🇳🇨	flags	flag: New Caledonia
+3851	🇳🇪	flags	flag: Niger
+3852	🇳🇫	flags	flag: Norfolk Island
+3853	🇳🇬	flags	flag: Nigeria
+3854	🇳🇮	flags	flag: Nicaragua
+3855	🇳🇱	flags	flag: Netherlands
+3856	🇳🇴	flags	flag: Norway
+3857	🇳🇵	flags	flag: Nepal
+3858	🇳🇷	flags	flag: Nauru
+3859	🇳🇺	flags	flag: Niue
+3860	🇳🇿	flags	flag: New Zealand
+3861	🇴🇲	flags	flag: Oman
+3862	🇵🇦	flags	flag: Panama
+3863	🇵🇪	flags	flag: Peru
+3864	🇵🇫	flags	flag: French Polynesia
+3865	🇵🇬	flags	flag: Papua New Guinea
+3866	🇵🇭	flags	flag: Philippines
+3867	🇵🇰	flags	flag: Pakistan
+3868	🇵🇱	flags	flag: Poland
+3869	🇵🇲	flags	flag: St. Pierre & Miquelon
+3870	🇵🇳	flags	flag: Pitcairn Islands
+3871	🇵🇷	flags	flag: Puerto Rico
+3872	🇵🇸	flags	flag: Palestinian Territories
+3873	🇵🇹	flags	flag: Portugal
+3874	🇵🇼	flags	flag: Palau
+3875	🇵🇾	flags	flag: Paraguay
+3876	🇶🇦	flags	flag: Qatar
+3877	🇷🇪	flags	flag: Réunion
+3878	🇷🇴	flags	flag: Romania
+3879	🇷🇸	flags	flag: Serbia
+3880	🇷🇺	flags	flag: Russia
+3881	🇷🇼	flags	flag: Rwanda
+3882	🇸🇦	flags	flag: Saudi Arabia
+3883	🇸🇧	flags	flag: Solomon Islands
+3884	🇸🇨	flags	flag: Seychelles
+3885	🇸🇩	flags	flag: Sudan
+3886	🇸🇪	flags	flag: Sweden
+3887	🇸🇬	flags	flag: Singapore
+3888	🇸🇭	flags	flag: St. Helena
+3889	🇸🇮	flags	flag: Slovenia
+3890	🇸🇯	flags	flag: Svalbard & Jan Mayen
+3891	🇸🇰	flags	flag: Slovakia
+3892	🇸🇱	flags	flag: Sierra Leone
+3893	🇸🇲	flags	flag: San Marino
+3894	🇸🇳	flags	flag: Senegal
+3895	🇸🇴	flags	flag: Somalia
+3896	🇸🇷	flags	flag: Suriname
+3897	🇸🇸	flags	flag: South Sudan
+3898	🇸🇹	flags	flag: São Tomé & Príncipe
+3899	🇸🇻	flags	flag: El Salvador
+3900	🇸🇽	flags	flag: Sint Maarten
+3901	🇸🇾	flags	flag: Syria
+3902	🇸🇿	flags	flag: Eswatini
+3903	🇹🇦	flags	flag: Tristan da Cunha
+3904	🇹🇨	flags	flag: Turks & Caicos Islands
+3905	🇹🇩	flags	flag: Chad
+3906	🇹🇫	flags	flag: French Southern Territories
+3907	🇹🇬	flags	flag: Togo
+3908	🇹🇭	flags	flag: Thailand
+3909	🇹🇯	flags	flag: Tajikistan
+3910	🇹🇰	flags	flag: Tokelau
+3911	🇹🇱	flags	flag: Timor-Leste
+3912	🇹🇲	flags	flag: Turkmenistan
+3913	🇹🇳	flags	flag: Tunisia
+3914	🇹🇴	flags	flag: Tonga
+3915	🇹🇷	flags	flag: Türkiye
+3916	🇹🇹	flags	flag: Trinidad & Tobago
+3917	🇹🇻	flags	flag: Tuvalu
+3918	🇹🇼	flags	flag: Taiwan
+3919	🇹🇿	flags	flag: Tanzania
+3920	🇺🇦	flags	flag: Ukraine
+3921	🇺🇬	flags	flag: Uganda
+3922	🇺🇲	flags	flag: U.S. Outlying Islands
+3923	🇺🇳	flags	flag: United Nations
+3924	🇺🇸	flags	flag: United States
+3925	🇺🇾	flags	flag: Uruguay
+3926	🇺🇿	flags	flag: Uzbekistan
+3927	🇻🇦	flags	flag: Vatican City
+3928	🇻🇨	flags	flag: St. Vincent & Grenadines
+3929	🇻🇪	flags	flag: Venezuela
+3930	🇻🇬	flags	flag: British Virgin Islands
+3931	🇻🇮	flags	flag: U.S. Virgin Islands
+3932	🇻🇳	flags	flag: Vietnam
+3933	🇻🇺	flags	flag: Vanuatu
+3934	🇼🇫	flags	flag: Wallis & Futuna
+3935	🇼🇸	flags	flag: Samoa
+3936	🇽🇰	flags	flag: Kosovo
+3937	🇾🇪	flags	flag: Yemen
+3938	🇾🇹	flags	flag: Mayotte
+3939	🇿🇦	flags	flag: South Africa
+3940	🇿🇲	flags	flag: Zambia
+3941	🇿🇼	flags	flag: Zimbabwe
+3942	🏴󠁧󠁢󠁥󠁮󠁧󠁿	flags	flag: England
+3943	🏴󠁧󠁢󠁳󠁣󠁴󠁿	flags	flag: Scotland
+3944	🏴󠁧󠁢󠁷󠁬󠁳󠁿	flags	flag: Wales

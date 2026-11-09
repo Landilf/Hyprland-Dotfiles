@@ -54,14 +54,39 @@
         '';
 	    });
 
-    # The upstream overview briefly passes an empty color during QML startup
-    # and asks the icon provider for a fallback for windows without a desktop entry.
+    quickshellOverviewConfig = pkgs.writeText "quickshell-overview-config.json" (builtins.toJSON {
+      appearance = {
+        colorSource = "matugen";
+        font.family = {
+          main = "JetBrains Mono Nerd Font";
+          title = "JetBrains Mono Nerd Font";
+          expressive = "JetBrains Mono Nerd Font";
+        };
+      };
+      overview = {
+        rows = 2;
+        columns = 5;
+        hideEmptyRows = true;
+        previewsEnabled = true;
+        previewMode = "live";
+        includeInactiveMonitorPreviews = true;
+        showSpecialWorkspaces = true;
+        scrolling.enable = false;
+      };
+    });
+
+    # Include the config in the same source tree: a separate nested home.file
+    # entry loses to the recursive overview link during Home Manager activation.
+    # Guard empty colors during QML startup and avoid requesting the missing
+    # fallback icon when an application icon is unavailable.
     quickshellOverview = pkgs.runCommand "quickshell-overview-patched" { } ''
       cp -R ${inputs.quickshell-overview}/. "$out"
+      chmod u+w "$out"
+      cp --remove-destination ${quickshellOverviewConfig} "$out/config.json"
       substituteInPlace "$out/common/functions/ColorUtils.qml" \
         --replace-fail 'function applyAlpha(color, alpha) {' 'function applyAlpha(color, alpha) { if (!color) return "transparent";'
       substituteInPlace "$out/modules/overview/OverviewWindow.qml" \
-        --replace-fail 'property var iconPath: Quickshell.iconPath(iconName, "image-missing")' 'property var iconPath: entry?.icon ? Quickshell.iconPath(iconName) : ""'
+        --replace-fail 'property var iconPath: iconName.length > 0 ? Quickshell.iconPath(iconName, "image-missing") : ""' 'property var iconPath: iconName.length > 0 ? Quickshell.iconPath(iconName) : ""'
     '';
 	in
 {
@@ -83,33 +108,10 @@
     ADB_SERVER_SOCKET = "tcp:127.0.0.1:5037";
   };
 
-  # Keep the overview module pinned through flake.lock while allowing the
-  # user-specific options below to remain writable Home Manager files.
+  # Keep the overview module and its config pinned through flake.lock.
   home.file.".config/quickshell/overview" = {
     source = quickshellOverview;
     recursive = true;
-  };
-
-  home.file.".config/quickshell/overview/config.json".text = builtins.toJSON {
-    appearance = {
-      colorSource = "matugen";
-      font = {
-        family = {
-          main = "JetBrains Mono Nerd Font";
-          title = "JetBrains Mono Nerd Font";
-          expressive = "JetBrains Mono Nerd Font";
-        };
-      };
-    };
-    overview = {
-      rows = 2;
-      columns = 5;
-      hideEmptyRows = true;
-      previewsEnabled = true;
-      previewMode = "live";
-      includeInactiveMonitorPreviews = true;
-      showSpecialWorkspaces = true;
-    };
   };
 
   # mimeApps
@@ -153,6 +155,28 @@
     "x-scheme-handler/http"  = [ "firefox.desktop" ];
     "x-scheme-handler/https" = [ "firefox.desktop" ];
     "application/pdf" = [ "firefox.desktop" ];
+
+    # Office files: use the stable desktop IDs maintained by ArtCraft Launcher.
+    "application/msword" = [ "ai.storyteller.wordcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "ai.storyteller.wordcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.template" = [ "ai.storyteller.wordcraft.desktop" ];
+    "application/vnd.ms-word.document.macroEnabled.12" = [ "ai.storyteller.wordcraft.desktop" ];
+    "application/rtf" = [ "ai.storyteller.wordcraft.desktop" ];
+    "text/rtf" = [ "ai.storyteller.wordcraft.desktop" ];
+    "application/vnd.oasis.opendocument.text" = [ "ai.storyteller.wordcraft.desktop" ];
+
+    "application/vnd.ms-excel" = [ "ai.storyteller.gridcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "ai.storyteller.gridcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.template" = [ "ai.storyteller.gridcraft.desktop" ];
+    "application/vnd.ms-excel.sheet.macroEnabled.12" = [ "ai.storyteller.gridcraft.desktop" ];
+    "application/vnd.oasis.opendocument.spreadsheet" = [ "ai.storyteller.gridcraft.desktop" ];
+    "text/csv" = [ "ai.storyteller.gridcraft.desktop" ];
+
+    "application/vnd.ms-powerpoint" = [ "ai.storyteller.deckcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "ai.storyteller.deckcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.template" = [ "ai.storyteller.deckcraft.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.slideshow" = [ "ai.storyteller.deckcraft.desktop" ];
+    "application/vnd.ms-powerpoint.presentation.macroEnabled.12" = [ "ai.storyteller.deckcraft.desktop" ];
 
     # Audio
     "audio/mpeg" = [ "org.gnome.Decibels.desktop" ];
@@ -429,21 +453,10 @@
   # User-specific packages
   home.packages = with pkgs; [
     (pkgs.callPackage ./pkgs/artcraft-launcher.nix { })
-    (python3.withPackages (ps: with ps; [
-      beautifulsoup4
-      matplotlib
-      numpy
-      openpyxl
-      pandas
-      playwright
-      plotly
-      pymorphy3
-      requests
-      scikit-learn
-      streamlit
-      torch
-      transformers
-    ]))
+    (pkgs.callPackage ./pkgs/schoolgame.nix { })
+    # Local menu scripts need Python's standard library; project dependencies
+    # live in the Jupyter and ReviewAnalyzer containers.
+    python3
     adw-gtk3
     android-studio
     (writeShellScriptBin "android-studio-rofi" ''

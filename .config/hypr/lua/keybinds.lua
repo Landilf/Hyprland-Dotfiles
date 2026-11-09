@@ -18,6 +18,7 @@ exec(main_mod .. " + comma", "playerctl previous"); exec(main_mod .. " + period"
 exec(main_mod .. " + SHIFT + G", "flameshot gui"); exec(main_mod .. " + SHIFT + T", "~/.config/hypr/scripts/ocr.sh")
 exec(main_mod .. " + B", "pkill hyprsunset || hyprsunset -t 5300")
 exec(main_mod .. " + TAB", "qs ipc -p ~/.config/quickshell/overview call overview toggle")
+exec(main_mod .. " + ESCAPE", "swaync-client -t -sw")
 hl.bind(main_mod .. " + SHIFT + F", hl.dsp.window.fullscreen())
 exec(main_mod .. " + T", "hyprlock"); exec("ALT + F4", "~/.config/RofiScripts/powermenu/powermenu.sh")
 exec(main_mod .. " + SHIFT + X", "~/.config/RofiScripts/Clipboard/Clipboard.sh")

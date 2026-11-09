@@ -1,50 +1,12 @@
-#! /bin/sh
+#!/usr/bin/env bash
+set -eu
 
-: "${LC_ALL:=C.UTF-8}"
-: "${LANG:=C.UTF-8}"
-export LC_ALL LANG
-
-back_id="0"
-back_label="← Back"
-
-clips="$(cliphist list)"
-selected_row=0
-menu="$(printf "%s\t%s\n" "$back_id" "$back_label")"
-if [ -n "$clips" ]; then
-	selected_row=1
-	menu="$(printf "%s\t%s\n%s" "$back_id" "$back_label" "$clips")"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if quickshell kill --path "$script_dir/shell.qml" >/dev/null 2>&1; then
+    exit 0
 fi
+export CLIPBOARD_MENU_DIR="$script_dir"
+export CLIPBOARD_MENU_TMP="$(mktemp -d "${XDG_RUNTIME_DIR:-/tmp}/clipboard-menu.XXXXXXXX")"
+trap 'rm -rf -- "$CLIPBOARD_MENU_TMP"' EXIT
 
-open_launcher() {
-	setsid -f "$HOME/.config/RofiScripts/Launcher/Launcher.sh" >/dev/null 2>&1
-}
-
-chosen_index=$(
-	{
-		printf "%s" "$menu"
-	} | rofi -dmenu -format i -selected-row "$selected_row" -display-columns 2 -config "$HOME/.config/RofiScripts/Clipboard/CB.rasi" -kb-move-char-back "" -kb-move-char-forward "" -kb-custom-1 "Left" -kb-accept-entry "Return,KP_Enter,Right"
-)
-rc=$?
-
-if [ "$rc" -eq 10 ]; then
-	open_launcher
-	exit 0
-fi
-
-[ -z "$chosen_index" ] && exit 0
-
-case "$chosen_index" in
-	*[!0-9]*)
-		exit 1
-		;;
-esac
-
-if [ "$chosen_index" -eq 0 ]; then
-	open_launcher
-	exit 0
-fi
-
-line_number=$((chosen_index + 1))
-chosen_line="$(printf "%s" "$menu" | sed -n "${line_number}p")"
-[ -z "$chosen_line" ] && exit 0
-printf "%s" "$chosen_line" | cliphist decode | wl-copy
+quickshell --no-duplicate --path "$script_dir/shell.qml"

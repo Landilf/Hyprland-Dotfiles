@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="32" viewBox="0 0 80 32">
+  <rect width="80" height="32" rx="16" fill="{{colors.surface_container.default.hex}}"/>
+  <rect x="1" y="3" width="38" height="26" rx="13" fill="{{colors.secondary.default.hex}}"/>
+</svg>

@@ -46,6 +46,7 @@
       "buttons-grid",
       "title",
       "dnd",
+      "buttons-grid#airplane",
       "notifications"
     ],
     "widget-config": {
@@ -58,7 +59,7 @@
       "clear-all-button": true
     },
     "dnd": {
-      "text": "Do Not Disturb"
+      "text": "󰂛  Do Not Disturb"
     },
     "mpris": {
      "autohide": false,
@@ -74,9 +75,7 @@
      "animation-duration": 500
     },
     "buttons-grid": {
-     "buttons-per-row": 5
-    },
-    "buttons-grid": {
+   "buttons-per-row": 5,
    "actions" : [
         {
           "active": false,
@@ -109,6 +108,18 @@
           "type": "toggle"
         }
     ]
+    },
+    "buttons-grid#airplane": {
+      "buttons-per-row": 1,
+      "actions": [
+        {
+          "active": false,
+          "command": "~/.config/swaync/scripts/airplane-mode.sh toggle",
+          "update-command": "~/.config/swaync/scripts/airplane-mode.sh state",
+          "label": "󰀝  Airplane Mode",
+          "type": "toggle"
+        }
+      ]
     }
     }
 }

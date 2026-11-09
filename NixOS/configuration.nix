@@ -34,11 +34,56 @@ let
   # Alpaca 9.2.5 imports pandas at startup, but its nixpkgs recipe omits it.
   alpacaWithPandas = pkgs-unstable.alpaca.overridePythonAttrs (old: {
     dependencies = (old.dependencies or [ ]) ++ [ pkgs-unstable.python3Packages.pandas ];
+    # Structured attributes preserve each list entry as one literal argument.
+    # Expand GTK's wrapper arguments in Bash after the GTK hook has populated them.
+    makeWrapperArgs = [ ];
+    preFixup = (old.preFixup or "") + ''
+      makeWrapperArgs+=(
+        "''${gappsWrapperArgs[@]}"
+        --prefix PATH : "${lib.makeBinPath [ pkgs-unstable.xdg-utils pkgs-unstable.ollama ]}"
+      )
+    '';
   });
+
+  chatgptRegionGuard = pkgs.writeShellApplication {
+    name = "chatgpt";
+    runtimeInputs = [ pkgs.curl pkgs.gnugrep pkgs.coreutils pkgs.libnotify ];
+    text = ''
+      # Match the Codex shell guard, including refusing an unknown region.
+      country="$(curl --connect-timeout 3 --max-time 8 --silent --show-error --fail \
+        https://www.cloudflare.com/cdn-cgi/trace | grep '^loc=' | cut -d= -f2 || true)"
+      if [ -z "$country" ]; then
+        message='ChatGPT не запущен: не удалось определить страну внешнего IP.'
+      elif [ "$country" = RU ]; then
+        message='ChatGPT не запущен: внешний IP определяется как RU. Включи VPN в Throne.'
+      else
+        exec ${lib.getExe pkgs-unstable.chatgpt} "$@"
+      fi
+      echo "$message" >&2
+      notify-send 'ChatGPT' "$message" || true
+      exit 1
+    '';
+  };
+
+  chatgptWithRegionGuard = pkgs.symlinkJoin {
+    name = "chatgpt-with-region-guard-${pkgs-unstable.chatgpt.version}";
+    paths = [ pkgs-unstable.chatgpt ];
+    postBuild = ''
+      ln -sfn ${lib.getExe chatgptRegionGuard} "$out/bin/chatgpt"
+      for desktop in "$out"/share/applications/*.desktop; do
+        [ -f "$desktop" ] || continue
+        cp --remove-destination "$(readlink -f "$desktop")" "$desktop"
+        chmod u+w "$desktop"
+        sed -i -E "s|^(Exec=)[^ ]+|\\1$out/bin/chatgpt|" "$desktop"
+      done
+    '';
+  };
 
   # Throne starts this helper for TUN mode. Keep the privileged binary separate
   # from the launcher so NixOS can apply CAP_NET_ADMIN through its wrapper.
   throneWithWrappedCore = pkgs-unstable.throne.overrideAttrs (old: {
+    # Throne uses unstable Qt; load the matching qt6ct plugin for Matugen colours.
+    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs-unstable.kdePackages.qt6ct ];
     postInstall = (old.postInstall or "") + ''
       mv "$out/share/throne/ThroneCore" "$out/share/throne/ThroneCore.real"
       cat > "$out/share/throne/ThroneCore" <<'EOF'
@@ -237,6 +282,24 @@ in
 
   # SSH configuration
   programs.ssh.startAgent = true;
+  services.openssh = {
+    enable = true;
+    startWhenNeeded = true;
+    openFirewall = false;
+    listenAddresses = [ { addr = "10.84.43.195"; port = 22; } ];
+    settings = {
+      AllowUsers = [ "landilf" ];
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+  # Listen only on the ZeroTier address without waiting for its interface at boot.
+  # BindToDevice would block sockets.target before ZeroTier can start networking.
+  systemd.sockets.sshd.socketConfig = {
+    FreeBind = true;
+  };
+  networking.firewall.interfaces.ztu7tomnvx.allowedTCPPorts = [ 22 ];
 
   # Java configuration
   programs.java = {
@@ -285,6 +348,18 @@ in
 
   # Hardware
   hardware.bluetooth.enable = true;
+  # Airplane mode is session-only: restore radios at every boot.
+  systemd.services.restore-radios-after-boot = {
+    description = "Restore wireless radios after reboot";
+    wantedBy = [ "multi-user.target" ];
+    wants = [ "NetworkManager.service" "bluetooth.service" ];
+    after = [ "NetworkManager.service" "bluetooth.service" ];
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.networkmanager}/bin/nmcli radio all on
+      ${pkgs.bluez}/bin/bluetoothctl power on || true
+    '';
+  };
   hardware.cpu.amd.updateMicrocode = true;
   hardware.enableAllFirmware = true;
   hardware.graphics = {
@@ -302,6 +377,7 @@ in
 
   # NVIDIA + AMD Prime
   services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -323,6 +399,7 @@ in
   # Run local models through the discrete NVIDIA GPU when available.
   services.ollama = {
     enable = true;
+    models = "/var/lib/ollama/models";
     host = "0.0.0.0";
     openFirewall = true;
     package = pkgs.ollama-cuda;
@@ -377,8 +454,10 @@ in
   environment.systemPackages = 
     (with pkgs-unstable; [
       alpacaWithPandas
+      chatgptWithRegionGuard
       codex
       easyeffects
+      freerdp
       antigravity-cli
       yandex-music
       zerotierone
@@ -397,7 +476,7 @@ in
       docker-compose
       flameshot
       font-awesome
-      freerdp
+      xorg-server
       fzf
       gnome-themes-extra
       kdePackages.kstatusnotifieritem
@@ -417,6 +496,7 @@ in
       nix-search-tv
       nvd
       p7zip
+      unrar
       playerctl
       powertop
       ppsspp-sdl-wayland
@@ -434,8 +514,11 @@ in
       tree
       vim
       wev
+      # GPU-accelerated local transcription on the NVIDIA GPU.
+      (whisper-cpp.override { cudaSupport = true; })
       winetricks
       xrandr
+      yt-dlp
     ]);
 
   # Codex CLI expects a system bubblewrap at /usr/bin/bwrap.

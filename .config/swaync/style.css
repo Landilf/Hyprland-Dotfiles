@@ -263,6 +263,31 @@ scrollbar trough:hover {
   margin: 0rem;
   padding: 1.5rem 2.93rem;
 }
+.widget-buttons-grid.airplane {
+  margin: 0.3125rem 1.25rem;
+  background: transparent;
+}
+.widget-buttons-grid.airplane>flowbox>flowboxchild>button,
+.widget-buttons-grid.airplane>flowbox>flowboxchild>button:hover {
+  min-width: 470px;
+  min-height: 34px;
+  margin: 0;
+  padding: 0.1875rem 1rem;
+  background-color: transparent;
+  background-image: url("../colors/swaync-airplane-off.svg");
+  background-size: 80px 32px;
+  background-position: 99% 50%;
+  background-repeat: no-repeat;
+}
+.widget-buttons-grid.airplane>flowbox>flowboxchild>button.toggle:checked,
+.widget-buttons-grid.airplane>flowbox>flowboxchild>button.toggle:checked:hover {
+  background-image: url("../colors/swaync-airplane-on.svg");
+}
+.widget-buttons-grid.airplane>flowbox>flowboxchild>button label {
+  margin-right: 320px;
+  transform: translateX(-6px);
+  color: @secondary;
+}
 .widget-buttons-gird>flowbox>flowboxchild:hover,
 .widget-buttons-grid>flowbox>flowboxchild {
 	background: transparent;
